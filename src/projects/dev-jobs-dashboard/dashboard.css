@@ -1,4 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700&display=swap');
+/*
+  --db-primary-violet: #5964E0;
+  --db-primary-light-violet: #939BF4;
+  --db-primary-dark-blue: #19202D;
+  --db-primary-midnight: #121721;
+  --db-secondary-white: #FFFFFF;
+  --db-secondary-light-gray: #F4F6F8;
+  --db-secondary-gray: #9DAEC2;
+  --db-secondary-dark-gray: #6E8098;
+
+*/
+.dev-dashboard h1 {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+}
+
+.dev-dashboard h2 {
+  /* font size 24 px in rems */
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.dev-dashboard h3 {
+  /* font size 20 px in rems */
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.dev-dashboard h4 {
+  /* font size 14 px in rems */
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.dev-dashboard p {
+  /* font size 16px in rems line height 18px */
+  font-size: 1rem;
+  line-height: 1.125rem;
+}
+
 .dev-dashboard {
+  font-family: 'Kumbh Sans', sans-serif;
   color: var(--text-primary);
   background-color: var(--background);
   font-size: large;

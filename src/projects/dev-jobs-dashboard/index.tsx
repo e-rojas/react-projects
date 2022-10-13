@@ -13,11 +13,16 @@ const DevJobsDashboard: React.FC = () => {
     setTheme(newTheme);
   };
   return (
-    <div className='dev-dashboard' data-theme={theme}>
+    <div className='dev-dashboard w-100' data-theme={theme}>
       <h1>Dev Jobs Dashboard</h1>
       <button onClick={toggleTheme}>
         Switch to {theme === 'dark' ? 'light' : 'dark'} mode
       </button>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut corrupti
+        sed facilis esse culpa blanditiis nesciunt deserunt aliquam quod atque
+        quasi est omnis nostrum minima iusto, reiciendis, vitae quae mollitia!
+      </p>
     </div>
   );
 };
