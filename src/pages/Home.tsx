@@ -8,9 +8,7 @@ const Home: React.FC = () => {
   const { items } = data?.blogCollection || { items: [] };
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
-  if (data) {
-    console.log(data);
-  }
+
   return (
     <section className='grid-4 w-100'>
       {items.map((item) => (
