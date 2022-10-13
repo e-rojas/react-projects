@@ -12,16 +12,24 @@ html {
   --light-color: #fff;
   --light-gray: hsl(0, 0%, 98%);
   --highlight-color: hsl(133, 100%, 68%);
-  --background: white;
+  --background: #f4f6f8;
   --text-primary: black;
   --text-secondary: royalblue;
   --accent: purple;
+  --db-primary-violet: #5964e0;
+  --db-primary-light-violet: #939bf4;
+  --db-primary-dark-blue: #19202d;
+  --db-primary-midnight: #121721;
+  --db-secondary-white: #ffffff;
+  --db-secondary-light-gray: #f4f6f8;
+  --db-secondary-gray: #9daec2;
+  --db-secondary-dark-gray: #6e8098;
 }
 
 /* theme color */
 
 [data-theme='dark'] {
-  --background: black;
+  --background: #121721;
   --text-primary: white;
   --text-secondary: grey;
   --accent: darkred;

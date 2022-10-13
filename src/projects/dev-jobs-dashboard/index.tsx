@@ -1,28 +1,22 @@
 import React from 'react';
-import useLocalStorage from 'use-local-storage';
+import Toggle from 'react-toggle';
 import './dashboard.css';
+import 'react-toggle/style.css';
+import useSetColorTheme from './useSetColorTheme';
 const DevJobsDashboard: React.FC = () => {
-  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const [theme, setTheme] = useLocalStorage(
-    'theme',
-    defaultDark ? 'dark' : 'light'
-  );
+  const { theme, toggleTheme } = useSetColorTheme();
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-  };
   return (
     <div className='dev-dashboard w-100' data-theme={theme}>
-      <h1>Dev Jobs Dashboard</h1>
-      <button onClick={toggleTheme}>
-        Switch to {theme === 'dark' ? 'light' : 'dark'} mode
-      </button>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut corrupti
-        sed facilis esse culpa blanditiis nesciunt deserunt aliquam quod atque
-        quasi est omnis nostrum minima iusto, reiciendis, vitae quae mollitia!
-      </p>
+      <header className='dev-dashboard__header'>
+        <h1 className='dev-dashboard__title'>devJobs</h1>
+        <Toggle
+          className='custom-classname'
+          defaultChecked={theme === 'dark'}
+          icons={false}
+          onChange={toggleTheme}
+        />
+      </header>
     </div>
   );
 };

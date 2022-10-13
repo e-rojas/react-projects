@@ -11,6 +11,7 @@
 
 */
 .dev-dashboard h1 {
+  /* font size 28px */
   font-size: 1.75rem;
   line-height: 2.25rem;
 }
@@ -45,9 +46,24 @@
   background-color: var(--background);
   font-size: large;
   font-weight: bold;
-  padding: 20px;
+
   height: calc(100vh - 40px);
   transition: all 0.5s;
+}
+
+.dev-dashboard__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background: var(--db-primary-violet);
+  background-image: url(../../assets//db-assets//mobile//bg-pattern-header.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 100%;
+  height: 161px;
+  padding: 0 2rem;
+  color: var(--db-secondary-white);
 }
 
 .dev-dashboard button {
@@ -56,4 +72,31 @@
   border: 2px var(--text-primary) solid;
   float: right;
   transition: all 0.5s;
+}
+
+.custom-classname.react-toggle--checked .react-toggle-track {
+  background-color: var(--db-secondary-white);
+}
+
+.custom-classname.react-toggle--checked:hover:not(.react-toggle--disabled)
+  .react-toggle-track {
+  background-color: var(--db-secondary-white);
+}
+
+.custom-classname.react-toggle--focus .react-toggle-thumb {
+  box-shadow: none;
+}
+.react-toggle-thumb {
+  background-color: var(--db-primary-light-violet) !important;
+}
+
+/* @media query */
+@media (min-width: 768px) {
+  .dev-dashboard__header {
+    border-bottom-left-radius: 5rem;
+    background-image: url(../../assets//db-assets//desktop//bg-pattern-header.svg);
+    background-position: center;
+    background-size: 150%;
+    height: 161px;
+  }
 }
