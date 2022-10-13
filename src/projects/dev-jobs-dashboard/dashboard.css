@@ -83,10 +83,10 @@
   justify-content: space-between;
   width: 100%;
   height: 80px;
-  background: var(--db-secondary-white);
   border-radius: 6px;
   padding: 0 1rem;
   top: -70px;
+  background-color: var(--db-fill);
 }
 
 .dev-dashboard button {
@@ -111,6 +111,44 @@
 }
 .react-toggle-thumb {
   background-color: var(--db-primary-light-violet) !important;
+}
+
+form {
+  color: #555;
+  display: flex;
+  padding: 2px;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+}
+
+input[type='search'] {
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 7px 8px;
+  font-size: 14px;
+  color: inherit;
+  border: 1px solid transparent;
+  border-radius: inherit;
+}
+
+input[type='search']::placeholder {
+  color: var(--text-primary);
+}
+form.nosubmit {
+  border: 1px solid transparent;
+  padding: 0;
+  width: 35%;
+}
+
+input.nosubmit {
+  border: none;
+  width: 100%;
+  padding: 9px 4px 9px 40px;
+  background: var(--db-fill)
+    url('../..//assets//db-assets//desktop//icon-search.svg') no-repeat 8px
+    center;
+  background-size: 16px;
 }
 
 /* @media query */

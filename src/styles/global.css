@@ -13,7 +13,7 @@ html {
   --light-gray: hsl(0, 0%, 98%);
   --highlight-color: hsl(133, 100%, 68%);
   --background: #f4f6f8;
-  --text-primary: black;
+  --text-primary: #19202d;
   --text-secondary: royalblue;
   --accent: purple;
   --db-primary-violet: #5964e0;
@@ -24,13 +24,15 @@ html {
   --db-secondary-light-gray: #f4f6f8;
   --db-secondary-gray: #9daec2;
   --db-secondary-dark-gray: #6e8098;
+  --db-fill: #fff;
 }
 
 /* theme color */
 
 [data-theme='dark'] {
+  --db-fill: #19202d;
   --background: #121721;
-  --text-primary: white;
+  --text-primary: #fff;
   --text-secondary: grey;
   --accent: darkred;
 }
@@ -129,6 +131,13 @@ html {
 .flex-spread {
   display: flex;
   justify-content: space-between;
+}
+
+.align-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 /* base */

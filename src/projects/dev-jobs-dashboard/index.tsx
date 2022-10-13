@@ -18,7 +18,15 @@ const DevJobsDashboard: React.FC = () => {
         />
       </header>
       <section className='dev-dashboard__wrapper'>
-        <div className='dev-dashboard__search'>search</div>
+        <div className='dev-dashboard__search '>
+          <form className='nosubmit'>
+            <input
+              type='search'
+              placeholder='Filter by title, companies, expertise..'
+              className='nosubmit'
+            />
+          </form>
+        </div>
       </section>
     </div>
   );
