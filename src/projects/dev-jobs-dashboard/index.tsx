@@ -17,6 +17,9 @@ const DevJobsDashboard: React.FC = () => {
           onChange={toggleTheme}
         />
       </header>
+      <section className='dev-dashboard__wrapper'>
+        <div className='dev-dashboard__search'>search</div>
+      </section>
     </div>
   );
 };
