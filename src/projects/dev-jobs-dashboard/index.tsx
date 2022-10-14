@@ -3,6 +3,7 @@ import Toggle from 'react-toggle';
 import './dashboard.css';
 import 'react-toggle/style.css';
 import useSetColorTheme from './useSetColorTheme';
+import SearchBar from './components/SearchBar';
 const DevJobsDashboard: React.FC = () => {
   const { theme, toggleTheme } = useSetColorTheme();
 
@@ -18,37 +19,7 @@ const DevJobsDashboard: React.FC = () => {
         />
       </header>
       <section className='dev-dashboard__wrapper'>
-        <div className='dev-dashboard__search '>
-          <div className='w-33 border-rigth'>
-            <form className='nosubmit w-100'>
-              <input
-                type='search'
-                placeholder='Filter by title, companies, expertise..'
-                className='nosubmit'
-              />
-            </form>
-          </div>
-          <div className='w-33 border-rigth'>
-            <form className='location w-100'>
-              <input
-                type='search'
-                placeholder='Filter by location..'
-                className='location'
-              />
-            </form>
-          </div>
-          <div className='wrapper'>
-            {/* create a check with label on the right with title full time only */}
-            <input
-              type='checkbox'
-              id='full-time'
-              name='full-time'
-              value='full-time'
-            />
-            <label htmlFor='full-time'>Full Time Only</label>
-            <button className='submit-btn'>Search</button>
-          </div>
-        </div>
+        <SearchBar />
       </section>
     </div>
   );
