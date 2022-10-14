@@ -25,11 +25,15 @@ html {
   --db-secondary-gray: #9daec2;
   --db-secondary-dark-gray: #6e8098;
   --db-fill: #fff;
+  --db-btn: #5964e0;
+  --db-btn-hover: #939bf4;
 }
 
 /* theme color */
 
 [data-theme='dark'] {
+  --db-btn: #303642;
+  --db-btn-hover: #696e76;
   --db-fill: #19202d;
   --background: #121721;
   --text-primary: #fff;
@@ -80,6 +84,10 @@ html {
 .mx-width-1000 {
   max-width: 1000px;
   margin: 0 auto;
+}
+
+.w-33 {
+  width: 33.3333333333%;
 }
 
 /* padding, margin */
@@ -138,6 +146,11 @@ html {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+}
+
+/* border */
+.border-rigth {
+  border-right: 1px solid var(--db-secondary-gray);
 }
 
 /* base */

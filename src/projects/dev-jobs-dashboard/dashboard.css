@@ -135,10 +135,11 @@ input[type='search'] {
 input[type='search']::placeholder {
   color: var(--text-primary);
 }
-form.nosubmit {
+form.nosubmit,
+form.location {
   border: 1px solid transparent;
   padding: 0;
-  width: 35%;
+  width: 33.3%;
 }
 
 input.nosubmit {
@@ -149,6 +150,51 @@ input.nosubmit {
     url('../..//assets//db-assets//desktop//icon-search.svg') no-repeat 8px
     center;
   background-size: 16px;
+}
+
+input.location {
+  border: none;
+  width: 100%;
+  padding: 9px 4px 9px 40px;
+  background: var(--db-fill)
+    url('../..//assets//db-assets//desktop//icon-location.svg') no-repeat 8px
+    center;
+  background-size: 16px;
+}
+
+.submit-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33.3%;
+  height: 100%;
+  background-color: var(--db-primary-violet);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+label {
+  font-size: 16px;
+  margin: 0 10px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+button.submit-btn {
+  background-color: var(--db-btn);
+  color: var(--db-secondary-white);
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+}
+
+button.submit-btn:hover {
+  background-color: var(--db-btn-hover);
 }
 
 /* @media query */
