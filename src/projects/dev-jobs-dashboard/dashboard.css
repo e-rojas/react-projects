@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700&display=swap');
+/*
+  --db-primary-violet: #5964E0;
+  --db-primary-light-violet: #939BF4;
+  --db-primary-dark-blue: #19202D;
+  --db-primary-midnight: #121721;
+  --db-secondary-white: #FFFFFF;
+  --db-secondary-light-gray: #F4F6F8;
+  --db-secondary-gray: #9DAEC2;
+  --db-secondary-dark-gray: #6E8098;
+
+*/
+.dev-dashboard h1 {
+  /* font size 28px */
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+}
+
+.dev-dashboard h2 {
+  /* font size 24 px in rems */
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.dev-dashboard h3 {
+  /* font size 20 px in rems */
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.dev-dashboard h4 {
+  /* font size 14 px in rems */
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.dev-dashboard p {
+  /* font size 16px in rems line height 18px */
+  font-size: 1rem;
+  line-height: 1.125rem;
+}
+
+.dev-dashboard {
+  font-family: 'Kumbh Sans', sans-serif;
+  color: var(--text-primary);
+  background-color: var(--background);
+  font-size: large;
+  font-weight: bold;
+  height: calc(100vh - 40px);
+  transition: all 0.5s;
+}
+
+.dev-dashboard__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background: var(--db-primary-violet);
+  background-image: url(../../assets/db-assets/mobile/bg-pattern-header.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 100%;
+  height: 161px;
+  padding: 0 1.5rem;
+  color: var(--db-secondary-white);
+}
+
+.dev-dashboard__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.dev-dashboard__search {
+  /* the position has to be over the dev-dashboard-header */
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  border-radius: 6px;
+  padding: 0 1rem;
+  top: -70px;
+  background-color: var(--db-fill);
+}
+
+.dev-dashboard button {
+  color: var(--text-primary);
+  background-color: var(--background);
+  border: 2px var(--text-primary) solid;
+  float: right;
+  transition: all 0.5s;
+}
+
+.custom-classname.react-toggle--checked .react-toggle-track {
+  background-color: var(--db-secondary-white);
+}
+
+.custom-classname.react-toggle--checked:hover:not(.react-toggle--disabled)
+  .react-toggle-track {
+  background-color: var(--db-secondary-white);
+}
+
+.custom-classname.react-toggle--focus .react-toggle-thumb {
+  box-shadow: none;
+}
+
+.react-toggle-thumb {
+  background-color: var(--db-primary-light-violet) !important;
+}
+
+input[type='text'] {
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 7px 8px;
+  font-size: 14px;
+  color: inherit;
+  border: 1px solid transparent;
+  border-radius: inherit;
+}
+
+input[type='text']::placeholder {
+  font-size: 14px;
+}
+
+form.search {
+  border: 1px solid transparent;
+  padding: 0;
+  color: var(--db-form-color);
+  display: flex;
+  border-radius: 5px;
+  width: 100%;
+}
+
+input.search__input {
+  border: none;
+  width: 100%;
+  padding: 9px 4px 9px 40px;
+  background-size: 16px;
+}
+
+input.icon__filter {
+  background: var(--db-fill)
+    url('../..//assets/db-assets/desktop/icon-filter.svg') no-repeat;
+  background-position: 95% 50%;
+}
+
+input.icon__search {
+  background: var(--db-fill)
+    url('../..//assets/db-assets/desktop/icon-search.svg') no-repeat 8px center;
+}
+
+input.icon__location {
+  background: var(--db-fill)
+    url('../..//assets/db-assets/desktop/icon-location.svg') no-repeat 8px
+    center;
+}
+
+.dev-dashboard__search label {
+  font-size: 16px;
+  margin: 0 10px;
+  color: var(--text-secondary);
+}
+
+button.submit-btn {
+  background-color: var(--db-btn);
+  color: var(--db-secondary-white);
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+}
+
+button.submit-btn:hover {
+  background-color: var(--db-btn-hover);
+}
+
+/* @media query */
+@media (min-width: 768px) {
+  .dev-dashboard__header {
+    border-bottom-left-radius: 5rem;
+    background-image: url(../../assets/db-assets/desktop/bg-pattern-header.svg);
+    background-position: center;
+    background-size: 150%;
+    height: 161px;
+    padding: 0 3.5rem;
+  }
+
+  .search-form-popup__wrapper {
+    display: none;
+  }
+
+  .search-form__wrapper,
+  .checkbox-input__wrapper {
+    display: flex;
+  }
+}
