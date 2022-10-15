@@ -65,6 +65,22 @@
   color: var(--db-secondary-white);
 }
 
+.toggle__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.brightness {
+  background: white url('../..//assets/db-assets/desktop/icon-search.svg')
+    no-repeat 8px center;
+}
+
+.toggle__wrapper i {
+  font-size: 1.5rem;
+  color: white;
+  margin-right: 0.5rem;
+}
+
 .dev-dashboard__wrapper {
   display: flex;
   flex-direction: column;
