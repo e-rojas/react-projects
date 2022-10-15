@@ -2,7 +2,7 @@ import React from 'react';
 import { HiMoon } from 'react-icons/hi';
 import { BsFillSunFill } from 'react-icons/bs';
 import Toggle from 'react-toggle';
-
+import 'react-toggle/style.css';
 interface ToggleSwitchProps {
   theme: string;
   toggleTheme: () => void;

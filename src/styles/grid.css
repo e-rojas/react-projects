@@ -1,6 +1,7 @@
 .grid,
 .grid-5,
-.grid-4 {
+.grid-4,
+.grid-3 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
@@ -8,6 +9,9 @@
 }
 
 @media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .grid-4 {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
