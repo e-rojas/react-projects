@@ -1,13 +1,17 @@
 import React from 'react';
 import './dashboard.css';
-
 import useSetColorTheme from './useSetColorTheme';
 import SearchBar from './components/SearchBar';
-
+import 'reflect-metadata';
 import ToggleSwitch from './components/ToggleSwitch';
-
+import JobCard from './components/JobCard';
+import useFetchJobs from '../../hooks/useFetchJobs';
 const DevJobsDashboard: React.FC = () => {
   const { theme, toggleTheme } = useSetColorTheme();
+  const { jobs, loading, error } = useFetchJobs();
+
+  if (loading) return <h1>Loading...</h1>;
+  if (error) return <h1>Error. Try Refreshing.</h1>;
 
   return (
     <div className='dev-dashboard w-100' data-theme={theme}>
@@ -17,25 +21,10 @@ const DevJobsDashboard: React.FC = () => {
       </header>
       <section className='dev-dashboard__wrapper'>
         <SearchBar />
-        <div className='dev-dashboard__jobs grid-3 '>
-          <div className='jobs-card'>
-            <div
-              style={{ backgroundColor: `${JOB.logoBackground}` }}
-              className='card-icon center'
-            >
-              <img src={JOB.logo} alt='' className='w-100' />
-            </div>
-            <div>
-              <p className='text-dark-gray font-weight-200'>
-                {JOB.postedAt} . {JOB.contract}
-              </p>
-              <h3>{JOB.position}</h3>
-              <span className='text-dark-gray font-weight-200'>
-                {JOB.company}
-              </span>
-            </div>
-            <h4 className='text-violet '>{JOB.location}</h4>
-          </div>
+        <div className='dev-dashboard__jobs grid-3 grid-row-gap-50'>
+          {jobs.map((job) => (
+            <JobCard key={job.id} {...job} />
+          ))}
         </div>
       </section>
     </div>
@@ -43,38 +32,3 @@ const DevJobsDashboard: React.FC = () => {
 };
 
 export default DevJobsDashboard;
-
-const JOB = {
-  id: 1,
-  company: 'Scoot',
-  logo: '/assets/logos/scoot.svg',
-  logoBackground: 'hsl(36, 87%, 49%)',
-  position: 'Senior Software Engineer',
-  postedAt: '5h ago',
-  contract: 'Full Time',
-  location: 'United Kingdom',
-  website: 'https://example.com/scoot',
-  apply: 'https://example.com/scoot/apply',
-  description:
-    'Scoot is looking for a Senior Software Engineer passionate about building approachable, innovative and user-first experiences to join our small but growing Engineering team. You will be responsible for building and maintaining front end functionality across all of Scoot’s applications, fostering a growing team of software engineers, and helping drive and maintain best software patterns and practices in our codebase.',
-  requirements: {
-    content:
-      'The ideal candidate is as passionate about solving challenges through technology. They are well-versed in building proof of concepts from scratch and taking these POCs to production and scale. The right fit will have the engineering experience to build and iterate quickly and is comfortable working with product and design to set the technical strategy and roadmap.',
-    items: [
-      '5+ years of industry experience in a software engineering role, preferably building a SaaS product. You can demonstrate significant impact that your work has had on the product and/or the team.',
-      'Experience with scalable distributed systems, both built from scratch as well as on AWS primitives.',
-      'Extremely data-driven.',
-      'Ability to debug complex systems.',
-    ],
-  },
-  role: {
-    content:
-      'We are looking for a Senior Software Engineer to join as one of our first hires. As we iterate on our MVP, you will have the opportunity to drive the vision and own the build behind our digital experience. You’ll have the support of an experienced technical advisor, a Head of Product, and an external team to work with.',
-    items: [
-      'This role is for someone who is excited about the early stage - you’ll be responsible for turning the platform vision into reality through smart, efficient building and testing.',
-      'Translate the product roadmap into engineering requirements and own the engineering roadmap',
-      'Work with limited resources to test and learn as efficiently as possible, while laying the framework to build a more scalable product over time.',
-      'Collaborate with product, design, and external engineering teammates as needed.',
-    ],
-  },
-};

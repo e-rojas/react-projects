@@ -8,6 +8,10 @@
   gap: 10px;
 }
 
+.grid-row-gap-50 {
+  grid-row-gap: 50px;
+}
+
 @media (min-width: 768px) {
   .grid-3 {
     grid-template-columns: repeat(3, 1fr);

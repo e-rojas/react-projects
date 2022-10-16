@@ -1,5 +1,6 @@
 import React from 'react';
 import SmartFormInput from './SmartFormInput';
+
 export interface SearchProps {}
 
 const SearchBar: React.FC<SearchProps> = () => {
