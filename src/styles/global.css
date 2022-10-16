@@ -72,6 +72,10 @@ html {
   color: var(--light-color);
 }
 
+.text-primary {
+  color: var(--text-primary);
+}
+
 /* utils */
 .bg-1 {
   background-color: var(--primary-color);

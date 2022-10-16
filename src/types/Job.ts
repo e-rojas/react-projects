@@ -1,5 +1,5 @@
 interface Job {
-  id: number;
+  _id: string;
   company: string;
   logo: string;
   logoBackground: string;

@@ -17,7 +17,7 @@ function AppRouter() {
           <Route path='/about' element={<About />} />
           <Route path='/projects' element={<Projects />} />
           <Route path='/projects/:id' element={<ProjectDetails />} />
-          <Route path='/dev-jobs-dashboard' element={<DevJobsDashboard />} />
+          <Route path='/dev-jobs-dashboard/*' element={<DevJobsDashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>

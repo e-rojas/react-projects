@@ -223,6 +223,15 @@ button.submit-btn:hover {
   background-color: var(--db-btn-hover);
 }
 
+.dev-job-link {
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.dev-job-link:hover {
+  color: inherit;
+}
+
 /* @media query */
 @media (min-width: 768px) {
   .dev-dashboard__header {
