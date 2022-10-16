@@ -46,6 +46,14 @@ const OffCanvas: React.FC<Props> = ({ visible, setVisible }) => {
                 About
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                onClick={() => setVisible(false)}
+                to='/dev-jobs-dashboard'
+              >
+                Project
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </COffcanvasBody>
