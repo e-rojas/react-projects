@@ -38,6 +38,16 @@
   /* font size 16px in rems line height 18px */
   font-size: 1rem;
   line-height: 1.125rem;
+  margin-top: 0;
+}
+
+/* utiils */
+.text-dark-gray {
+  color: var(--db-secondary-dark-gray);
+}
+
+.text-violet {
+  color: var(--db-primary-violet);
 }
 
 .dev-dashboard {
@@ -46,7 +56,7 @@
   background-color: var(--background);
   font-size: large;
   font-weight: bold;
-  height: calc(100vh - 40px);
+  /* height: calc(100vh - 40px); */
   transition: all 0.5s;
 }
 
@@ -63,6 +73,11 @@
   height: 161px;
   padding: 0 1.5rem;
   color: var(--db-secondary-white);
+}
+
+.toggle__wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .dev-dashboard__wrapper {
@@ -87,6 +102,34 @@
   padding: 0 1rem;
   top: -70px;
   background-color: var(--db-fill);
+}
+
+.dev-dashboard__jobs {
+  padding: 3rem 0.5rem;
+}
+
+.jobs-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 200px;
+
+  border-radius: 6px;
+  padding: 1rem;
+  background-color: var(--db-fill);
+}
+
+.card-icon {
+  position: absolute;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  padding: 5px;
+  top: -35px;
+  left: 1rem;
 }
 
 .dev-dashboard button {

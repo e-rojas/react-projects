@@ -42,6 +42,31 @@ html {
   --accent: darkred;
 }
 
+/* font weight */
+.font-weight-100 {
+  font-weight: 100;
+}
+
+.font-weight-200 {
+  font-weight: 200;
+}
+
+.font-weight-300 {
+  font-weight: 300;
+}
+
+.font-weight-400 {
+  font-weight: 400;
+}
+
+.font-weight-500 {
+  font-weight: 500;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
 /* text color */
 .text-white {
   color: var(--light-color);
@@ -121,8 +146,16 @@ html {
   padding-top: 1rem;
 }
 
+.m-t {
+  margin-top: 0.5rem;
+}
+
 .m-l {
   margin-left: 0.5rem;
+}
+
+.m-r {
+  margin-right: 0.5rem;
 }
 
 /* text */

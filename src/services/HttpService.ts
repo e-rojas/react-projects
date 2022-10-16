@@ -13,6 +13,19 @@ class HttpService {
 
     return response.json();
   }
+  static async fetch<T>(path: string): Promise<T> {
+    const url = `${process.env.REACT_APP_API_URL}${path}`;
+
+    const response = await fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    return response.json();
+  }
 }
 
 export default HttpService;
