@@ -24,13 +24,10 @@ const JobDetails: React.FC = () => {
   return (
     <Delay delay={500} className='dev-dashboard__wrapper  flex-column'>
       <div className=' details bg-fill '>
-        <div
-          className='logo center'
-          style={{ backgroundColor: `${logoBackground}` }}
-        >
+        <div className='logo' style={{ backgroundColor: `${logoBackground}` }}>
           <img src={logo} alt={company} width={81} />
         </div>
-        <div className='company-header w-100  flex-spread-center p-x'>
+        <div className='company-header w-100  '>
           <div>
             <h1>{company}</h1>
             <p className='text-dark-gray font-weight-400'>
