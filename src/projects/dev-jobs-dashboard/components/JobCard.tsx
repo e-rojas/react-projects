@@ -10,11 +10,26 @@ const JobCard: React.FC<Job> = ({
   company,
   location,
   _id,
+  ...rest
 }) => {
-  console.log('id: ', _id);
-
   return (
-    <Link className='dev-job-link' to={`/dev-jobs-dashboard/${_id}`}>
+    <Link
+      className='dev-job-link'
+      to={`/dev-jobs-dashboard/${_id}`}
+      state={
+        {
+          logoBackground,
+          logo,
+          contract,
+          postedAt,
+          position,
+          company,
+          location,
+          _id,
+          ...rest,
+        } as Job
+      }
+    >
       <div className='jobs-card'>
         <div
           style={{ backgroundColor: `${logoBackground}` }}

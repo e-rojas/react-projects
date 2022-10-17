@@ -5,6 +5,8 @@ import 'reflect-metadata';
 import ToggleSwitch from './components/ToggleSwitch';
 import JobsMainSection from './components/JobsMain.section';
 import { Link, Route, Routes } from 'react-router-dom';
+import JobDetails from './components/JobDetails.section';
+
 const DevJobsDashboard: React.FC = () => {
   const { theme, toggleTheme } = useSetColorTheme();
 
@@ -25,11 +27,3 @@ const DevJobsDashboard: React.FC = () => {
 };
 
 export default DevJobsDashboard;
-
-const JobDetails: React.FC = () => {
-  return (
-    <div className='vh-100 '>
-      <h1>Job Details</h1>
-    </div>
-  );
-};
