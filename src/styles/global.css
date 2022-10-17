@@ -28,11 +28,20 @@ html {
   --db-btn: #5964e0;
   --db-btn-hover: #939bf4;
   --db-form-color: #555;
+  --btn-bg-primary: #5964e0;
+  --btn-bg-primary-hover: #939bf4;
+  --btn-bg-secondary-color: #eeeffc;
+  --btn-secondary-color: #5964e0;
+  --btn-bg-secondary-color-hover: #c5c9f4;
 }
 
 /* theme color */
 
 [data-theme='dark'] {
+  --btn-bg-primary: #5964e0;
+  --btn-bg-secondary-color: #303642;
+  --btn-secondary-color: #fff;
+  --btn-bg-secondary-color-hover: #696e76;
   --db-btn: #303642;
   --db-btn-hover: #696e76;
   --db-fill: #19202d;
@@ -121,6 +130,10 @@ html {
 }
 
 .w-100 {
+  width: 100%;
+}
+
+.mobile-w-100 {
   width: 100%;
 }
 
@@ -313,6 +326,10 @@ h3 {
 }
 
 @media (min-width: 768px) {
+  .mobile-w-100 {
+    /* reset the width */
+    width: auto;
+  }
   .display-mobile {
     display: none;
   }

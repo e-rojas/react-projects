@@ -127,7 +127,7 @@
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  padding: 1.5rem 0;
+  padding: 1.5rem;
 }
 
 .company-header h1 {
@@ -136,6 +136,20 @@
 
 .details-information {
   background-color: var(--db-fill);
+  margin-bottom: 3rem;
+  padding: 1rem 1.5rem;
+}
+
+.details-information > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.details-information h1 {
+  font-size: 1.3rem;
 }
 
 .details-information ul {
@@ -276,16 +290,28 @@ input.icon__location {
   color: var(--text-secondary);
 }
 
-button.submit-btn {
-  background-color: var(--db-btn);
-  color: var(--db-secondary-white);
-  border: none;
+.db-button {
+  border: none !important;
   border-radius: 6px;
   padding: 0.5rem 1rem;
 }
 
-button.submit-btn:hover {
-  background-color: var(--db-btn-hover);
+.btn-primary {
+  background-color: var(--btn-bg-primary) !important;
+  color: var(--db-secondary-white) !important;
+}
+
+.btn-secondary {
+  background-color: var(btn-bg-secondary-color);
+  color: var(--btn-secondary-color) !important;
+}
+
+.btn-secondary:hover {
+  background-color: var(--btn-bg-secondary-color-hover) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--btn-bg-primary-hover) !important;
 }
 
 .dev-job-link {
@@ -323,6 +349,16 @@ button.submit-btn:hover {
     justify-content: space-between;
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .details-information > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .details-information h1 {
+    font-size: 2rem;
   }
 
   .details .logo {

@@ -35,7 +35,7 @@ const SearchBar: React.FC<SearchProps> = () => {
           value='full-time'
         />
         <label htmlFor='full-time'>Full Time Only</label>
-        <button className='submit-btn'>Search</button>
+        <button className='db-button btn-primary'>Search</button>
       </div>
     </div>
   );
