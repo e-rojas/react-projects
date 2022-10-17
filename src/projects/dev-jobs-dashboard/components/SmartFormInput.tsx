@@ -21,7 +21,7 @@ const SmartFormInput: React.FC<SmartFormInputProps> = ({
           className={`${inputClassName}`}
         />
         {displayButtonIcon && (
-          <button className='submit-btn m-l'>
+          <button className='db-button btn-primary m-l'>
             <i className={`${faIcon}`} aria-hidden='true'></i>
           </button>
         )}

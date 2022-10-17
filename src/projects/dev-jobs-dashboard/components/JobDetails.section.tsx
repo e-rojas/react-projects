@@ -6,7 +6,6 @@ import Delay from './Delay.animation';
 const JobDetails: React.FC = () => {
   const location = useLocation();
   const state = location.state as Job;
-  console.log('state', state);
 
   const {
     company,
@@ -34,15 +33,24 @@ const JobDetails: React.FC = () => {
               {companyUrl(website)}
             </p>
           </div>
-          <button className='submit-btn'>Company Site</button>
+          <button className='db-button btn-secondary mobile-w-100'>
+            Company Site
+          </button>
         </div>
       </div>
-      <div className='details-information bg-fill h-100 m-b-3 p-t p-x-3'>
-        <p className='text-dark-gray font-weight-200'>
-          {postedAt} . {contract}
-        </p>
-        <h1>{position}</h1>
-        <h4 className='text-violet '>{jobLocation}</h4>
+      <div className='details-information bg-fill h-100 '>
+        <div>
+          <div>
+            <p className='text-dark-gray font-weight-200'>
+              {postedAt} . {contract}
+            </p>
+            <h1>{position}</h1>
+            <h4 className='text-violet '>{jobLocation}</h4>
+          </div>
+          <button className='db-button btn-primary mobile-w-100'>
+            Apply Now
+          </button>
+        </div>
         <h3>Requirements</h3>
         <p className='text-dark-gray font-weight-200'>{requirements.content}</p>
         <ul>
@@ -62,8 +70,14 @@ const JobDetails: React.FC = () => {
           ))}
         </ol>
       </div>
-      <div className='details-information-footer bg-fill'>
-        <h1> footer</h1>
+      <div className='details-information-footer bg-fill p-3 flex-spread-center'>
+        <div className='display-desktop flex-column'>
+          <h3>{position}</h3>
+          <p className='text-dark-gray font-weight-200'>{company}</p>
+        </div>
+        <button className='db-button btn-primary mobile-w-100'>
+          Apply Now
+        </button>
       </div>
     </Delay>
   );
