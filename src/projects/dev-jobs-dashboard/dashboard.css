@@ -36,18 +36,9 @@
 
 .dev-dashboard p {
   /* font size 16px in rems line height 18px */
-  font-size: 1rem;
-  line-height: 1.125rem;
+  font-size: 18px;
+  line-height: 26px;
   margin-top: 0;
-}
-
-/* utiils */
-.text-dark-gray {
-  color: var(--db-secondary-dark-gray);
-}
-
-.text-violet {
-  color: var(--db-primary-violet);
 }
 
 .dev-dashboard {
@@ -105,12 +96,55 @@
 }
 
 .details {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  width: 100%;
+
+  border-radius: 6px;
   padding: 0;
+  top: -70px;
 }
 
 .details .logo {
   width: 140px;
   height: 140px;
+}
+
+.details-information {
+  background-color: var(--db-fill);
+}
+
+.details-information ul {
+  padding: 0;
+  margin-left: 1rem;
+}
+ol {
+  counter-reset: item;
+  margin-left: 1rem;
+}
+ol li {
+  display: block;
+}
+ol li:before {
+  content: counter(item) '  ';
+  counter-increment: item;
+  color: var(--db-primary-violet);
+  margin-left: -1rem;
+  margin-right: 0.5rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.details-information ul li::before {
+  content: '\2022';
+  color: var(--db-primary-violet);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
 }
 
 .dev-dashboard__jobs {
