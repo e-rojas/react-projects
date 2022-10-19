@@ -203,6 +203,18 @@ html {
   margin-top: 0.5rem;
 }
 
+.m-t-1 {
+  margin-top: 1rem;
+}
+
+.m-t-2 {
+  margin-top: 2rem;
+}
+
+.m-t-3 {
+  margin-top: 3rem;
+}
+
 .m-l {
   margin-left: 0.5rem;
 }
@@ -323,6 +335,17 @@ h3 {
 
 .display-desktop {
   display: none;
+}
+
+/* unstyled links */
+.unstyled-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* if the button is disabled use not allowed cursor */
+.disabled {
+  cursor: not-allowed !important;
 }
 
 @media (min-width: 768px) {

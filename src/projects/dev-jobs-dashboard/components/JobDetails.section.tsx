@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import Job from '../../../types/Job';
 import { companyUrl } from '../utils';
 import Delay from './Delay.animation';
@@ -18,6 +18,7 @@ const JobDetails: React.FC = () => {
     website,
     requirements,
     role,
+    _id,
   } = state;
 
   return (
@@ -47,9 +48,15 @@ const JobDetails: React.FC = () => {
             <h1>{position}</h1>
             <h4 className='text-violet '>{jobLocation}</h4>
           </div>
-          <button className='db-button btn-primary mobile-w-100'>
+          <Link
+            state={{ ...state }}
+            to={`/dev-jobs-dashboard/${_id}/${company
+              .replace(/\s/g, '-')
+              .toLowerCase()}`}
+            className='db-button btn-primary mobile-w-100 unstyled-link'
+          >
             Apply Now
-          </button>
+          </Link>
         </div>
         <h3>Requirements</h3>
         <p className='text-dark-gray font-weight-200'>{requirements.content}</p>
