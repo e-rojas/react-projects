@@ -7,26 +7,50 @@ const useFetchJobs = () => {
   const [jobs, setJobs] = React.useState<Job[]>([]);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(false);
-  const [page, setPage] = React.useState(1);
+  const [index, setIndex] = React.useState(0);
   const [hasMore, setHasMore] = React.useState(false);
+  const [initialJobs, setInitialJobs] = React.useState<Job[]>([]);
 
-  React.useEffect(() => {
+  const fetchJobs = async () => {
     setLoading(true);
     setError(false);
     HttpService.fetch<Job[]>('jobs')
-      .then((jobs) => {
-        setJobs(jobs);
+      .then((res) => {
+        setJobs(res);
+        setHasMore(res.length > 6);
+        setInitialJobs(res.slice(0, 6));
         setLoading(false);
-        setHasMore(true);
-        setPage(1);
       })
+
       .catch((err) => {
-        setLoading(false);
         setError(true);
+        setLoading(false);
       });
+  };
+
+  const loadMore = () => {
+    setIndex((prevIndex) => prevIndex + 6);
+    setInitialJobs((prevJobs) => [
+      ...prevJobs,
+      ...jobs.slice(index, index + 6),
+    ]);
+    setHasMore(jobs.length > index + 6);
+  };
+
+  React.useEffect(() => {
+    fetchJobs();
   }, []);
 
-  return { jobs, loading, error, page, hasMore };
+  return {
+    jobs,
+    loading,
+    error,
+    index,
+    setIndex,
+    hasMore,
+    initialJobs,
+    loadMore,
+  };
 };
 
 export default useFetchJobs;

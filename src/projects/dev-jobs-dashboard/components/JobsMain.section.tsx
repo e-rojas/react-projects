@@ -4,7 +4,7 @@ import useFetchJobs from '../../../hooks/useFetchJobs';
 import JobCard from './JobCard';
 import Delay from './Delay.animation';
 const JobsMainSection: React.FC = () => {
-  const { jobs, loading, error } = useFetchJobs();
+  const { loading, error, hasMore, initialJobs, loadMore } = useFetchJobs();
 
   return (
     <Delay delay={500} className='dev-dashboard__wrapper'>
@@ -19,10 +19,18 @@ const JobsMainSection: React.FC = () => {
         </div>
       ) : (
         <div className='dev-dashboard__jobs grid-3 grid-row-gap-50'>
-          {jobs.map((job) => (
+          {initialJobs.map((job) => (
             <JobCard key={job._id} {...job} />
           ))}
         </div>
+      )}
+      {hasMore && (
+        <button
+          className='db-button btn-primary mobile-w-100'
+          onClick={() => loadMore()}
+        >
+          Load More
+        </button>
       )}
     </Delay>
   );
