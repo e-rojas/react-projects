@@ -4,7 +4,7 @@ import { Pokemon } from '../pokemon.interface';
 
 const Table: React.FC<{ pokemonData: Pokemon[] }> = ({ pokemonData }) => {
   return (
-    <table className='table'>
+    <table className='table table-striped table-hover'>
       <thead>
         <tr>
           <th scope='col'>#</th>

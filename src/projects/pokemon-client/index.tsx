@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Table from './components/Table';
 import Spinner from './components/Spinner';
 import useFetchPokemon from './hooks/useFetchPokemon';
