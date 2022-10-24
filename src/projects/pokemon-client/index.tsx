@@ -2,6 +2,7 @@ import React from 'react';
 import { Pokemon } from './pokemon.interface';
 import { fetchPokemon } from './utils';
 import Table from './components/Table';
+import Spinner from './components/Spinner';
 const PokemonClient: React.FC = () => {
   const [pokemonData, setPokemonData] = React.useState<Pokemon[] | null>(null);
   React.useEffect(() => {
@@ -12,18 +13,7 @@ const PokemonClient: React.FC = () => {
     <div>
       <h1>Pokemon Client</h1>
 
-      {/* {pokemonData ? (
-        <Table pokemonData={pokemonData} />
-      ) : (
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span> */}
-      {pokemonData ? (
-        <Table pokemonData={pokemonData} />
-      ) : (
-        <div className='spinner-border' role='status'>
-          <span className='sr-only'>Loading...</span>
-        </div>
-      )}
+      {pokemonData ? <Table pokemonData={pokemonData} /> : <Spinner />}
     </div>
   );
 };
