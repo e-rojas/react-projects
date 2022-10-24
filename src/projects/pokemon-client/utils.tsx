@@ -1,6 +1,11 @@
 import { Pokemon } from './pokemon.interface';
 
-export function fetchPokemon(setPokemonData: React.Dispatch<Pokemon[]>) {
+export function fetchPokemon(
+  setPokemonData: React.Dispatch<Pokemon[]>,
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>,
+  setError: React.Dispatch<React.SetStateAction<null>>
+) {
+  setLoading(true);
   const promises = [];
   for (let i = 1; i <= 20; i++) {
     promises.push(fetch(`https://pokeapi.co/api/v2/pokemon/${i}`));
@@ -16,5 +21,10 @@ export function fetchPokemon(setPokemonData: React.Dispatch<Pokemon[]>) {
         saved: false,
       })) as Pokemon[];
       setPokemonData(pokemon);
+      setLoading(false);
+    })
+    .catch((err) => {
+      setError(err);
+      setLoading(false);
     });
 }

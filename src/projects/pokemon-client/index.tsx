@@ -1,13 +1,16 @@
 import React from 'react';
-import { Pokemon } from './pokemon.interface';
-import { fetchPokemon } from './utils';
+
 import Table from './components/Table';
 import Spinner from './components/Spinner';
+import useFetchPokemon from './hooks/useFetchPokemon';
 const PokemonClient: React.FC = () => {
-  const [pokemonData, setPokemonData] = React.useState<Pokemon[] | null>(null);
-  React.useEffect(() => {
-    fetchPokemon(setPokemonData);
-  }, []);
+  const { loading, error, pokemonData } = useFetchPokemon();
+  if (loading) {
+    return <Spinner />;
+  }
+  if (error) {
+    return <div>Something went wrong</div>;
+  }
 
   return (
     <div>
