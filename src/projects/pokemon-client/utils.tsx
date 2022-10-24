@@ -13,6 +13,7 @@ export function fetchPokemon(setPokemonData: React.Dispatch<Pokemon[]>) {
         image_url: pokemon.sprites.other.home.front_default,
         types: pokemon.types.map((poke: any) => poke.type.name),
         id: pokemon.name,
+        saved: false,
       })) as Pokemon[];
       setPokemonData(pokemon);
     });
