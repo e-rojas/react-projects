@@ -6,6 +6,7 @@ import ProjectDetails from '../pages/ProjectDetails';
 import BlogDetails from '../pages/BlogDetails';
 import Home from '../pages/Home';
 import DevJobsDashboard from '../projects/dev-jobs-dashboard';
+import PokemonClient from '../projects/pokemon-client';
 
 function AppRouter() {
   return (
@@ -18,6 +19,7 @@ function AppRouter() {
           <Route path='/projects' element={<Projects />} />
           <Route path='/projects/:id' element={<ProjectDetails />} />
           <Route path='/dev-jobs-dashboard/*' element={<DevJobsDashboard />} />
+          <Route path='projects/pokemon' element={<PokemonClient />} />
         </Route>
       </Routes>
     </BrowserRouter>
