@@ -12,11 +12,14 @@ const PokemonClient: React.FC = () => {
   }
 
   return (
-    <div>
+    <>
       <h1>Pokemon Client</h1>
-
-      {pokemonData ? <Table pokemonData={pokemonData} /> : <Spinner />}
-    </div>
+      <div className='grid w-100'>
+        <div className='pokemon-api grid-col-span-2 p-3 border-rigth'>
+          {pokemonData ? <Table pokemonData={pokemonData} /> : <Spinner />}
+        </div>
+      </div>
+    </>
   );
 };
 
