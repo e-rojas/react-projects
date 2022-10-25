@@ -3,7 +3,7 @@ import React from 'react';
 import { Pokemon } from '../pokemon.interface';
 import { fetchPokemon } from '../utils';
 
-const useFetchPokemon = () => {
+const useFetchPokemonAPI = () => {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
   const [pokemonData, setPokemonData] = React.useState<Pokemon[] | null>(null);
@@ -14,4 +14,4 @@ const useFetchPokemon = () => {
   return { loading, error, pokemonData };
 };
 
-export default useFetchPokemon;
+export default useFetchPokemonAPI;

@@ -1,5 +1,5 @@
 import { Pokemon } from './pokemon.interface';
-
+import HttpService from '../../services/HttpService';
 export function fetchPokemon(
   setPokemonData: React.Dispatch<Pokemon[]>,
   setLoading: React.Dispatch<React.SetStateAction<boolean>>,
@@ -14,10 +14,10 @@ export function fetchPokemon(
     .then((responses) => Promise.all(responses.map((res) => res.json())))
     .then((data) => {
       const pokemon = data.map((pokemon: any) => ({
-        name: pokemon.name,
+        name: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),
         image_url: pokemon.sprites.other.home.front_default,
         types: pokemon.types.map((poke: any) => poke.type.name),
-        id: pokemon.name,
+        _id: pokemon.name,
         saved: false,
       })) as Pokemon[];
       setPokemonData(pokemon);
@@ -28,3 +28,34 @@ export function fetchPokemon(
       setLoading(false);
     });
 }
+
+export const saveToDB = async (pokemon: Pokemon) => {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}pokemons`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: pokemon.name,
+      image_url: pokemon.image_url,
+      types: pokemon.types,
+    }),
+  });
+  const data = await response.json();
+  if (data.statusCode === 409) {
+    alert(data.message);
+  } else {
+    alert(`Pokemon ${pokemon.name} saved successfully!`);
+  }
+};
+
+export const fetchDBRequest = async (
+  setIsSending: React.Dispatch<React.SetStateAction<boolean>>,
+  setSavedPokemon: React.Dispatch<React.SetStateAction<Pokemon[]>>
+) => {
+  setIsSending(true);
+  HttpService.fetch<Pokemon[]>('pokemons').then((data) => {
+    setSavedPokemon(data);
+    setIsSending(false);
+  });
+};
