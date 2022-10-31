@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import useFetchJobs from '../../../hooks/useFetchJobs';
 import JobCard from './JobCard';
-import Delay from './Delay.animation';
+import Delay from '../../../components/Delay.animation';
 const JobsMainSection: React.FC = () => {
   const { loading, error, hasMore, initialJobs, loadMore } = useFetchJobs();
 

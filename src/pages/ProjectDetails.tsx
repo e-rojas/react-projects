@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import Delay from '../components/Delay.animation';
 import useFetchGraphqlQuery from '../hooks/useFetchGraphqlQuery';
 import Project from '../types/Project';
 const ProjectDetails: React.FC = () => {
@@ -22,13 +23,15 @@ const ProjectDetails: React.FC = () => {
   if (error) return <div>Error</div>;
 
   return (
-    <div>
-      <h1>{data?.project.title}</h1>
+    <Delay delay={500}>
       <div>
-        <p>{data?.project.description}</p>
-        <img src={data?.project.image.url} alt='none' />
+        <h1>{data?.project.title}</h1>
+        <div>
+          <p>{data?.project.description}</p>
+          <img src={data?.project.image.url} alt='none' />
+        </div>
       </div>
-    </div>
+    </Delay>
   );
 };
 
