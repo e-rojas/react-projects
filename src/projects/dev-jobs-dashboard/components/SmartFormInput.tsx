@@ -4,6 +4,8 @@ interface SmartFormInputProps {
   displayButtonIcon?: boolean;
   faIcon?: string;
   placeholderText: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 const SmartFormInput: React.FC<SmartFormInputProps> = ({
   topClassName,
@@ -11,11 +13,15 @@ const SmartFormInput: React.FC<SmartFormInputProps> = ({
   displayButtonIcon,
   faIcon,
   placeholderText,
+  value = '',
+  onChange,
 }) => {
   return (
     <div className={`${topClassName}`}>
       <form className='search'>
         <input
+          value={value}
+          onChange={onChange}
           type='text'
           placeholder={placeholderText}
           className={`${inputClassName}`}

@@ -1,12 +1,17 @@
 import React from 'react';
 import SmartFormInput from './SmartFormInput';
 
-export interface SearchProps {}
+import { useSearchContext } from '../../../context/jobs-project/useSearchContext.hook';
 
-const SearchBar: React.FC<SearchProps> = () => {
+const SearchBar: React.FC = () => {
+  const { setSeach, description, location, fullTime } = useSearchContext();
   return (
     <div className='dev-dashboard__search '>
       <SmartFormInput
+        value={description}
+        onChange={(e) =>
+          setSeach({ description: e.target.value, location, fullTime })
+        }
         topClassName='w-100 display-mobile'
         inputClassName='search__input icon__filter'
         displayButtonIcon={true}
@@ -14,6 +19,10 @@ const SearchBar: React.FC<SearchProps> = () => {
         placeholderText='Enter job description...'
       />
       <SmartFormInput
+        value={description}
+        onChange={(e) =>
+          setSeach({ description: e.target.value, location, fullTime })
+        }
         topClassName='w-33 border-rigth display-desktop'
         inputClassName='search__input icon__search'
         displayButtonIcon={false}
@@ -21,6 +30,10 @@ const SearchBar: React.FC<SearchProps> = () => {
       />
 
       <SmartFormInput
+        value={location}
+        onChange={(e) =>
+          setSeach({ description, location: e.target.value, fullTime })
+        }
         topClassName='w-33 border-rigth display-desktop'
         inputClassName='search__input icon__location'
         displayButtonIcon={false}
@@ -32,10 +45,26 @@ const SearchBar: React.FC<SearchProps> = () => {
           type='checkbox'
           id='full-time'
           name='full-time'
-          value='full-time'
+          checked={fullTime}
+          onChange={(e) =>
+            setSeach({ description, location, fullTime: e.target.checked })
+          }
         />
         <label htmlFor='full-time'>Full Time Only</label>
-        <button className='db-button btn-primary'>Search</button>
+        <button
+          disabled={!(description || location)}
+          onClick={() => {
+            console.log('clicked');
+            console.log('description', description);
+            console.log('location', location);
+            console.log('fullTime', fullTime);
+
+            setSeach({ description: '', location: '', fullTime: false });
+          }}
+          className='db-button btn-primary'
+        >
+          Search
+        </button>
       </div>
     </div>
   );
