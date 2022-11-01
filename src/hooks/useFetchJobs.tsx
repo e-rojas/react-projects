@@ -19,6 +19,7 @@ const useFetchJobs = () => {
         setJobs(res);
         setHasMore(res.length > 6);
         setInitialJobs(res.slice(0, 6));
+        setIndex(6);
         setLoading(false);
       })
 
@@ -29,12 +30,12 @@ const useFetchJobs = () => {
   };
 
   const loadMore = () => {
-    setIndex((prevIndex) => prevIndex + 6);
     setInitialJobs((prevJobs) => [
       ...prevJobs,
       ...jobs.slice(index, index + 6),
     ]);
     setHasMore(jobs.length > index + 6);
+    setIndex(index + 6);
   };
 
   React.useEffect(() => {
