@@ -1,5 +1,5 @@
 import React from 'react';
-import Delay from './Delay.animation';
+import Delay from '../../../components/Delay.animation';
 import { useLocation } from 'react-router-dom';
 import { companyUrl, handleFormSubmit } from '../utils';
 import Job from '../../../types/Job';

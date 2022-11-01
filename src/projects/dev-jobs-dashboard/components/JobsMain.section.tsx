@@ -2,8 +2,10 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import useFetchJobs from '../../../hooks/useFetchJobs';
 import JobCard from './JobCard';
-import Delay from './Delay.animation';
-const JobsMainSection: React.FC = () => {
+import Delay from '../../../components/Delay.animation';
+interface Props {}
+
+const JobsMainSection: React.FC<Props> = () => {
   const { loading, error, hasMore, initialJobs, loadMore } = useFetchJobs();
 
   return (

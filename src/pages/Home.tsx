@@ -2,6 +2,7 @@ import React from 'react';
 import Blog from '../types/Blog';
 import useFetchGraphqlQuery from '../hooks/useFetchGraphqlQuery';
 import { BlogCard } from '../components/blog-card';
+import Delay from '../components/Delay.animation';
 
 const Home: React.FC = () => {
   const { data, loading, error } = useFetchGraphqlQuery<QueryProps>(query);
@@ -10,13 +11,15 @@ const Home: React.FC = () => {
   if (error) return <div>Error</div>;
 
   return (
-    <section className='grid-4 w-100'>
-      {items.map((item) => (
-        <div key={item.sys.id} className='grid-col-span-1 center'>
-          <BlogCard {...item} />
-        </div>
-      ))}
-    </section>
+    <Delay delay={500}>
+      <section className='grid-4 w-100'>
+        {items.map((item) => (
+          <div key={item.sys.id} className='grid-col-span-1 center'>
+            <BlogCard {...item} />
+          </div>
+        ))}
+      </section>
+    </Delay>
   );
 };
 

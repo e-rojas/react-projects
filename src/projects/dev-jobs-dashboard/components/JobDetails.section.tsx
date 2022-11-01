@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import Job from '../../../types/Job';
 import { companyUrl } from '../utils';
-import Delay from './Delay.animation';
+import Delay from '../../../components/Delay.animation';
 const JobDetails: React.FC = () => {
   const location = useLocation();
   const state = location.state as Job;
