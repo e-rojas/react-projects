@@ -51,6 +51,7 @@ const useFetchJobs = () => {
     hasMore,
     initialJobs,
     loadMore,
+    setInitialJobs,
   };
 };
 

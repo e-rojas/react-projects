@@ -25,7 +25,7 @@ const JobApplicationSection = () => {
   };
 
   return (
-    <Delay delay={500} className='dev-dashboard__wrapper  flex-column'>
+    <section className='dev-dashboard__wrapper  flex-column'>
       <div className=' details bg-fill '>
         <div className='logo' style={{ backgroundColor: `${logoBackground}` }}>
           <img src={logo} alt={company} width={81} />
@@ -118,7 +118,7 @@ const JobApplicationSection = () => {
           </button>
         </form>
       </div>
-    </Delay>
+    </section>
   );
 };
 

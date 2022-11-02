@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import Job from '../../../types/Job';
 import { companyUrl } from '../utils';
-import Delay from '../../../components/Delay.animation';
+
 const JobDetails: React.FC = () => {
   const location = useLocation();
   const state = location.state as Job;
@@ -22,7 +22,7 @@ const JobDetails: React.FC = () => {
   } = state;
 
   return (
-    <Delay delay={500} className='dev-dashboard__wrapper  flex-column'>
+    <section className='dev-dashboard__wrapper  flex-column'>
       <div className=' details bg-fill '>
         <div className='logo' style={{ backgroundColor: `${logoBackground}` }}>
           <img src={logo} alt={company} width={81} />
@@ -86,7 +86,7 @@ const JobDetails: React.FC = () => {
           Apply Now
         </button>
       </div>
-    </Delay>
+    </section>
   );
 };
 
