@@ -4,7 +4,7 @@ const Footer: React.FC = () => {
   return (
     <footer className='layout-footer'>
       <div className='flex-spread  p-1'>
-        <h1 className='brand'>Edgar Rojas</h1>
+        <h1 className='brand'>Web Developer</h1>
         <div>
           <a
             href='https://www.linkedin.com/in/edgar-rojas-developer/'

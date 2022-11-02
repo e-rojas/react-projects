@@ -9,7 +9,11 @@ const Navigation: React.FC<Props> = ({ setVisible }) => {
     <nav className='navigation'>
       <NavLink to='/'>
         {' '}
-        <h1 className='brand'>Edgar Rojas</h1>
+        <img
+          src='./assets/logos/e-logo.png'
+          alt=''
+          className='responsive rounded'
+        />
       </NavLink>
       <button onClick={() => setVisible(true)} className='menu'>
         <HiMenuAlt3 size={27} />

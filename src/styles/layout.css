@@ -17,14 +17,13 @@
 }
 
 .menu {
-  color: var(--light-color);
   padding: 0.5rem 1rem;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   top: 0;
   right: 0;
+  background-color: transparent;
 }
 
 .brand {
