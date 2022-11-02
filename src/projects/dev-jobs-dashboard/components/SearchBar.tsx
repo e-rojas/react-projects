@@ -2,8 +2,13 @@ import React from 'react';
 import SmartFormInput from './SmartFormInput';
 
 import { useSearchContext } from '../../../context/jobs-project/useSearchContext.hook';
+import Job from '../../../types/Job';
 
-const SearchBar: React.FC = () => {
+interface Props {
+  setInitialJobs: React.Dispatch<React.SetStateAction<Job[]>>;
+  initialJobs: Job[];
+}
+const SearchBar: React.FC<Props> = ({ setInitialJobs, initialJobs }) => {
   const { setSeach, description, location, fullTime } = useSearchContext();
   return (
     <div className='dev-dashboard__search '>
@@ -54,10 +59,14 @@ const SearchBar: React.FC = () => {
         <button
           disabled={!(description || location)}
           onClick={() => {
-            console.log('clicked');
-            console.log('description', description);
-            console.log('location', location);
-            console.log('fullTime', fullTime);
+            const filteredJobs = filteredJobsBySearch(
+              initialJobs,
+              description,
+              location,
+              fullTime
+            );
+
+            setInitialJobs(filteredJobs);
 
             setSeach({ description: '', location: '', fullTime: false });
           }}
@@ -71,3 +80,22 @@ const SearchBar: React.FC = () => {
 };
 
 export default SearchBar;
+
+function filteredJobsBySearch(
+  jobs: Job[],
+  description: string,
+  location: string,
+  fullTime: boolean
+) {
+  const fulltime = fullTime ? 'full time' : '';
+  return jobs.filter((job) => {
+    if (
+      job.position.toLowerCase().includes(description.toLowerCase()) &&
+      job.location.toLowerCase().includes(location.toLowerCase()) &&
+      job.contract.toLowerCase().includes(fulltime.toLowerCase())
+    ) {
+      return true;
+    }
+    return false;
+  });
+}

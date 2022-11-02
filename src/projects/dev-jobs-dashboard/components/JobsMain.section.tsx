@@ -2,15 +2,16 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import useFetchJobs from '../../../hooks/useFetchJobs';
 import JobCard from './JobCard';
-import Delay from '../../../components/Delay.animation';
+
 interface Props {}
 
 const JobsMainSection: React.FC<Props> = () => {
-  const { loading, error, hasMore, initialJobs, loadMore } = useFetchJobs();
+  const { loading, error, hasMore, initialJobs, loadMore, setInitialJobs } =
+    useFetchJobs();
 
   return (
-    <Delay delay={500} className='dev-dashboard__wrapper'>
-      x <SearchBar />
+    <section className='dev-dashboard__wrapper'>
+      <SearchBar setInitialJobs={setInitialJobs} initialJobs={initialJobs} />
       {loading ? (
         <div className='vh-100'>
           <h1>Loading...</h1>
@@ -34,7 +35,7 @@ const JobsMainSection: React.FC<Props> = () => {
           Load More
         </button>
       )}
-    </Delay>
+    </section>
   );
 };
 
