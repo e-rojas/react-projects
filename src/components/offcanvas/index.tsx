@@ -22,7 +22,6 @@ const OffCanvas: React.FC<Props> = ({ visible, setVisible }) => {
       onHide={() => setVisible(false)}
     >
       <COffcanvasHeader>
-        <COffcanvasTitle>Offcanvas</COffcanvasTitle>
         <CCloseButton
           className='text-reset'
           onClick={() => setVisible(false)}
