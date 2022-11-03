@@ -2,7 +2,6 @@ import React from 'react';
 import {
   COffcanvas,
   COffcanvasHeader,
-  COffcanvasTitle,
   CCloseButton,
   COffcanvasBody,
 } from '@coreui/react';
