@@ -18,7 +18,7 @@ const Home: React.FC = () => {
   return (
     <Delay delay={500} className='w-100'>
       {items && items.length > 0 && (
-        <section className='grid-3 w-100'>
+        <section className='grid-3 w-100 p-1'>
           <ArticleCardHeader {...items[0]} />
           <section className='grid-col-span-1 bg-dark-space-blue p-2 flex-column-spread'>
             <h1 className='text-yellow'>New</h1>

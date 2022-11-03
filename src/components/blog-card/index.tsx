@@ -33,9 +33,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
           <div className='card-body'>
             <h2 className='text-muted'>{index + 1}</h2>
             <h5 className='card-title'>{title}</h5>
-            <p className='card-text text-muted'>
-              {summary.slice(0, 55) + '...'}
-            </p>
+            <p className='card-text text-muted'>{summary}</p>
           </div>
         </div>
       </div>
@@ -79,7 +77,7 @@ export const ArticleCardHeader: React.FC<SimpleBlogCardProps> = ({
     <article className='main-article grid-col-span-2 w-100  flex-column'>
       {image && <img src={image.url} alt={title} className='w-100' />}
       <div className='main-article__details mobile-flex-column desktop-flex-spread-center p-1'>
-        <h1 className='flex-1 heading-xl'>{title} </h1>
+        <h1 className='flex-1 heading-xl text-center'>{title} </h1>
         <div className='flex-1 flex-column-spread'>
           <p>{summary}</p>
           <Link
