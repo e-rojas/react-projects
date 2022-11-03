@@ -13,8 +13,6 @@ const Home: React.FC = () => {
   const { items } = data?.blogCollection || { items: [] };
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
-  console.log(items);
-
   return (
     <Delay delay={500} className='w-100'>
       {items && items.length > 0 && (
