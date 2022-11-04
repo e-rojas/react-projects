@@ -1,25 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Blog from '../../types/Blog';
 
 interface BlogCardProps {
-  title: string;
-  date: Date;
-  image: {
-    url: string;
-  };
-  sys: {
-    id: string;
-  };
-  summary: string;
-  index: number;
+  blog: Blog;
+  index?: number;
+  className?: string;
 }
-export const BlogCard: React.FC<BlogCardProps> = ({
-  title,
-  image,
-  summary,
-  sys,
-  index,
-}) => {
+export const BlogCard: React.FC<BlogCardProps> = ({ blog, index = 0 }) => {
+  const { title, summary, image, sys } = blog;
   return (
     <Link
       to={`/blog/${sys.id}`}
@@ -41,24 +30,11 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   );
 };
 
-interface SimpleBlogCardProps {
-  title: string;
-  summary: string;
-  className?: string;
-  image?: {
-    url: string;
-  };
-  sys: {
-    id: string;
-  };
-}
-
-export const SimpleCard: React.FC<SimpleBlogCardProps> = ({
-  title,
-  summary,
-  className,
-  sys,
+export const SimpleCard: React.FC<BlogCardProps> = ({
+  blog,
+  className = '',
 }) => {
+  const { title, summary, sys } = blog;
   return (
     <Link to={`/blog/${sys.id}`} className={`p-t no-decoration ${className}`}>
       <h3 className='text-white'>{title}</h3>
@@ -67,12 +43,8 @@ export const SimpleCard: React.FC<SimpleBlogCardProps> = ({
   );
 };
 
-export const ArticleCardHeader: React.FC<SimpleBlogCardProps> = ({
-  title,
-  summary,
-  image,
-  sys,
-}) => {
+export const ArticleCardHeader: React.FC<BlogCardProps> = ({ blog }) => {
+  const { title, summary, image, sys } = blog;
   return (
     <article className='main-article grid-col-span-2 w-100  flex-column'>
       {image && <img src={image.url} alt={title} className='w-100' />}
