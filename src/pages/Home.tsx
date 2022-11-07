@@ -15,6 +15,9 @@ const Home: React.FC = () => {
   if (error) return <div>Error</div>;
   return (
     <Delay delay={500} className='w-100'>
+      <section className='p-3 w-100'>
+        <h1>The Blog</h1>
+      </section>
       {items && items.length > 0 && (
         <section className='grid-3 w-100 p-1'>
           <ArticleCardHeader blog={items[0]} />

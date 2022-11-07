@@ -15,12 +15,21 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blog, index = 0 }) => {
       className='card mb-3 mt-3 grid-col-span-1 border border-0 rounded-0 no-decoration'
     >
       <div className='row g-0'>
-        <div className='col-4 '>
-          <img src={image.url} className='img-fluid h-100' alt={title} />
-        </div>
-        <div className='col-8'>
+        <div className='col-12'>
           <div className='card-body'>
-            <h2 className='text-muted'>{index + 1}</h2>
+            <div className='row g-0 '>
+              <div className='col-8 align-center'>
+                <h2 className='text-muted'>{index + 1}</h2>
+              </div>
+              <div className='col-4'>
+                <img
+                  src={image.url}
+                  className='img-fluid h-100 rounded'
+                  alt={title}
+                />
+              </div>
+            </div>
+
             <h5 className='card-title'>{title}</h5>
             <p className='card-text text-muted'>{summary}</p>
           </div>
