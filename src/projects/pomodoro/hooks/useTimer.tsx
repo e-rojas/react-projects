@@ -15,13 +15,14 @@ const useTimer = (initialState: number) => {
     setMessage(isActive ? 'start' : 'pause');
     if (!isActive && time === 0) {
       reset();
-      setMessage('start');
     }
   };
 
   const reset = () => {
     setTime(initialState);
     setIsActive(false);
+    setIsPaused(false);
+    setMessage('start');
   };
 
   const pause = () => {

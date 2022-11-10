@@ -10,7 +10,7 @@ import useTimer from './hooks/useTimer';
 const INITIAL_TIME = 1 * 60;
 const PomodoroProject: React.FC = () => {
   const { theme, selectTheme } = useColorTheme();
-  const { time, toggle, minutes, seconds, isActive, message } =
+  const { time, toggle, minutes, seconds, message, reset } =
     useTimer(INITIAL_TIME);
 
   return (
@@ -28,6 +28,7 @@ const PomodoroProject: React.FC = () => {
               dataType={dataType}
               text={text}
               className={className}
+              reset={reset}
             />
           );
         })}
