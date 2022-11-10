@@ -1,10 +1,9 @@
 import React from 'react';
-import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import SelectButton from './components/SelectButton';
 import { dataTypeButtons } from './utils';
-import 'react-circular-progressbar/dist/styles.css';
+import Timer from './components/Timer';
 import './styles.css';
-import 'react-circular-progressbar/dist/styles.css';
+
 import useColorTheme from './hooks/useColorTheme';
 import useTimer from './hooks/useTimer';
 const INITIAL_TIME = 1 * 60;
@@ -34,36 +33,14 @@ const PomodoroProject: React.FC = () => {
             );
           })}
         </div>
-        <div className='pomodoro-project__timer '>
-          <CircularProgressbarWithChildren
-            styles={{
-              root: {},
-              path: {},
-              trail: {},
-              text: {
-                fill: '#D7E0FF',
-                fontSize: '1.5rem',
-                fontWeight: 'bold',
-              },
-            }}
-            className='progress-bar '
-            strokeWidth={3}
-            value={time}
-            maxValue={INITIAL_TIME}
-            text={`${minutes}:${seconds}`}
-          >
-            <button
-              type='button'
-              className='btn  progress-bar__button'
-              onClick={toggle}
-            >
-              {
-                //show message pause, start and if timer is over reset
-                message
-              }
-            </button>
-          </CircularProgressbarWithChildren>
-        </div>
+        <Timer
+          time={time}
+          toggle={toggle}
+          minutes={minutes}
+          seconds={seconds}
+          message={message}
+          INITIAL_TIME={INITIAL_TIME}
+        />
       </div>
     </div>
   );
