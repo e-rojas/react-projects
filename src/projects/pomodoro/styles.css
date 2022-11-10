@@ -111,15 +111,30 @@ font-family: 'Space Mono', monospace;
   background-color: #161932;
   border-radius: 1.3rem;
   padding: 0.5rem 1rem;
-  width: 373px;
+  width: 100%;
   margin: 2rem 1rem;
 }
 
-.progress-bar__wrapper {
+.pomodoro-project__timer {
   background-color: var(--pomodoro-secondary);
   border-radius: 50%;
   padding: 1rem;
   box-shadow: var(--pomodoro-secondary) 3px 3px 6px 0px inset,
     var(--pomodoro-muted) -3px -3px 6px 1px inset,
     rgba(137, 137, 137, 0.4) 0px 30px 90px;
+}
+
+.pomodoro-project__wrapper {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .pomodoro-project__wrapper {
+    width: 400px;
+    height: 400px;
+  }
 }

@@ -15,56 +15,55 @@ const PomodoroProject: React.FC = () => {
 
   return (
     <div
-      className='pomodoro-project  w-100  vh-100 bg-darkest'
+      className='pomodoro-project  w-100  vh-100 bg-darkest d-flex flex-column justify-content-center align-items-center'
       data-theme={theme}
     >
-      <h1 className='text-light'>pomodoro</h1>
-      <div className='buttons-wrapper'>
-        {dataTypeButtons.map(({ text, dataType, className }) => {
-          return (
-            <SelectButton
-              key={dataType}
-              selectTheme={selectTheme}
-              dataType={dataType}
-              text={text}
-              className={className}
-              reset={reset}
-            />
-          );
-        })}
-      </div>
-      <div
-        style={{ width: 400, height: 400 }}
-        className='progress-bar__wrapper '
-      >
-        <CircularProgressbarWithChildren
-          styles={{
-            root: {},
-            path: {},
-            trail: {},
-            text: {
-              fill: '#D7E0FF',
-              fontSize: '1.5rem',
-              fontWeight: 'bold',
-            },
-          }}
-          className='progress-bar '
-          strokeWidth={3}
-          value={time}
-          maxValue={INITIAL_TIME}
-          text={`${minutes}:${seconds}`}
-        >
-          <button
-            type='button'
-            className='btn  progress-bar__button'
-            onClick={toggle}
+      <div className='pomodoro-project__wrapper'>
+        <h1 className='text-light text-center'>pomodoro</h1>
+        <div className='buttons-wrapper'>
+          {dataTypeButtons.map(({ text, dataType, className }) => {
+            return (
+              <SelectButton
+                key={dataType}
+                selectTheme={selectTheme}
+                dataType={dataType}
+                text={text}
+                className={className}
+                reset={reset}
+              />
+            );
+          })}
+        </div>
+        <div className='pomodoro-project__timer '>
+          <CircularProgressbarWithChildren
+            styles={{
+              root: {},
+              path: {},
+              trail: {},
+              text: {
+                fill: '#D7E0FF',
+                fontSize: '1.5rem',
+                fontWeight: 'bold',
+              },
+            }}
+            className='progress-bar '
+            strokeWidth={3}
+            value={time}
+            maxValue={INITIAL_TIME}
+            text={`${minutes}:${seconds}`}
           >
-            {
-              //show message pause, start and if timer is over reset
-              message
-            }
-          </button>
-        </CircularProgressbarWithChildren>
+            <button
+              type='button'
+              className='btn  progress-bar__button'
+              onClick={toggle}
+            >
+              {
+                //show message pause, start and if timer is over reset
+                message
+              }
+            </button>
+          </CircularProgressbarWithChildren>
+        </div>
       </div>
     </div>
   );
