@@ -204,6 +204,10 @@ html {
   width: 33.3333333333%;
 }
 
+.w-30 {
+  width: 30%;
+}
+
 /* padding, margin */
 
 .p {
@@ -416,6 +420,11 @@ h3 {
 .unstyled-link {
   text-decoration: none;
   color: inherit;
+}
+
+/* buttons */
+.pointer {
+  cursor: pointer;
 }
 
 /* if the button is disabled use not allowed cursor */

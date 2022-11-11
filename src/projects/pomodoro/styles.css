@@ -16,6 +16,14 @@
   background-color: var(--pomodoro-muted);
 }
 
+.txt-pom-dark {
+  color: var(--pomodoro-secondary);
+}
+
+.txt-pom-gray {
+  color: var(--pomodoro-gray);
+}
+
 .pomodoro-project {
   font-family: var(--font-family) !important;
 }
@@ -123,6 +131,34 @@
   position: absolute;
   bottom: -33px;
   margin: 1rem;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  background-color: var(--pomodoro-secondary);
+  width: 33.3%;
+  position: absolute;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: orange;
+}
+
+input[type='number'] {
+  padding: 5px;
+  padding-right: 25px;
+  height: 30px;
+  text-align: left;
+  font-size: 1.2rem;
+  border: 1px solid #9c9c9c !important;
+  border-radius: 0.2em;
+  background-color: #eff1fa;
+  color: var(--pomodoro-secondary);
+}
+
+._label {
+  font-size: 12px;
 }
 
 @media (min-width: 768px) {
