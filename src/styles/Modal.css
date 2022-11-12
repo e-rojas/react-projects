@@ -10,6 +10,7 @@
   justify-content: center;
   opacity: 0;
   transition: all 0.3s ease-in-out;
+  font-family: var(--font-family) !important;
   /* pointer-events: none; */
 }
 
@@ -43,10 +44,11 @@
   padding: 10px;
 }
 
-.modal-title {
+.modal h2 {
   margin: 0;
   font-weight: 800;
   font-size: 1.75rem;
+  font-family: var(--font-family);
 }
 
 .modal-body {

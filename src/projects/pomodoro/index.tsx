@@ -8,17 +8,20 @@ import './styles.css';
 
 import useColorTheme from './hooks/useColorTheme';
 import useTimer from './hooks/useTimer';
-const INITIAL_TIME = 1 * 60;
 const PomodoroProject: React.FC = () => {
-  const [initialTime, setInitialTime] = React.useState({
-    pomodoro: 3,
-    shortBreak: 1,
-    longBreak: 2,
-  });
   const [visible, setVisible] = React.useState(false);
   const { theme, selectTheme } = useColorTheme();
-  const { time, toggle, minutes, seconds, message, reset } =
-    useTimer(INITIAL_TIME);
+  const {
+    time,
+    toggle,
+    minutes,
+    seconds,
+    message,
+    reset,
+    selection,
+    setSelection,
+    initialTime,
+  } = useTimer();
 
   return (
     <>
@@ -27,25 +30,28 @@ const PomodoroProject: React.FC = () => {
         data-theme={theme}
       >
         <Modal
-          initialTime={initialTime}
-          setInitialTime={setInitialTime}
           visible={visible}
           setVisible={setVisible}
           title='Settings'
+          selection={selection}
+          setSelection={setSelection}
+          reset={reset}
         />
         <div className='pomodoro-project__wrapper'>
           <h1 className='text-light text-center'>pomodoro</h1>
-
           <div className='buttons-wrapper'>
-            {dataTypeButtons.map(({ text, dataType, className }) => {
+            {dataTypeButtons.map(({ text, dataType, className, id }) => {
               return (
                 <SelectButton
+                  id={id}
                   key={dataType}
                   selectTheme={selectTheme}
                   dataType={dataType}
                   text={text}
                   className={className}
                   reset={reset}
+                  selection={selection}
+                  setSelection={setSelection}
                 />
               );
             })}
@@ -56,7 +62,7 @@ const PomodoroProject: React.FC = () => {
             minutes={minutes}
             seconds={seconds}
             message={message}
-            INITIAL_TIME={INITIAL_TIME}
+            INITIAL_TIME={initialTime}
           />
           <div className='center mt-3 '>
             <AiOutlineSetting

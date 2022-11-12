@@ -6,17 +6,43 @@ interface Props {
   setVisible: React.Dispatch<React.SetStateAction<boolean>>;
   visible: boolean;
   title?: string;
-  setInitialTime: React.Dispatch<
+  reset: (num: number) => void;
+
+  setSelection: React.Dispatch<
     React.SetStateAction<{
-      pomodoro: number;
-      shortBreak: number;
-      longBreak: number;
+      pomodoro: {
+        time: number;
+        type: string;
+        selected: boolean;
+      };
+      shortBreak: {
+        time: number;
+        type: string;
+        selected: boolean;
+      };
+      longBreak: {
+        time: number;
+        type: string;
+        selected: boolean;
+      };
     }>
   >;
-  initialTime: {
-    pomodoro: number;
-    shortBreak: number;
-    longBreak: number;
+  selection: {
+    pomodoro: {
+      time: number;
+      type: string;
+      selected: boolean;
+    };
+    shortBreak: {
+      time: number;
+      type: string;
+      selected: boolean;
+    };
+    longBreak: {
+      time: number;
+      type: string;
+      selected: boolean;
+    };
   };
 }
 
@@ -24,13 +50,14 @@ const Modal: React.FC<Props> = ({
   setVisible,
   visible,
   title = 'Modal Title',
-  setInitialTime,
-  initialTime,
+  setSelection,
+  selection,
+  reset,
 }) => {
   const [timeInputs, setTimeInputs] = React.useState({
-    pomodoro: initialTime.pomodoro,
-    shortBreak: initialTime.shortBreak,
-    longBreak: initialTime.longBreak,
+    pomodoro: selection.pomodoro.time,
+    shortBreak: selection.shortBreak.time,
+    longBreak: selection.longBreak.time,
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,11 +67,31 @@ const Modal: React.FC<Props> = ({
 
   const resetToDefault = () => {
     setTimeInputs({
-      pomodoro: initialTime.pomodoro,
-      shortBreak: initialTime.shortBreak,
-      longBreak: initialTime.longBreak,
+      pomodoro: selection.pomodoro.time,
+      shortBreak: selection.shortBreak.time,
+      longBreak: selection.longBreak.time,
     });
   };
+
+  const activeSelection = (): {
+    time: number;
+    type: string;
+    selected: boolean;
+  } => {
+    if (selection.pomodoro.selected) {
+      return selection.pomodoro;
+    } else if (selection.shortBreak.selected) {
+      return selection.shortBreak;
+    } else if (selection.longBreak.selected) {
+      return selection.longBreak;
+    }
+    return {
+      time: 0,
+      type: '',
+      selected: false,
+    };
+  };
+
   if (!visible) {
     return null;
   }
@@ -53,7 +100,7 @@ const Modal: React.FC<Props> = ({
       <Delay delay={500}>
         <div className='modal-content'>
           <div className='modal-header'>
-            <h2 className='modal-title txt-pom-dark'>{title} </h2>
+            <h2>{title} </h2>
             <AiOutlineClose
               onClick={() => {
                 setVisible(false);
@@ -122,7 +169,28 @@ const Modal: React.FC<Props> = ({
             <button
               onClick={() => {
                 setVisible(false);
-                setInitialTime(timeInputs);
+                setSelection({
+                  pomodoro: {
+                    ...selection.pomodoro,
+                    time: Number(timeInputs.pomodoro),
+                  },
+                  shortBreak: {
+                    ...selection.shortBreak,
+                    time: Number(timeInputs.shortBreak),
+                  },
+                  longBreak: {
+                    ...selection.longBreak,
+                    time: Number(timeInputs.longBreak),
+                  },
+                });
+                const time =
+                  timeInputs[
+                    activeSelection().type as
+                      | 'pomodoro'
+                      | 'shortBreak'
+                      | 'longBreak'
+                  ] * 60;
+                reset(time);
               }}
               className='_btn absolute-bottom-edge-position '
             >

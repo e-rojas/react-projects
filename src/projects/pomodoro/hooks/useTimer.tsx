@@ -1,7 +1,43 @@
 import React from 'react';
+const useTimer = () => {
+  const [selection, setSelection] = React.useState<{
+    pomodoro: {
+      time: number;
+      type: string;
+      selected: boolean;
+    };
+    shortBreak: {
+      time: number;
+      type: string;
+      selected: boolean;
+    };
+    longBreak: {
+      time: number;
+      type: string;
+      selected: boolean;
+    };
+  }>({
+    pomodoro: {
+      time: 3,
+      type: 'pomodoro',
+      selected: true,
+    },
+    shortBreak: {
+      time: 1,
+      type: 'shortBreak',
+      selected: false,
+    },
+    longBreak: {
+      time: 2,
+      type: 'longBreak',
+      selected: false,
+    },
+  });
 
-const useTimer = (initialState: number) => {
-  const [time, setTime] = React.useState(initialState);
+  const [initialTime, setInitialTime] = React.useState(
+    selection.pomodoro.time * 60
+  );
+  const [time, setTime] = React.useState(initialTime);
   const [isActive, setIsActive] = React.useState(false);
   const [isPaused, setIsPaused] = React.useState(false);
   const [message, setMessage] = React.useState('start');
@@ -18,8 +54,13 @@ const useTimer = (initialState: number) => {
     }
   };
 
-  const reset = () => {
-    setTime(initialState);
+  const reset = (num?: number) => {
+    if (num) {
+      setTime(num);
+      setInitialTime(num);
+    } else {
+      setTime(initialTime);
+    }
     setIsActive(false);
     setIsPaused(false);
     setMessage('start');
@@ -52,6 +93,11 @@ const useTimer = (initialState: number) => {
     minutes,
     seconds,
     message,
+    setTime,
+    initialTime,
+    setInitialTime,
+    selection,
+    setSelection,
   };
 };
 

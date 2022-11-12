@@ -14,13 +14,13 @@ export const dataTypeButtons = [
     className: 'pomodoro-button selected',
   },
   {
-    id: 'short-break',
+    id: 'shortBreak',
     text: 'short break',
     dataType: 'roboto',
     className: 'pomodoro-button',
   },
   {
-    id: 'long-break',
+    id: 'longBreak',
     text: 'long break',
     dataType: 'mono',
     className: 'pomodoro-button',
