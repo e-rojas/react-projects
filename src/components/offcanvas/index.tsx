@@ -44,14 +44,27 @@ const OffCanvas: React.FC<Props> = ({ visible, setVisible }) => {
                 About
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                onClick={() => setVisible(false)}
-                to='/dev-jobs-dashboard'
-              >
-                Project
-              </NavLink>
-            </li>
+            <div className='p-l'>
+              <h5>Live Projects</h5>
+              <ul>
+                <li>
+                  <NavLink
+                    onClick={() => setVisible(false)}
+                    to='/dev-jobs-dashboard'
+                  >
+                    Dev Jobs Posting
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    onClick={() => setVisible(false)}
+                    to='projects/pomodoro'
+                  >
+                    Pomodoro App
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
           </ul>
         </nav>
       </COffcanvasBody>
