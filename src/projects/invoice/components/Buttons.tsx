@@ -24,3 +24,16 @@ export const DefaultButton: FC<Props> = ({
     </button>
   );
 };
+
+export const EditButton: FC<Props> = ({
+  title,
+
+  className = 'btn__edit',
+  handleOnClick,
+}) => {
+  return (
+    <button onClick={handleOnClick} className={`invoice-btn ${className}`}>
+      {title}
+    </button>
+  );
+};
