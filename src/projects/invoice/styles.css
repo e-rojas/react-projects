@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --invoice-gray-color: #f8f8fb;
+  --invoice-dark-color: #141625;
+  --invoice-purple-color: #7c5dfa;
+  --invoice-light-purple-color: #9277ff;
+  --invoice-medium-dark-purple-color: #1e2139;
+  --invoice-dark-purple-color: #252945;
+  --invoice-light-blue-color: #dfe3fa;
+  --invoice-blue-color: #7e88c3;
+  --invoice-medium-dark-blue-color: #888eb0;
+  --invoice-dark-blue-color: #0c0e16;
+  --invoice-light-red-color: #ff9797;
+  --invoice-red-color: #ec5757;
+}
