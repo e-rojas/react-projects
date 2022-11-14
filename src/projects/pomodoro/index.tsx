@@ -9,6 +9,7 @@ import './styles.scss';
 
 import useColorTheme from './hooks/useColorTheme';
 import useTimer from './hooks/useTimer';
+import ModalBody from './components/ModalBody';
 const PomodoroProject: React.FC = () => {
   const [visible, setVisible] = React.useState(false);
   const { selectTheme } = useColorTheme();
@@ -37,7 +38,6 @@ const PomodoroProject: React.FC = () => {
     <>
       <div
         className='pomodoro-project  w-100  vh-100 bg-darkest d-flex flex-column justify-content-center align-items-center'
-        // data-theme={theme}
         data-color={themeColor}
         data-font={themeFont}
       >
@@ -49,87 +49,12 @@ const PomodoroProject: React.FC = () => {
           setSelection={setSelection}
           reset={reset}
         >
-          {/*  */}
-          <div className='modal-body'>
-            <div className='flex-spread p-t'>
-              <span className='txt-pom-dark font-weight-bold letter-spacing-1'>
-                FONT
-              </span>
-              <div className='font-selection-btns'>
-                <label className='font-radio-input font-kumbh'>
-                  <input
-                    type='radio'
-                    name='font-type'
-                    defaultValue='font-type'
-                    checked={themeFont === 'kumbh'}
-                    onChange={() => setThemeFont('kumbh')}
-                  />
-                  <span></span>
-                </label>
-                <label className='font-radio-input font-roboto'>
-                  <input
-                    type='radio'
-                    name='font-type'
-                    defaultValue='font-type'
-                    checked={themeFont === 'roboto'}
-                    onChange={() => setThemeFont('roboto')}
-                  />
-                  <span></span>
-                </label>
-                <label className='font-radio-input font-mono'>
-                  <input
-                    type='radio'
-                    name='font-type'
-                    defaultValue='font-type'
-                    checked={themeFont === 'mono'}
-                    onChange={() => setThemeFont('mono')}
-                  />
-                  <span></span>
-                </label>
-              </div>
-            </div>
-          </div>
-
-          {/*  */}
-          <div className='modal-body'>
-            <div className='flex-spread p-t'>
-              <span className='txt-pom-dark font-weight-bold letter-spacing-1'>
-                COLOR
-              </span>
-              <div className='color-selection-btns'>
-                <label className='pomo-alert color-radio-input'>
-                  <input
-                    onClick={() => setThemeColor('alert')}
-                    type='radio'
-                    name='key'
-                    defaultValue='value'
-                    checked={themeColor === 'alert'}
-                  />
-                  <span></span>
-                </label>
-                <label className='pomo-success  color-radio-input'>
-                  <input
-                    onClick={() => setThemeColor('success')}
-                    type='radio'
-                    name='key'
-                    defaultValue='value'
-                    checked={themeColor === 'success'}
-                  />
-                  <span></span>
-                </label>
-                <label className='pomo-warning  color-radio-input'>
-                  <input
-                    onClick={() => setThemeColor('warning')}
-                    type='radio'
-                    name='key'
-                    defaultValue='value'
-                    checked={themeColor === 'warning'}
-                  />
-                  <span></span>
-                </label>
-              </div>
-            </div>
-          </div>
+          <ModalBody
+            themeFont={themeFont}
+            themeColor={themeColor}
+            setThemeFont={setThemeFont}
+            setThemeColor={setThemeColor}
+          />
         </Modal>
         <div className='pomodoro-project__wrapper'>
           <h1 className='text-light text-center'>pomodoro</h1>

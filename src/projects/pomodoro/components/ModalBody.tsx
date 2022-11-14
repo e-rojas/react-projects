@@ -1,5 +1,4 @@
 import React from 'react';
-import { timeLabeledInputsData } from '../utils';
 interface Props {
   themeFont: string;
   themeColor: string;
@@ -54,8 +53,6 @@ const ModalBody: React.FC<Props> = ({
           </div>
         </div>
       </div>
-
-      {/*  */}
       <div className='modal-body'>
         <div className='flex-spread p-t'>
           <span className='txt-pom-dark font-weight-bold letter-spacing-1'>
