@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+
+label>input[type="radio"] {
+  display: none;
+}
+
+label.pomo-alert>input[type="radio"]+*::before {
+  background-color: hsl(0, 91%, 71%);
+  border-color: hsl(0, 91%, 71%);
+}
+
+label.pomo-alert>input[type="radio"]:checked+*::before {
+  background-color: hsl(0, 91%, 71%);
+  border-color: hsl(0, 91%, 71%);
+}
+
+label.pomo-success>input[type="radio"]+*::before {
+  background-color: hsl(182, 91%, 71%);
+  border-color: hsl(182, 91%, 71%);
+}
+
+label.pomo-success>input[type="radio"]:checked+*::before {
+  background-color: hsl(182, 91%, 71%);
+  border-color: hsl(182, 91%, 71%);
+}
+
+label.pomo-warning>input[type="radio"]+*::before {
+  background-color: hsl(284, 89%, 74%);
+  border-color: hsl(284, 89%, 74%);
+}
+
+label.pomo-warning>input[type="radio"]:checked+*::before {
+  background-color: hsl(284, 89%, 74%);
+  border-color: hsl(284, 89%, 74%);
+}
+
+label.color-radio-input>input[type="radio"]+*::before {
+  content: "";
+  display: inline-block;
+  vertical-align: bottom;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.3rem;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 0.1rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+
+
+label.color-radio-input>input[type="radio"]:checked+*::before {
+  background: var(--pomodoro-alert);
+  content: url('./assets/checkmark.svg');
+  border-color: transparent;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+label.font-radio-input>input[type="radio"]+*::before {
+  content: "Aa";
+  display: inline-block;
+  vertical-align: bottom;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.3rem;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 0.1rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  // align the content center
+  line-height: 1.8rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--pomodoro-muted);
+}
+
+label.font-radio-input>input[type="radio"]:checked+*::before {
+  border-color: transparent;
+  line-height: 1.8rem;
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+  background-color: black;
+}
+
+
+.font-kumbh {
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+.font-roboto {
+  font-family: 'Roboto Slab', serif;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+.bg-darkest {
+  background-color: var(--pomodoro-secondary);
+}
+
+.fill-dark .bg-light {
+  background-color: var(--pomodoro-primary);
+}
+
+.bg-alert {
+  background-color: var(--pomodoro-alert);
+}
+
+.bg-gray {
+  background-color: var(--pomodoro-gray);
+}
+
+.bg-muted {
+  background-color: var(--pomodoro-muted);
+}
+
+.txt-pom-dark {
+  color: var(--pomodoro-secondary);
+}
+
+.txt-pom-gray {
+  color: var(--pomodoro-gray);
+}
+
+.pomodoro-project {
+  font-family: var(--font-family) !important;
+}
+
+.pomodoro-project .text-light {
+  color: var(--pomodoro-primary);
+}
+
+.progress-bar__button {
+  margin-top: 40%;
+  color: var(--pomodoro-gray) !important;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  border: none;
+}
+
+.progress-bar__button:hover {
+  color: var(--pomodoro-primary) !important;
+}
+
+.progress-bar__button:active {
+  color: var(--pomodoro-violet);
+  background-color: none;
+  border: none;
+}
+
+.CircularProgressbar-path {
+  stroke: var(--pomodoro-alert) !important;
+}
+
+.CircularProgressbar-trail {
+  stroke: var(--pomodoro-secondary) !important;
+}
+
+.pomodoro-button {
+  color: var(--pomodoro-muted);
+  background-color: transparent;
+  border: none;
+  border-radius: 1.3rem;
+  padding: 0.5rem;
+  font-size: 14px;
+}
+
+.alert-color {
+  background-color: var(--pomodoro-alert) !important;
+}
+
+.pomodoro-button:hover {
+  background-color: var(--pomodoro-alert-hover);
+  color: var(--pomodoro-primary);
+
+  transition: background-color 0.5s ease-in-out;
+}
+
+.pomodoro-button.selected {
+  color: var(--pomodoro-secondary) !important;
+  background-color: var(--pomodoro-alert) !important;
+}
+
+.buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #161932;
+  border-radius: 1.3rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  margin: 2rem 1rem;
+}
+
+.pomodoro-project__timer {
+  background-color: var(--pomodoro-secondary);
+  border-radius: 50%;
+  padding: 1rem;
+  box-shadow: var(--pomodoro-secondary) 3px 3px 6px 0px inset,
+    var(--pomodoro-muted) -3px -3px 6px 1px inset,
+    rgba(137, 137, 137, 0.4) 0px 30px 90px;
+}
+
+.pomodoro-project__wrapper {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+._btn {
+  background-color: var(--pomodoro-alert) !important;
+  color: var(--pomodoro-primary) !important;
+  border: none;
+  border-radius: 1.3rem;
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  transition: background-color 0.5s ease-in-out;
+}
+
+._btn:hover {
+  background-color: var(--pomodoro-alert-hover) !important;
+  color: var(--pomodoro-primary) !important;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.absolute-bottom-edge-position {
+  position: absolute;
+  bottom: -33px;
+  margin: 1rem;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  background-color: var(--pomodoro-secondary);
+  width: 33.3%;
+  position: absolute;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: orange;
+}
+
+input[type='number'] {
+  padding: 5px;
+  padding-right: 25px;
+  height: 30px;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: bolder;
+  border: 1px solid #9c9c9c;
+  border-radius: 0.2em;
+  background-color: #eff1fa;
+  color: var(--pomodoro-secondary);
+}
+
+._label {
+  font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  .pomodoro-project__wrapper {
+    width: 400px;
+    height: 400px;
+  }
+}

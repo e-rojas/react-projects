@@ -35,9 +35,58 @@ html {
   --btn-bg-secondary-color-hover: #c5c9f4;
   --dark-space-blue: #00001a;
   --yellow: #e9a952;
+  /* pomodoro project */
+  --pomodoro-primary: #fff;
+  --pomodoro-secondary: #1e213f;
+  --pomodoro-gray: #d7e0ff;
+  --pomodoro-muted: #979797;
 }
 
 /* theme color */
+[data-theme='system'] {
+  --pomodoro-alert: hsl(0, 91%, 71%);
+  --pomodoro-alert-hover: hsla(0, 91%, 71%, 0.558);
+  /* --font-family: 'Kumbh Sans', sans-serif; */
+}
+
+[data-theme='roboto'] {
+  /* --font-family: 'Roboto Slab', serif; */
+  --pomodoro-alert: hsl(182, 91%, 71%);
+  --pomodoro-alert-hover: hsla(182, 91%, 71%, 0.558);
+}
+
+[data-theme='mono'] {
+  /* --font-family: 'Space Mono', monospace; */
+  --pomodoro-alert: hsl(284, 89%, 74%);
+  --pomodoro-alert-hover: hsla(284, 89%, 74%, 0.558);
+}
+
+[data-color='alert'] {
+  --pomodoro-alert: hsl(0, 91%, 71%);
+  --pomodoro-alert-hover: hsla(0, 91%, 71%, 0.558);
+}
+
+[data-color='success'] {
+  --pomodoro-alert: hsl(182, 91%, 71%);
+  --pomodoro-alert-hover: hsla(182, 91%, 71%, 0.558);
+}
+
+[data-color='warning'] {
+  --pomodoro-alert: hsl(284, 89%, 74%);
+  --pomodoro-alert-hover: hsla(284, 89%, 74%, 0.558);
+}
+
+[data-font='kumbh'] {
+  --font-family: 'Kumbh Sans', sans-serif;
+}
+
+[data-font='roboto'] {
+  --font-family: 'Roboto Slab', serif;
+}
+
+[data-font='mono'] {
+  --font-family: 'Space Mono', monospace;
+}
 
 [data-theme='dark'] {
   --btn-bg-primary: #5964e0;
@@ -182,6 +231,10 @@ html {
   width: 33.3333333333%;
 }
 
+.w-30 {
+  width: 30%;
+}
+
 /* padding, margin */
 
 .p {
@@ -265,6 +318,11 @@ html {
 
 .m-b-3 {
   margin-bottom: 3rem;
+}
+
+/* letter spacing */
+.letter-spacing-1 {
+  letter-spacing: 1px;
 }
 
 /* text */
@@ -396,9 +454,19 @@ h3 {
   color: inherit;
 }
 
+/* buttons */
+.pointer {
+  cursor: pointer;
+}
+
 /* if the button is disabled use not allowed cursor */
 .disabled {
   cursor: not-allowed !important;
+}
+
+/* btn decorations */
+.rounded-pill {
+  border-radius: 100%;
 }
 
 @media (min-width: 768px) {
