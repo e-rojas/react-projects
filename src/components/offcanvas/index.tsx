@@ -44,7 +44,7 @@ const OffCanvas: React.FC<Props> = ({ visible, setVisible }) => {
                 About
               </NavLink>
             </li>
-            <div className='p-l'>
+            <div className='p-l bg-soft-gray rounded p'>
               <h5>Live Projects</h5>
               <ul>
                 <li>
