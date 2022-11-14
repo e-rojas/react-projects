@@ -1,11 +1,117 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
 
+
+label>input[type="radio"] {
+  display: none;
+}
+
+label.pomo-alert>input[type="radio"]+*::before {
+  background-color: hsl(0, 91%, 71%);
+  border-color: hsl(0, 91%, 71%);
+}
+
+label.pomo-alert>input[type="radio"]:checked+*::before {
+  background-color: hsl(0, 91%, 71%);
+  border-color: hsl(0, 91%, 71%);
+}
+
+label.pomo-success>input[type="radio"]+*::before {
+  background-color: hsl(182, 91%, 71%);
+  border-color: hsl(182, 91%, 71%);
+}
+
+label.pomo-success>input[type="radio"]:checked+*::before {
+  background-color: hsl(182, 91%, 71%);
+  border-color: hsl(182, 91%, 71%);
+}
+
+label.pomo-warning>input[type="radio"]+*::before {
+  background-color: hsl(284, 89%, 74%);
+  border-color: hsl(284, 89%, 74%);
+}
+
+label.pomo-warning>input[type="radio"]:checked+*::before {
+  background-color: hsl(284, 89%, 74%);
+  border-color: hsl(284, 89%, 74%);
+}
+
+label.color-radio-input>input[type="radio"]+*::before {
+  content: "";
+  display: inline-block;
+  vertical-align: bottom;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.3rem;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 0.1rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+
+
+label.color-radio-input>input[type="radio"]:checked+*::before {
+  background: var(--pomodoro-alert);
+  content: url('./assets/checkmark.svg');
+  border-color: transparent;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+label.font-radio-input>input[type="radio"]+*::before {
+  content: "Aa";
+  display: inline-block;
+  vertical-align: bottom;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.3rem;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 0.1rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  // align the content center
+  line-height: 1.8rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--pomodoro-muted);
+}
+
+label.font-radio-input>input[type="radio"]:checked+*::before {
+  border-color: transparent;
+  line-height: 1.8rem;
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+  background-color: black;
+}
+
+
+.font-kumbh {
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+.font-roboto {
+  font-family: 'Roboto Slab', serif;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
 .bg-darkest {
   background-color: var(--pomodoro-secondary);
 }
 
-.bg-light {
+.fill-dark .bg-light {
   background-color: var(--pomodoro-primary);
+}
+
+.bg-alert {
+  background-color: var(--pomodoro-alert);
 }
 
 .bg-gray {
@@ -150,8 +256,9 @@ input[type='number'] {
   padding-right: 25px;
   height: 30px;
   text-align: left;
-  font-size: 1.2rem;
-  border: 1px solid #9c9c9c !important;
+  font-size: 1rem;
+  font-weight: bolder;
+  border: 1px solid #9c9c9c;
   border-radius: 0.2em;
   background-color: #eff1fa;
   color: var(--pomodoro-secondary);

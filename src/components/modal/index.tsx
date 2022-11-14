@@ -1,49 +1,18 @@
 import React from 'react';
 import Delay from '../Delay.animation';
 import { AiOutlineClose } from 'react-icons/ai';
+import Selection from '../../projects//pomodoro/models//selection.interface';
+import { timeLabeledInputsData } from '..//../projects//pomodoro/utils';
 import '../../styles/Modal.css';
 interface Props {
   setVisible: React.Dispatch<React.SetStateAction<boolean>>;
   visible: boolean;
   title?: string;
+  children: React.ReactNode;
   reset: (num: number) => void;
 
-  setSelection: React.Dispatch<
-    React.SetStateAction<{
-      pomodoro: {
-        time: number;
-        type: string;
-        selected: boolean;
-      };
-      shortBreak: {
-        time: number;
-        type: string;
-        selected: boolean;
-      };
-      longBreak: {
-        time: number;
-        type: string;
-        selected: boolean;
-      };
-    }>
-  >;
-  selection: {
-    pomodoro: {
-      time: number;
-      type: string;
-      selected: boolean;
-    };
-    shortBreak: {
-      time: number;
-      type: string;
-      selected: boolean;
-    };
-    longBreak: {
-      time: number;
-      type: string;
-      selected: boolean;
-    };
-  };
+  setSelection: React.Dispatch<React.SetStateAction<Selection>>;
+  selection: Selection;
 }
 
 const Modal: React.FC<Props> = ({
@@ -53,6 +22,7 @@ const Modal: React.FC<Props> = ({
   setSelection,
   selection,
   reset,
+  children,
 }) => {
   const [timeInputs, setTimeInputs] = React.useState({
     pomodoro: selection.pomodoro.time,
@@ -110,61 +80,33 @@ const Modal: React.FC<Props> = ({
             />
           </div>
           <div className='modal-body'>
-            <span className='txt-pom-dark font-weight-bold'>
+            <span className='txt-pom-dark font-weight-bold letter-spacing-1'>
               TIME (Minutes)
             </span>
 
             <div className='input-wrapper flex-spread'>
-              <div className=' w-30'>
-                <label className='_label' htmlFor='pomodoro'>
-                  pomodoro
-                </label>
-                <input
-                  type='number'
-                  name='pomodoro'
-                  id='pomodoro'
-                  className='form-control'
-                  min={1}
-                  max={60}
-                  value={timeInputs.pomodoro}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className=' w-30'>
-                <label className='_label' htmlFor='short-break'>
-                  short break
-                </label>
-                <input
-                  type='number'
-                  name='shortBreak'
-                  id='short-break'
-                  className='form-control'
-                  min={1}
-                  max={60}
-                  value={timeInputs.shortBreak}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className=' w-30'>
-                <label className='_label' htmlFor='long-break'>
-                  long break
-                </label>
-                <input
-                  type='number'
-                  name='longBreak'
-                  id='long-break'
-                  className='form-control'
-                  min={1}
-                  max={60}
-                  value={timeInputs.longBreak}
-                  onChange={handleInputChange}
-                />
-              </div>
+              {timeLabeledInputsData(timeInputs, handleInputChange).map(
+                (item) => (
+                  <div className=' w-30' key={item.label}>
+                    <label className='_label' htmlFor={item.label}>
+                      {item.label}
+                    </label>
+                    <input
+                      type={item.input.type}
+                      name={item.input.name}
+                      id={item.input.id}
+                      className={item.input.className}
+                      min={item.input.min}
+                      max={item.input.max}
+                      value={item.input.value}
+                      onChange={item.input.onChange}
+                    />
+                  </div>
+                )
+              )}
             </div>
           </div>
-          <div className='modal-body'>
-            <p>Modal body text goes here.</p>
-          </div>
+          {children}
           <div className='modal-footer '>
             <button
               onClick={() => {

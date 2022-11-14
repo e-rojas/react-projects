@@ -67,7 +67,12 @@ const useTimer = () => {
   };
 
   const pause = () => {
-    setIsPaused(!isPaused);
+    if (!isActive && time !== 0) {
+      return;
+    }
+    setIsActive(false);
+    setIsPaused(true);
+    setMessage('resume');
   };
 
   React.useEffect(() => {

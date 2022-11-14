@@ -46,19 +46,46 @@ html {
 [data-theme='system'] {
   --pomodoro-alert: hsl(0, 91%, 71%);
   --pomodoro-alert-hover: hsla(0, 91%, 71%, 0.558);
-  --font-family: 'Kumbh Sans', sans-serif;
+  /* --font-family: 'Kumbh Sans', sans-serif; */
 }
 
 [data-theme='roboto'] {
-  --font-family: 'Roboto Slab', serif;
+  /* --font-family: 'Roboto Slab', serif; */
   --pomodoro-alert: hsl(182, 91%, 71%);
   --pomodoro-alert-hover: hsla(182, 91%, 71%, 0.558);
 }
 
 [data-theme='mono'] {
-  --font-family: 'Space Mono', monospace;
+  /* --font-family: 'Space Mono', monospace; */
   --pomodoro-alert: hsl(284, 89%, 74%);
   --pomodoro-alert-hover: hsla(284, 89%, 74%, 0.558);
+}
+
+[data-color='alert'] {
+  --pomodoro-alert: hsl(0, 91%, 71%);
+  --pomodoro-alert-hover: hsla(0, 91%, 71%, 0.558);
+}
+
+[data-color='success'] {
+  --pomodoro-alert: hsl(182, 91%, 71%);
+  --pomodoro-alert-hover: hsla(182, 91%, 71%, 0.558);
+}
+
+[data-color='warning'] {
+  --pomodoro-alert: hsl(284, 89%, 74%);
+  --pomodoro-alert-hover: hsla(284, 89%, 74%, 0.558);
+}
+
+[data-font='kumbh'] {
+  --font-family: 'Kumbh Sans', sans-serif;
+}
+
+[data-font='roboto'] {
+  --font-family: 'Roboto Slab', serif;
+}
+
+[data-font='mono'] {
+  --font-family: 'Space Mono', monospace;
 }
 
 [data-theme='dark'] {
@@ -293,6 +320,11 @@ html {
   margin-bottom: 3rem;
 }
 
+/* letter spacing */
+.letter-spacing-1 {
+  letter-spacing: 1px;
+}
+
 /* text */
 
 .text-center {
@@ -430,6 +462,11 @@ h3 {
 /* if the button is disabled use not allowed cursor */
 .disabled {
   cursor: not-allowed !important;
+}
+
+/* btn decorations */
+.rounded-pill {
+  border-radius: 100%;
 }
 
 @media (min-width: 768px) {
