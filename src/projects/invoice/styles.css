@@ -14,3 +14,64 @@
   --invoice-light-red-color: #ff9797;
   --invoice-red-color: #ec5757;
 }
+
+/* color */
+
+.invoice-txt-purple {
+  color: var(--invoice-purple-color);
+}
+
+/* backround colors */
+
+.invoice-bg-white {
+  background-color: #fff;
+}
+
+/* Borders */
+
+.invoice-circular-border {
+  border-radius: 100%;
+  border-color: transparent;
+}
+
+/* fills */
+
+/* Buttons */
+
+.invoice-btn {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+  border-color: transparent;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.025rem;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.invoice-btn > div {
+  padding: 1px;
+  margin: 0 0.5rem 0 0;
+  background-color: #fff;
+  border-radius: 100%;
+}
+
+.btn__primary {
+  background-color: var(--invoice-purple-color);
+  color: #fff;
+}
+
+.btn__primary:hover {
+  background-color: var(--invoice-light-purple-color);
+}
+
+.btn__warning {
+  background-color: var(--invoice-red-color);
+  color: #fff;
+}
+
+.btn__warning:hover {
+  background-color: var(--invoice-light-red-color);
+}
