@@ -14,16 +14,21 @@
   --invoice-light-red-color: #ff9797;
   --invoice-red-color: #ec5757;
   --invoice-muted-gray-color: #f9fafe;
+  --invoice-white-color: #fff;
 }
 
 [data-invoice-color='invoice-light'] {
   --button-edit-bg-color: var(--invoice-muted-gray-color);
   --button-edit-color: var(--invoice-blue-color);
+  --button-edit-hover-bg-color: var(--invoice-light-blue-color);
+  --button-edit-hover-color: var(--invoice-blue-color);
 }
 
 [data-invoice-color='invoice-dark'] {
   --button-edit-bg-color: var(--invoice-dark-purple-color);
   --button-edit-color: var(--invoice-light-blue-color);
+  --button-edit-hover-bg-color: var(--invoice-gray-color);
+  --button-edit-hover-color: var(--invoice-white-color);
 }
 
 /* color */
@@ -90,4 +95,9 @@
 .btn__edit {
   background-color: var(--button-edit-bg-color);
   color: var(--button-edit-color);
+}
+
+.btn__edit:hover {
+  background-color: var(--button-edit-hover-bg-color);
+  color: var(--button-edit-hover-color);
 }
