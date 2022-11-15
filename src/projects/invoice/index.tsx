@@ -46,5 +46,5 @@ const sample = {
   items: [
     { name: 'Brand Guidelines', quantity: 1, price: 1800.9, total: 1800.9 },
   ],
-  total: 1800.9,
+  total: 1800.97,
 };

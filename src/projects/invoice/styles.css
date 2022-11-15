@@ -14,8 +14,13 @@
   --invoice-light-red-color: #ff9797;
   --invoice-red-color: #ec5757;
   --invoice-muted-gray-color: #f9fafe;
-  --invoice-muted-dark-color: #373b53;
+  --invoice-muted-dark-color: hsl(231, 20%, 27%);
+  --invoic-muted-washed-color: hsl(231, 20%, 27%, 0.07);
   --invoice-white-color: #fff;
+  --invoice-green-color: hsl(160, 67%, 52%);
+  --invoice-green-washed-color: hsla(160, 67%, 52%, 0.07);
+  --invoice-orange-color: hsl(34, 100%, 50%);
+  --invoice-orange-washed-color: hsla(34, 100%, 50%, 0.07);
 }
 
 [data-invoice-color='invoice-light'] {
@@ -29,6 +34,14 @@
   --button-draft-hover-color: var(--invoice-medium-dark-blue-color);
   /* background */
   --invoice-bg-color: var(--invoice-gray-color);
+  --invoice-status-draft-bg-color: var(--invoic-muted-washed-color);
+  --invoice-status-draft-color: var(--invoice-medium-dark-blue-color);
+  /* card */
+  --invoice-card-bg-color: var(--invoice-white-color);
+  --invoice-card-id: var(--invoice-dark-color);
+  --invoice-card-date: var(--invoice-blue-color);
+  --invoice-card-client: var(--invoice-blue-color);
+  --invoice-card-total: var(--invoice-dark-color);
 }
 
 [data-invoice-color='invoice-dark'] {
@@ -42,6 +55,15 @@
   --button-draft-hover-color: var(--invoice-light-blue-color);
   /* background */
   --invoice-bg-color: var(--invoice-dark-color);
+  --invoice-status-draft-bg-color: var(--invoice-muted-dark-color);
+  --invoice-status-draft-color: var(--invoice-white-color);
+
+  /* card */
+  --invoice-card-bg-color: var(--invoice-medium-dark-purple-color);
+  --invoice-card-id: var(--invoice-white-color);
+  --invoice-card-date: var(--invoice-light-blue-color);
+  --invoice-card-client: var(--invoice-light-blue-color);
+  --invoice-card-total: var(--invoice-white-color);
 }
 
 /* main application wrapper */
@@ -150,9 +172,99 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--invoice-white-color);
+  background-color: var(--invoice-card-bg-color);
   border-radius: 0.5rem;
   padding: 1.5rem 2rem;
 
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.invoice-card__id {
+  color: var(--invoice-card-id);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.025rem;
+}
+
+.invoice-card__id::before {
+  content: '#';
+  color: var(--invoice-blue-color);
+}
+
+.invoice-card__date {
+  color: var(--invoice-card-date);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.025rem;
+}
+
+.invoice-card__client {
+  color: var(--invoice-card-client);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.025rem;
+}
+
+.invoice-card__total {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--invoice-card-total);
+}
+
+.invoice-card__total::before {
+  content: '£';
+}
+
+.invoice-card__status {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  text-transform: capitalize;
+  margin: 0 1rem 0 0;
+}
+
+.state-paid::before,
+.state-pending::before,
+.state-draft::before {
+  content: '';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 100%;
+}
+
+.state-paid::before {
+  background-color: var(--invoice-green-color);
+}
+
+.state-pending::before {
+  background-color: var(--invoice-orange-color);
+}
+
+.state-draft::before {
+  background-color: var(--invoice-status-draft-color);
+}
+
+.state-paid {
+  background-color: var(--invoice-green-washed-color);
+  color: var(--invoice-green-color);
+}
+
+.state-pending {
+  background-color: var(--invoice-orange-washed-color);
+  color: var(--invoice-orange-color);
+}
+
+.state-draft {
+  background-color: var(--invoice-status-draft-bg-color);
+  color: var(--invoice-status-draft-color);
+}
+
+.invoice-card-chevron {
+  color: var(--invoice-purple-color);
+  cursor: pointer;
 }
