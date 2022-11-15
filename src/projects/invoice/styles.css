@@ -14,6 +14,7 @@
   --invoice-light-red-color: #ff9797;
   --invoice-red-color: #ec5757;
   --invoice-muted-gray-color: #f9fafe;
+  --invoice-muted-dark-color: #373b53;
   --invoice-white-color: #fff;
 }
 
@@ -22,6 +23,10 @@
   --button-edit-color: var(--invoice-blue-color);
   --button-edit-hover-bg-color: var(--invoice-light-blue-color);
   --button-edit-hover-color: var(--invoice-blue-color);
+  --button-draft-bg-color: var(--invoice-muted-dark-color);
+  --button-draft-color: var(--invoice-medium-dark-blue-color);
+  --button-draft-hover-bg-color: var(--invoice-dark-blue-color);
+  --button-draft-hover-color: var(--invoice-medium-dark-blue-color);
   /* background */
   --invoice-bg-color: var(--invoice-white-color);
 }
@@ -31,6 +36,10 @@
   --button-edit-color: var(--invoice-light-blue-color);
   --button-edit-hover-bg-color: var(--invoice-white-color);
   --button-edit-hover-color: var(--invoice-light-blue-color);
+  --button-draft-bg-color: var(--invoice-muted-dark-color);
+  --button-draft-color: var(--invoice-light-blue-color);
+  --button-draft-hover-bg-color: var(--invoice-dark-purple-color);
+  --button-draft-hover-color: var(--invoice-light-blue-color);
   /* background */
   --invoice-bg-color: var(--invoice-dark-color);
 }
@@ -111,4 +120,14 @@
 .btn__edit:hover {
   background-color: var(--button-edit-hover-bg-color);
   color: var(--button-edit-hover-color);
+}
+
+.btn__draft {
+  background-color: var(--button-draft-bg-color);
+  color: var(--button-draft-color);
+}
+
+.btn__draft:hover {
+  background-color: var(--button-draft-hover-bg-color);
+  color: var(--button-draft-hover-color);
 }

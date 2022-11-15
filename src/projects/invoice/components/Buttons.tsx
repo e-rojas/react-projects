@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { BiPlus } from 'react-icons/bi';
+import { BiPlus, BiPulse } from 'react-icons/bi';
 interface Props {
   title: string;
   iconDisplay?: boolean;
@@ -20,6 +20,7 @@ export const DefaultButton: FC<Props> = ({
           <BiPlus size={20} className='invoice-txt-purple' />
         </div>
       )}
+      {className === 'btn__add-new-item' && <BiPlus size={20} />}
       {title}
     </button>
   );
@@ -33,6 +34,17 @@ export const EditButton: FC<Props> = ({
 }) => {
   return (
     <button onClick={handleOnClick} className={`invoice-btn ${className}`}>
+      {title}
+    </button>
+  );
+};
+
+export const DraftButton: FC<Props> = ({ title }) => {
+  return (
+    <button className='invoice-btn btn__draft'>
+      <div className='invoice-txt-purple'>
+        <BiPlus size={20} />
+      </div>
       {title}
     </button>
   );

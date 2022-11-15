@@ -13,7 +13,23 @@ const InvoiceAppProject: React.FC = () => {
       data-invoice-color={themeColor}
     >
       <h1>Invoice App</h1>
-      <DefaultButton title='New Invoice' iconDisplay={false} />
+      <DefaultButton title='Mark as Paid' iconDisplay={false} />
+      <br />
+      <DefaultButton title='New Invoice' iconDisplay={true} />
+      <br />
+      <DefaultButton title='Edit' iconDisplay={false} className='btn__edit' />
+      <br />
+      <DefaultButton
+        title='Delete'
+        iconDisplay={false}
+        className='btn__warning'
+      />
+      <br />
+      <DefaultButton
+        title='Save as Draft'
+        iconDisplay={false}
+        className='btn__draft'
+      />
       <br />
       <EditButton
         title='Edit'
