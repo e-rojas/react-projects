@@ -28,7 +28,7 @@
   --button-draft-hover-bg-color: var(--invoice-dark-blue-color);
   --button-draft-hover-color: var(--invoice-medium-dark-blue-color);
   /* background */
-  --invoice-bg-color: var(--invoice-white-color);
+  --invoice-bg-color: var(--invoice-gray-color);
 }
 
 [data-invoice-color='invoice-dark'] {
@@ -141,4 +141,18 @@
 
 .btn__add-new-item:hover {
   background-color: var(--invoice-light-blue-color);
+}
+
+/* InvoiceCard component */
+
+.invoice-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--invoice-white-color);
+  border-radius: 0.5rem;
+  padding: 1.5rem 2rem;
+
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }

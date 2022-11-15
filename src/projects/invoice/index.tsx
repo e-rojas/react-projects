@@ -1,5 +1,6 @@
 import React from 'react';
-import { DefaultButton } from './components/Buttons';
+
+import InvoiceCard from './components/InvoiceCard';
 import './styles.css';
 const InvoiceAppProject: React.FC = () => {
   const [themeColor, setThemeColor] = React.useState('');
@@ -9,36 +10,41 @@ const InvoiceAppProject: React.FC = () => {
   }, []);
   return (
     <div
-      className='invoice-application w-100  vh-100'
+      className='invoice-application w-100  vh-100 p'
       data-invoice-color={themeColor}
     >
       <h1>Invoice App</h1>
-      <DefaultButton title='Mark as Paid' iconDisplay={false} />
       <br />
-      <DefaultButton title='New Invoice' iconDisplay={true} />
-      <br />
-      <DefaultButton title='Edit' iconDisplay={false} className='btn__edit' />
-      <br />
-      <DefaultButton
-        title='Delete'
-        iconDisplay={false}
-        className='btn__warning'
-      />
-      <br />
-      <DefaultButton
-        title='Save as Draft'
-        iconDisplay={false}
-        className='btn__draft'
-      />
-      <br />
-      <DefaultButton
-        title='Add New Item'
-        iconDisplay={false}
-        className='btn__add-new-item'
-      />
-      <br />
+      <InvoiceCard invoice={sample} />
     </div>
   );
 };
 
 export default InvoiceAppProject;
+
+const sample = {
+  id: 'RT3080',
+  createdAt: '2021-08-18',
+  paymentDue: '2021-08-19',
+  description: 'Re-branding',
+  paymentTerms: 1,
+  clientName: 'Jensen Huang',
+  clientEmail: 'jensenh@mail.com',
+  status: 'paid',
+  senderAddress: {
+    street: '19 Union Terrace',
+    city: 'London',
+    postCode: 'E1 3EZ',
+    country: 'United Kingdom',
+  },
+  clientAddress: {
+    street: '106 Kendell Street',
+    city: 'Sharrington',
+    postCode: 'NR24 5WQ',
+    country: 'United Kingdom',
+  },
+  items: [
+    { name: 'Brand Guidelines', quantity: 1, price: 1800.9, total: 1800.9 },
+  ],
+  total: 1800.9,
+};
