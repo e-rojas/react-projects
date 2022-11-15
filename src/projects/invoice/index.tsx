@@ -1,5 +1,5 @@
 import React from 'react';
-import { DefaultButton, EditButton } from './components/Buttons';
+import { DefaultButton } from './components/Buttons';
 import './styles.css';
 const InvoiceAppProject: React.FC = () => {
   const [themeColor, setThemeColor] = React.useState('');
@@ -31,14 +31,12 @@ const InvoiceAppProject: React.FC = () => {
         className='btn__draft'
       />
       <br />
-      <EditButton
-        title='Edit'
-        handleOnClick={() => {
-          themeColor === 'invoice-light'
-            ? setThemeColor('invoice-dark')
-            : setThemeColor('invoice-light');
-        }}
+      <DefaultButton
+        title='Add New Item'
+        iconDisplay={false}
+        className='btn__add-new-item'
       />
+      <br />
     </div>
   );
 };

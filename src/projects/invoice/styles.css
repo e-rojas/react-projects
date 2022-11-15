@@ -131,3 +131,14 @@
   background-color: var(--button-draft-hover-bg-color);
   color: var(--button-draft-hover-color);
 }
+
+.btn__add-new-item {
+  background-color: var(--invoice-muted-gray-color);
+  color: var(--invoice-blue-color);
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+}
+
+.btn__add-new-item:hover {
+  background-color: var(--invoice-light-blue-color);
+}
