@@ -8,7 +8,10 @@ const InvoiceAppProject: React.FC = () => {
     setThemeColor('invoice-light');
   }, []);
   return (
-    <div className='w-100  vh-100' data-invoice-color={themeColor}>
+    <div
+      className='invoice-application w-100  vh-100'
+      data-invoice-color={themeColor}
+    >
       <h1>Invoice App</h1>
       <DefaultButton title='New Invoice' iconDisplay={false} />
       <br />

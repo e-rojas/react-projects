@@ -22,13 +22,24 @@
   --button-edit-color: var(--invoice-blue-color);
   --button-edit-hover-bg-color: var(--invoice-light-blue-color);
   --button-edit-hover-color: var(--invoice-blue-color);
+  /* background */
+  --invoice-bg-color: var(--invoice-white-color);
 }
 
 [data-invoice-color='invoice-dark'] {
   --button-edit-bg-color: var(--invoice-dark-purple-color);
   --button-edit-color: var(--invoice-light-blue-color);
-  --button-edit-hover-bg-color: var(--invoice-gray-color);
-  --button-edit-hover-color: var(--invoice-white-color);
+  --button-edit-hover-bg-color: var(--invoice-white-color);
+  --button-edit-hover-color: var(--invoice-light-blue-color);
+  /* background */
+  --invoice-bg-color: var(--invoice-dark-color);
+}
+
+/* main application wrapper */
+.invoice-application {
+  background-color: var(--invoice-bg-color);
+
+  transition: background-color 0.5s ease;
 }
 
 /* color */
