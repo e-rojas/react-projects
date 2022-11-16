@@ -1,50 +1,37 @@
 import React from 'react';
 
 import InvoiceCard from './components/InvoiceCard';
+import Sidebar from './components/Bar';
+import { Invoice } from './models/Invoice.interface';
+import data from './data.json';
 import './styles.css';
 const InvoiceAppProject: React.FC = () => {
+  const invoiceData = data as Invoice[];
   const [themeColor, setThemeColor] = React.useState('');
+  const [invoices, setInvoices] = React.useState<Invoice[] | null>(null);
 
   React.useEffect(() => {
     setThemeColor('invoice-light');
-  }, []);
+    setInvoices(invoiceData);
+  }, [invoiceData]);
+
   return (
     <div
-      className='invoice-application w-100  vh-100 p'
+      className='invoice-application w-100  vh-100  display-desktop'
       data-invoice-color={themeColor}
     >
-      <h1>Invoice App</h1>
-      <br />
-      <InvoiceCard invoice={sample} />
+      <Sidebar theme={themeColor} setThemeColor={setThemeColor} />
+
+      <div className='w-100 p'>
+        <h1>Invoice App</h1>
+        <br />
+        {invoices &&
+          invoices.map((invoice) => (
+            <InvoiceCard key={invoice.id} invoice={invoice} />
+          ))}
+      </div>
     </div>
   );
 };
 
 export default InvoiceAppProject;
-
-const sample = {
-  id: 'RT3080',
-  createdAt: '2021-08-18',
-  paymentDue: '2021-08-19',
-  description: 'Re-branding',
-  paymentTerms: 1,
-  clientName: 'Jensen Huang',
-  clientEmail: 'jensenh@mail.com',
-  status: 'paid',
-  senderAddress: {
-    street: '19 Union Terrace',
-    city: 'London',
-    postCode: 'E1 3EZ',
-    country: 'United Kingdom',
-  },
-  clientAddress: {
-    street: '106 Kendell Street',
-    city: 'Sharrington',
-    postCode: 'NR24 5WQ',
-    country: 'United Kingdom',
-  },
-  items: [
-    { name: 'Brand Guidelines', quantity: 1, price: 1800.9, total: 1800.9 },
-  ],
-  total: 1800.97,
-};
