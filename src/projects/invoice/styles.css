@@ -34,7 +34,7 @@
   --button-draft-hover-bg-color: var(--invoice-dark-blue-color);
   --button-draft-hover-color: var(--invoice-medium-dark-blue-color);
   /* primary base colors */
-  --invoice-primary-dark-color: var(--invoice-dark-color);
+  --invoice-primary-color: var(--invoice-dark-color); /* dark/white */
   /* background */
   --invoice-bg-color: var(--invoice-gray-color);
   --invoice-status-draft-bg-color: var(--invoic-muted-washed-color);
@@ -45,6 +45,9 @@
   --invoice-card-client: var(--invoice-blue-color);
   /* modal */
   --invoice-modal-bg-color: var(--invoice-white-color);
+  /* form */
+  --invoice-form-label-color: var(--invoice-blue-color);
+  --invoice-form-input-border-color: var(--invoice-light-blue-color);
 }
 
 [data-invoice-color='invoice-dark'] {
@@ -57,7 +60,7 @@
   --button-draft-hover-bg-color: var(--invoice-dark-purple-color);
   --button-draft-hover-color: var(--invoice-light-blue-color);
   /* primary base colors */
-  --invoice-primary-dark-color: var(--invoice-white-color);
+  --invoice-primary-color: var(--invoice-white-color);
   /* background */
   --invoice-bg-color: var(--invoice-dark-color);
   --invoice-status-draft-bg-color: var(--invoice-muted-dark-color);
@@ -69,6 +72,9 @@
   --invoice-card-client: var(--invoice-light-blue-color);
   /* modal */
   --invoice-modal-bg-color: var(--invoice-dark-color);
+  /* form */
+  --invoice-form-label-color: var(--invoice-white-color);
+  --invoice-form-input-border-color: #25453a;
 }
 
 /* main application wrapper */
@@ -81,7 +87,7 @@
 .invoice-application h1 {
   font-size: 1.7rem;
   font-weight: 700;
-  color: var(--invoice-primary-dark-color);
+  color: var(--invoice-primary-color);
   margin: 0 0 1rem 0;
   font-family: 'League Spartan', sans-serif;
 }
@@ -194,7 +200,7 @@
 }
 
 .invoice-card__id {
-  color: var(--invoice-primary-dark-color);
+  color: var(--invoice-primary-color);
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.025rem;
@@ -400,7 +406,7 @@
   position: absolute;
   top: 100;
   left: 50px;
-  min-width: 50%;
+  min-width: 60%;
   height: 100%;
   background-color: var(--invoice-modal-bg-color);
   border-radius: 1rem;
@@ -431,7 +437,80 @@
   justify-content: space-between;
   align-items: flex-start;
   height: 100%;
-  background-color: rgb(239, 243, 247); /* remove */
+  padding-right: 1.2rem;
+}
+
+.invoice-form__input {
+  border: 1px solid var(--invoice-form-input-border-color);
+  border-radius: 0.2rem;
+  background-color: var(--invoice-form-input-bg-color);
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 14px 10px;
+  line-height: normal;
+  color: var(--invoice-primary-color);
+  margin: 0 0 1rem 0;
+}
+
+input[type='date'].invoice-form__date__input {
+  border: 1px solid var(--invoice-form-input-border-color);
+  border-radius: 0.2rem;
+  background-color: var(--invoice-form-input-bg-color);
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 14px 10px;
+  line-height: normal;
+  color: var(--invoice-primary-color);
+  margin: 0 0 1rem 0;
+}
+
+input[type='date' i]::-webkit-calendar-picker-indicator {
+  background-image: url('./assets//icon-calendar.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+::-webkit-calendar-picker-indicator {
+  background-image: url('./assets//icon-calendar.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.invoice-form__input:active,
+.invoice-form__input:focus {
+  outline: solid 1px var(--invoice-light-purple-color);
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.invoice-form__label {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--invoice-form-label-color);
+}
+
+.invoice-form__body {
+  height: 100%;
+}
+
+.invoice-form__body__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--invoice-purple-color);
+  margin: 0 0 1rem 0;
 }
 
 .invoice-form__footer {
