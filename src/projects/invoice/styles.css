@@ -43,6 +43,9 @@
   --invoice-card-date: var(--invoice-blue-color);
   --invoice-card-client: var(--invoice-blue-color);
   --invoice-card-total: var(--invoice-dark-color);
+
+  /* modal */
+  --invoice-modal-bg-color: var(--invoice-white-color);
 }
 
 [data-invoice-color='invoice-dark'] {
@@ -65,6 +68,9 @@
   --invoice-card-date: var(--invoice-light-blue-color);
   --invoice-card-client: var(--invoice-light-blue-color);
   --invoice-card-total: var(--invoice-white-color);
+
+  /* modal */
+  --invoice-modal-bg-color: var(--invoice-dark-color);
 }
 
 /* main application wrapper */
@@ -282,7 +288,7 @@
   width: 103px;
   height: 100vh;
   background-color: var(--invoice-sidebar-color);
-
+  z-index: 3;
   border-radius: 0 1rem 1rem 0;
 }
 
@@ -358,4 +364,66 @@
 
 .no-invoices span {
   font-weight: bolder;
+}
+
+/* modal  */
+.invoice-application-modal {
+  z-index: 1;
+  position: absolute;
+  top: 100;
+  left: 100;
+  width: 1000px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.invoice-application-modal.active {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  z-index: 0;
+}
+
+.invoice-application-modal.inactive {
+  opacity: 0;
+  width: 0px;
+  transition: all 0.3s ease-in-out;
+}
+
+.invoice-application-modal__container {
+  z-index: 2;
+  position: absolute;
+  top: 100;
+  left: 50px;
+  min-width: 50%;
+  height: 100%;
+  background-color: var(--invoice-modal-bg-color);
+  border-radius: 1rem;
+  padding: 3rem 0 0 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.invoice-application-modal.active .invoice-application-modal__container {
+  transform: translateX(0);
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.invoice-application-modal__container h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--invoice-card-total);
+  margin: 0 0 1rem 0;
+}
+
+.invoice-application-modal__container__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 3rem 3rem 0;
 }
