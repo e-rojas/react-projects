@@ -12,6 +12,7 @@ const Sidebar: React.FC<Props> = ({ theme, setThemeColor }) => {
     <div className='invoice-sidebar'>
       <div className='invoice-sidebar__logo'>
         <img src={logo} alt='logo' />
+        <div className='invoice-sidebar__logo-fill'></div>
       </div>
       <div className='invoice-sidebar__footer w-100 center'>
         {theme === 'invoice-light' ? (
