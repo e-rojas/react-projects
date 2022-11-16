@@ -33,17 +33,16 @@
   --button-draft-color: var(--invoice-medium-dark-blue-color);
   --button-draft-hover-bg-color: var(--invoice-dark-blue-color);
   --button-draft-hover-color: var(--invoice-medium-dark-blue-color);
+  /* primary base colors */
+  --invoice-primary-dark-color: var(--invoice-dark-color);
   /* background */
   --invoice-bg-color: var(--invoice-gray-color);
   --invoice-status-draft-bg-color: var(--invoic-muted-washed-color);
   --invoice-status-draft-color: var(--invoice-medium-dark-blue-color);
   /* card */
   --invoice-card-bg-color: var(--invoice-white-color);
-  --invoice-card-id: var(--invoice-dark-color);
   --invoice-card-date: var(--invoice-blue-color);
   --invoice-card-client: var(--invoice-blue-color);
-  --invoice-card-total: var(--invoice-dark-color);
-
   /* modal */
   --invoice-modal-bg-color: var(--invoice-white-color);
 }
@@ -57,6 +56,8 @@
   --button-draft-color: var(--invoice-light-blue-color);
   --button-draft-hover-bg-color: var(--invoice-dark-purple-color);
   --button-draft-hover-color: var(--invoice-light-blue-color);
+  /* primary base colors */
+  --invoice-primary-dark-color: var(--invoice-white-color);
   /* background */
   --invoice-bg-color: var(--invoice-dark-color);
   --invoice-status-draft-bg-color: var(--invoice-muted-dark-color);
@@ -64,11 +65,8 @@
 
   /* card */
   --invoice-card-bg-color: var(--invoice-medium-dark-purple-color);
-  --invoice-card-id: var(--invoice-white-color);
   --invoice-card-date: var(--invoice-light-blue-color);
   --invoice-card-client: var(--invoice-light-blue-color);
-  --invoice-card-total: var(--invoice-white-color);
-
   /* modal */
   --invoice-modal-bg-color: var(--invoice-dark-color);
 }
@@ -76,8 +74,16 @@
 /* main application wrapper */
 .invoice-application {
   background-color: var(--invoice-bg-color);
-
   transition: background-color 0.5s ease;
+  font-family: 'League Spartan', sans-serif;
+}
+
+.invoice-application h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--invoice-primary-dark-color);
+  margin: 0 0 1rem 0;
+  font-family: 'League Spartan', sans-serif;
 }
 
 /* color */
@@ -188,7 +194,7 @@
 }
 
 .invoice-card__id {
-  color: var(--invoice-card-id);
+  color: var(--invoice-primary-dark-color);
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.025rem;
@@ -412,18 +418,27 @@
   opacity: 1;
 }
 
-.invoice-application-modal__container h1 {
+.invoice-application-modal__container__title {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--invoice-card-total);
   margin: 0 0 1rem 0;
 }
 
-.invoice-application-modal__container__footer {
+.invoice-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  background-color: rgb(239, 243, 247); /* remove */
+}
+
+.invoice-form__footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
-  padding: 0 3rem 3rem 0;
+  padding: 1rem 0;
 }

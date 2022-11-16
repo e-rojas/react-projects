@@ -4,6 +4,7 @@ import InvoiceCard from './components/InvoiceCard';
 import Sidebar from './components/Bar';
 import { Invoice } from './models/Invoice.interface';
 import Modal from './components/Modal';
+import InvoiceForm from './components/InvoiceForm';
 import data from './data.json';
 import './styles.css';
 import NoInvoices from './components/NoInvoices';
@@ -24,12 +25,14 @@ const InvoiceAppProject: React.FC = () => {
       className='invoice-application w-100  vh-100  display-desktop'
       data-invoice-color={themeColor}
     >
-      <Modal visible={visible} setVisible={setVisible} title='New Invoice' />
+      <Modal visible={visible} setVisible={setVisible} title='New Invoice'>
+        <InvoiceForm visible={visible} setVisible={setVisible} />
+      </Modal>
       <Sidebar theme={themeColor} setThemeColor={setThemeColor} />
       <div className='w-100 p'>
         <h1>Invoice App</h1>
         <DefaultButton
-          title='Save & Send'
+          title='Open Modal'
           iconDisplay={false}
           handleOnClick={() => setVisible(true)}
         />
