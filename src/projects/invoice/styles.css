@@ -82,6 +82,10 @@
   background-color: var(--invoice-bg-color);
   transition: background-color 0.5s ease;
   font-family: 'League Spartan', sans-serif;
+  min-height: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .invoice-application h1 {
@@ -293,31 +297,42 @@
 /* side bar */
 
 .invoice-sidebar {
+  width: 100%;
+  height: 73px;
   display: flex;
+  background-color: var(--invoice-sidebar-color);
+  display: flex;
+  justify-content: space-between;
+  /* display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 103px;
-  height: 100vh;
-  background-color: var(--invoice-sidebar-color);
-  z-index: 3;
-  border-radius: 0 1rem 1rem 0;
+  min-height: 100%;
+  z-index: 6;
+  border-radius: 0 1rem 1rem 0; */
 }
 
 .invoice-sidebar__logo {
-  background-color: var(--invoice-purple-color);
-  width: 100%;
-  height: 103px;
-  border-radius: 0 1rem 1rem 0;
+  width: 100px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background-color: var(--invoice-purple-color);
+  width: 72px;
+  height: 72px;
+  /* justify-content: center; */
+  /* background-color: var(--invoice-purple-color);
+  width: 100%;
+  height: 103px;
+  align-items: center; */
+  border-radius: 0 1rem 1rem 0;
 }
 
 .invoice-sidebar__logo img {
-  width: 40px;
-  height: 40px;
+  width: 26px;
+  height: 26px;
   z-index: 6;
   position: absolute;
 }
@@ -325,16 +340,38 @@
 .invoice-sidebar__logo-fill {
   position: relative;
   width: 100%;
-  height: 50px;
+  height: 50%;
   background-color: var(--invoice-light-purple-color);
-  top: 25%;
+  /* top: 25%; */
+  /* bottom: -50%; */
+  bottom: -25%;
   border-radius: 1rem 0 1rem 0;
+}
+
+.invoice-sidebar__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.invoice-sidebar__footer__icon__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 2rem;
+  border-right: 2px solid #494e6e;
+}
+
+.invoice-sidebar__footer-avatar {
+  padding: 0 2rem;
 }
 
 .invoice-sidebar__footer-icon {
   color: var(--invoice-blue-color);
   font-size: 1.3rem;
-  margin: 0 0 1rem 0;
+  /* margin: 0 0 1rem 0; */
   cursor: pointer;
 }
 
@@ -380,7 +417,7 @@
 
 /* modal  */
 .invoice-application-modal {
-  z-index: 1;
+  z-index: 3;
   position: absolute;
   top: 100;
   left: 100;
@@ -470,7 +507,6 @@ input[type='date' i]::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 1.2rem;
   width: 1.5rem;
-  /* height: 1.5rem; */
   cursor: pointer;
 }
 
@@ -527,4 +563,20 @@ input[type='date' i]::-webkit-calendar-picker-indicator {
   align-items: center;
   width: 100%;
   padding: 1rem 0;
+}
+
+/* query */
+
+@media (min-width: 768px) {
+  .invoice-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 103px;
+    min-height: 100%;
+    background-color: var(--invoice-sidebar-color);
+    z-index: 6;
+    border-radius: 0 1rem 1rem 0;
+  }
 }

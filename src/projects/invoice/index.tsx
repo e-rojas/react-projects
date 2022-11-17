@@ -21,31 +21,30 @@ const InvoiceAppProject: React.FC = () => {
   }, [invoiceData]);
 
   return (
-    <div
-      className='invoice-application w-100  vh-100  display-desktop'
-      data-invoice-color={themeColor}
-    >
-      <Modal visible={visible} setVisible={setVisible} title='New Invoice'>
-        <InvoiceForm visible={visible} setVisible={setVisible} />
-      </Modal>
-      <Sidebar theme={themeColor} setThemeColor={setThemeColor} />
-      <div className='w-100 p'>
-        <h1>Invoice App</h1>
-        <DefaultButton
-          title='Open Modal'
-          iconDisplay={false}
-          handleOnClick={() => setVisible(true)}
-        />
-        <br />
-        {invoices && invoices.length > 0 ? (
-          invoices.map((invoice) => (
-            <InvoiceCard key={invoice.id} invoice={invoice} />
-          ))
-        ) : (
-          <NoInvoices />
-        )}
+    <>
+      <div className='invoice-application' data-invoice-color={themeColor}>
+        {/* <Modal visible={visible} setVisible={setVisible} title='New Invoice'>
+          <InvoiceForm visible={visible} setVisible={setVisible} />
+        </Modal> */}
+        <Sidebar theme={themeColor} setThemeColor={setThemeColor} />
+        {/* <div className='w-100 p'>
+          <h1>Invoice App</h1>
+          <DefaultButton
+            title='Open Modal'
+            iconDisplay={false}
+            handleOnClick={() => setVisible(true)}
+          />
+          <br />
+          {invoices && invoices.length > 0 ? (
+            invoices.map((invoice) => (
+              <InvoiceCard key={invoice.id} invoice={invoice} />
+            ))
+          ) : (
+            <NoInvoices />
+          )}
+        </div> */}
       </div>
-    </div>
+    </>
   );
 };
 

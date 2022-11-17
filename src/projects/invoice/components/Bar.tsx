@@ -14,19 +14,21 @@ const Sidebar: React.FC<Props> = ({ theme, setThemeColor }) => {
         <img src={logo} alt='logo' />
         <div className='invoice-sidebar__logo-fill'></div>
       </div>
-      <div className='invoice-sidebar__footer w-100 center'>
-        {theme === 'invoice-light' ? (
-          <BsFillMoonFill
-            onClick={() => setThemeColor('invoice-dark')}
-            className='invoice-sidebar__footer-icon'
-          />
-        ) : (
-          <BsSunFill
-            onClick={() => setThemeColor('invoice-light')}
-            className='invoice-sidebar__footer-icon'
-          />
-        )}
-        <hr />
+      <div className='invoice-sidebar__footer '>
+        <div className='invoice-sidebar__footer__icon__wrapper'>
+          {theme === 'invoice-light' ? (
+            <BsFillMoonFill
+              onClick={() => setThemeColor('invoice-dark')}
+              className='invoice-sidebar__footer-icon'
+            />
+          ) : (
+            <BsSunFill
+              onClick={() => setThemeColor('invoice-light')}
+              className='invoice-sidebar__footer-icon'
+            />
+          )}
+        </div>
+
         <div className='invoice-sidebar__footer-avatar'>
           <img src={avatar} alt='' />
         </div>
