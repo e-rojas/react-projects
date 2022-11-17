@@ -27,7 +27,7 @@ const InvoiceAppProject: React.FC = () => {
           <InvoiceForm visible={visible} setVisible={setVisible} />
         </Modal> */}
         <Sidebar theme={themeColor} setThemeColor={setThemeColor} />
-        {/* <div className='w-100 p'>
+        <div className='w-100 p'>
           <h1>Invoice App</h1>
           <DefaultButton
             title='Open Modal'
@@ -35,14 +35,16 @@ const InvoiceAppProject: React.FC = () => {
             handleOnClick={() => setVisible(true)}
           />
           <br />
-          {invoices && invoices.length > 0 ? (
-            invoices.map((invoice) => (
-              <InvoiceCard key={invoice.id} invoice={invoice} />
-            ))
-          ) : (
-            <NoInvoices />
-          )}
-        </div> */}
+          <div className='invoice-card__container'>
+            {invoices && invoices.length > 0 ? (
+              invoices.map((invoice) => (
+                <InvoiceCard key={invoice.id} invoice={invoice} />
+              ))
+            ) : (
+              <NoInvoices />
+            )}
+          </div>
+        </div>
       </div>
     </>
   );

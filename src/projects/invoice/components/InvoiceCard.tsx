@@ -15,7 +15,7 @@ const InvoiceCard: React.FC<Props> = ({ invoice }) => {
       </span>
       <span className='invoice-card__client'>{invoice.clientName}</span>
       <span className='invoice-card__total'>{invoice.total}</span>
-      <div className='flex-row-center'>
+      <div className='invoice-card__status__wrapper'>
         <span className={`invoice-card__status state-${invoice.status}`}>
           {invoice.status}
         </span>
