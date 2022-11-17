@@ -54,7 +54,7 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
         />
         <SmartInput
           labelTitle='Client Email'
-          type='text'
+          type='email'
           name='clientEmail'
           value=''
           onchange={() => {}}
@@ -106,7 +106,7 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
           />
           <SmartInput
             labelTitle='Payment Terms'
-            type='text'
+            type='select'
             name='paymentTerms'
             value=''
             onchange={() => {}}

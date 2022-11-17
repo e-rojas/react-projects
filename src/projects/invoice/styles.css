@@ -406,7 +406,8 @@
   position: absolute;
   top: 100;
   left: 50px;
-  min-width: 50%;
+  /* min-width: 50%; */
+  max-width: 50%;
   height: 100%;
   background-color: var(--invoice-modal-bg-color);
   border-radius: 1rem;
@@ -471,6 +472,18 @@ input[type='date' i]::-webkit-calendar-picker-indicator {
   width: 1.5rem;
   /* height: 1.5rem; */
   cursor: pointer;
+}
+
+.invoice-form__select {
+  border: 1px solid var(--invoice-form-input-border-color) !important;
+  border-radius: 0.2rem;
+  width: 100%;
+  color: var(--invoice-primary-color);
+  margin: 0 0 1rem 0;
+}
+.react-select__control,
+.react-select__menu {
+  background-color: var(--invoice-form-input-bg-color) !important;
 }
 
 ::-webkit-datetime-edit-fields-wrapper {
