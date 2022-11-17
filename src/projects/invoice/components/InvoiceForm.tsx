@@ -24,7 +24,7 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
             name='city'
             value=''
             onchange={() => {}}
-            className='w-30'
+            className='w-25'
           />
           <SmartInput
             labelTitle='Post Code'
@@ -32,7 +32,7 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
             name='postCode'
             value=''
             onchange={() => {}}
-            className='w-30'
+            className='w-25'
           />
           <SmartInput
             labelTitle='Country'
@@ -75,7 +75,7 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
             name='city'
             value=''
             onchange={() => {}}
-            className='w-30'
+            className='w-25'
           />
           <SmartInput
             labelTitle='Post Code'
@@ -83,7 +83,7 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
             name='postCode'
             value=''
             onchange={() => {}}
-            className='w-30'
+            className='w-25'
           />
           <SmartInput
             labelTitle='Country'
@@ -91,17 +91,35 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
             name='country'
             value=''
             onchange={() => {}}
-            className='w-30'
+            className='w-25'
           />
         </div>
 
+        <div className='flex-spread'>
+          <SmartInput
+            labelTitle='Issue Date'
+            type='date'
+            name='issueDate'
+            value=''
+            onchange={() => {}}
+            className='w-45'
+          />
+          <SmartInput
+            labelTitle='Payment Terms'
+            type='text'
+            name='paymentTerms'
+            value=''
+            onchange={() => {}}
+            className='w-45'
+          />
+        </div>
         <SmartInput
-          labelTitle='Issue Date'
-          type='date'
-          name='issueDate'
+          labelTitle='Project Description'
+          type='text'
+          name='projectDescription'
           value=''
           onchange={() => {}}
-          className='w-30'
+          className='w-100'
         />
       </div>
       <div className='invoice-form__footer'>

@@ -406,7 +406,7 @@
   position: absolute;
   top: 100;
   left: 50px;
-  min-width: 60%;
+  min-width: 50%;
   height: 100%;
   background-color: var(--invoice-modal-bg-color);
   border-radius: 1rem;
@@ -446,7 +446,7 @@
   background-color: var(--invoice-form-input-bg-color);
   width: 100%;
   font-size: 1.2rem;
-  padding: 14px 10px;
+  padding: 0.5rem 0.5rem;
   line-height: normal;
   color: var(--invoice-primary-color);
   margin: 0 0 1rem 0;
@@ -457,31 +457,25 @@ input[type='date'].invoice-form__date__input {
   border-radius: 0.2rem;
   background-color: var(--invoice-form-input-bg-color);
   width: 100%;
-  font-size: 1.2rem;
-  padding: 14px 10px;
+  font-size: 1rem;
+  padding: 0.5rem 0.5rem;
   line-height: normal;
-  color: var(--invoice-primary-color);
   margin: 0 0 1rem 0;
 }
 
 input[type='date' i]::-webkit-calendar-picker-indicator {
-  background-image: url('./assets//icon-calendar.svg');
+  background-image: url('./assets/icon-calendar.svg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 1.5rem;
+  background-size: 1.2rem;
   width: 1.5rem;
-  height: 1.5rem;
+  /* height: 1.5rem; */
   cursor: pointer;
 }
 
-::-webkit-calendar-picker-indicator {
-  background-image: url('./assets//icon-calendar.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 1.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  cursor: pointer;
+::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+  color: var(--invoice-primary-color);
 }
 
 .invoice-form__input:active,
