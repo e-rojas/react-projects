@@ -22,7 +22,7 @@ export const DefaultButton: FC<Props> = ({
           <BiPlus size={20} className='invoice-txt-purple' />
         </div>
       )}
-      {className === 'btn__add-new-item' && <BiPlus size={14} />}
+      {className.includes('btn__add-new-item') && <BiPlus size={14} />}
       {title}
     </button>
   );

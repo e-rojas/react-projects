@@ -1,6 +1,28 @@
 import React from 'react';
-import { DefaultButton, RemoveItemButton } from './Buttons';
+import { DefaultButton } from './Buttons';
 import SmartInput from './SmartInput';
+import Item from './Item';
+import InterfaceItem from '../models/Item.interface';
+const items: InterfaceItem[] = [
+  {
+    id: '1',
+    name: 'Web Design',
+    quantity: 2,
+    price: 124.88,
+  },
+  {
+    id: '2',
+    name: 'Mobile App',
+    quantity: 1,
+    price: 634.36,
+  },
+  {
+    id: '3',
+    name: 'Web Development',
+    quantity: 1,
+    price: 234.88,
+  },
+];
 interface Props {
   visible: boolean;
   setVisible: React.Dispatch<React.SetStateAction<boolean>>;
@@ -124,41 +146,14 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
         <div className='invoice-form__items'>
           <h1 className='invoice-form__items__title'>Item List</h1>
           <div className='invoice-form__input__wrapper'>
-            <SmartInput
-              labelTitle='Item Name'
-              type='text'
-              name='itemName'
-              value='Web Design'
-              onchange={() => {}}
-              className='item-name-input'
+            {items.map((item) => (
+              <Item item={item} key={item.id} />
+            ))}
+            <DefaultButton
+              title='Add New Item'
+              iconDisplay={false}
+              className='btn__add-new-item w-100'
             />
-            <SmartInput
-              labelTitle='Qty.'
-              type='number'
-              name='qty'
-              value=''
-              onchange={() => {}}
-              className='item-quantity-input'
-            />
-            <SmartInput
-              labelTitle='Price'
-              type='number'
-              name='price'
-              value='234.88'
-              onchange={() => {}}
-              className='item-price-input'
-            />
-            <SmartInput
-              labelTitle='Total'
-              type='number'
-              name='total'
-              value='234.88'
-              onchange={() => {}}
-              className='item-total-input read-only'
-            />
-            <div className='remove-item-button center'>
-              <RemoveItemButton handleOnClick={() => {}} title='' />
-            </div>
           </div>
         </div>
       </div>
