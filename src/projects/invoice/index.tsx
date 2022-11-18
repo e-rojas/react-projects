@@ -24,7 +24,7 @@ const InvoiceAppProject: React.FC = () => {
     <>
       <div className='invoice-application' data-invoice-color={themeColor}>
         <Modal visible={visible} setVisible={setVisible} title='New Invoice'>
-          {/* <InvoiceForm visible={visible} setVisible={setVisible} /> */}
+          <InvoiceForm visible={visible} setVisible={setVisible} />
         </Modal>
         <Sidebar theme={themeColor} setThemeColor={setThemeColor} />
         <div className='w-100 p'>
