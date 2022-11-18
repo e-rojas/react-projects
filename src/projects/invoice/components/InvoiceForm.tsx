@@ -1,5 +1,5 @@
 import React from 'react';
-import { DefaultButton } from './Buttons';
+import { DefaultButton, RemoveItemButton } from './Buttons';
 import SmartInput from './SmartInput';
 interface Props {
   visible: boolean;
@@ -17,7 +17,7 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
           value=''
           onchange={() => {}}
         />
-        <div className=' invoice-form__body__input__wrapper'>
+        <div className=' invoice-form__input__wrapper'>
           <SmartInput
             labelTitle='City'
             type='text'
@@ -68,7 +68,7 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
           onchange={() => {}}
           className='w-100'
         />
-        <div className=' invoice-form__body__input__wrapper'>
+        <div className=' invoice-form__input__wrapper'>
           <SmartInput
             labelTitle='City'
             type='text'
@@ -95,7 +95,7 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
           />
         </div>
 
-        <div className='invoice-form__body__input__wrapper'>
+        <div className='invoice-form__input__wrapper'>
           <SmartInput
             labelTitle='Issue Date'
             type='date'
@@ -121,7 +121,48 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
           onchange={() => {}}
           className='w-100'
         />
+        <div className='invoice-form__items'>
+          <h1 className='invoice-form__items__title'>Item List</h1>
+          <div className='invoice-form__input__wrapper'>
+            <SmartInput
+              labelTitle='Item Name'
+              type='text'
+              name='itemName'
+              value='Web Design'
+              onchange={() => {}}
+              className='item-name-input'
+            />
+            <SmartInput
+              labelTitle='Qty.'
+              type='number'
+              name='qty'
+              value=''
+              onchange={() => {}}
+              className='item-quantity-input'
+            />
+            <SmartInput
+              labelTitle='Price'
+              type='number'
+              name='price'
+              value='234.88'
+              onchange={() => {}}
+              className='item-price-input'
+            />
+            <SmartInput
+              labelTitle='Total'
+              type='number'
+              name='total'
+              value='234.88'
+              onchange={() => {}}
+              className='item-total-input read-only'
+            />
+            <div className='remove-item-button center'>
+              <RemoveItemButton handleOnClick={() => {}} title='' />
+            </div>
+          </div>
+        </div>
       </div>
+
       <div className='invoice-form__footer'>
         <DefaultButton
           title='Discard'
