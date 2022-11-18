@@ -473,7 +473,8 @@
   /* background-color: orange; */
 
   /* padding: 3rem 0 0 4rem; */
-  padding: 1rem;
+  /* padding: 1rem; */
+  padding-left: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -572,7 +573,28 @@ input[type='date' i]::-webkit-calendar-picker-indicator {
 }
 
 .invoice-form__body {
+  /* ATTENTION ON PHONE DISPLAY */
   height: 100%;
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+.invoice-form__body__input__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.invoice-form__body__input__wrapper .city-input,
+.invoice-form__body__input__wrapper .post-code-input {
+  width: 40%;
+}
+
+.invoice-form__body__input__wrapper .country-input,
+.invoice-form__body__input__wrapper .date-input,
+.invoice-form__body__input__wrapper .select-input {
+  width: 100%;
 }
 
 .invoice-form__body__title {
@@ -679,5 +701,16 @@ input[type='date' i]::-webkit-calendar-picker-indicator {
   .invoice-application-modal__container {
     padding-left: 8rem;
     max-width: 70%;
+  }
+
+  .invoice-form__body__input__wrapper .city-input,
+  .invoice-form__body__input__wrapper .post-code-input,
+  .invoice-form__body__input__wrapper .country-input {
+    width: 30%;
+  }
+
+  .invoice-form__body__input__wrapper .date-input,
+  .invoice-form__body__input__wrapper .select-input {
+    width: 45%;
   }
 }

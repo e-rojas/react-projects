@@ -8,7 +8,7 @@ import InvoiceForm from './components/InvoiceForm';
 import data from './data.json';
 import './styles.css';
 import NoInvoices from './components/NoInvoices';
-import { DefaultButton, GoBackButton } from './components/Buttons';
+import { DefaultButton } from './components/Buttons';
 const InvoiceAppProject: React.FC = () => {
   const [visible, setVisible] = React.useState(true);
   const invoiceData = data as Invoice[];

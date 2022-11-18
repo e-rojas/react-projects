@@ -17,14 +17,14 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
           value=''
           onchange={() => {}}
         />
-        <div className=' flex-spread'>
+        <div className=' invoice-form__body__input__wrapper'>
           <SmartInput
             labelTitle='City'
             type='text'
             name='city'
             value=''
             onchange={() => {}}
-            className='w-25'
+            className='city-input'
           />
           <SmartInput
             labelTitle='Post Code'
@@ -32,7 +32,7 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
             name='postCode'
             value=''
             onchange={() => {}}
-            className='w-25'
+            className='post-code-input'
           />
           <SmartInput
             labelTitle='Country'
@@ -40,7 +40,7 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
             name='country'
             value=''
             onchange={() => {}}
-            className='w-33'
+            className='country-input'
           />
         </div>
         <h3 className='invoice-form__body__title'>Bill To</h3>
@@ -68,14 +68,14 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
           onchange={() => {}}
           className='w-100'
         />
-        <div className=' flex-spread'>
+        <div className=' invoice-form__body__input__wrapper'>
           <SmartInput
             labelTitle='City'
             type='text'
             name='city'
             value=''
             onchange={() => {}}
-            className='w-25'
+            className='city-input'
           />
           <SmartInput
             labelTitle='Post Code'
@@ -83,7 +83,7 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
             name='postCode'
             value=''
             onchange={() => {}}
-            className='w-25'
+            className='post-code-input'
           />
           <SmartInput
             labelTitle='Country'
@@ -91,18 +91,18 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
             name='country'
             value=''
             onchange={() => {}}
-            className='w-25'
+            className='country-input'
           />
         </div>
 
-        <div className='flex-spread'>
+        <div className='invoice-form__body__input__wrapper'>
           <SmartInput
             labelTitle='Issue Date'
             type='date'
             name='issueDate'
             value=''
             onchange={() => {}}
-            className='w-45'
+            className='date-input'
           />
           <SmartInput
             labelTitle='Payment Terms'
@@ -110,7 +110,7 @@ const InvoiceForm: React.FC<Props> = ({ visible, setVisible }) => {
             name='paymentTerms'
             value=''
             onchange={() => {}}
-            className='w-45'
+            className='select-input'
           />
         </div>
         <SmartInput
