@@ -1,10 +1,10 @@
 import React from 'react';
 import { RemoveItemButton } from './Buttons';
 import SmartInput from './SmartInput';
-import InterfaceItem from '../models/Item.interface';
+import ItemType from '../models/Item.interface';
 
 interface Props {
-  item: InterfaceItem;
+  item: ItemType;
 }
 const Item: React.FC<Props> = ({ item: { id, name, quantity, price } }) => {
   return (

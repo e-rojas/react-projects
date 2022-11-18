@@ -2,8 +2,8 @@ import React from 'react';
 import { DefaultButton } from './Buttons';
 import SmartInput from './SmartInput';
 import Item from './Item';
-import InterfaceItem from '../models/Item.interface';
-const items: InterfaceItem[] = [
+import ItemType from '../models/Item.interface';
+const items: ItemType[] = [
   {
     id: '1',
     name: 'Web Design',
