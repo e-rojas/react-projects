@@ -28,9 +28,8 @@ const InvoiceAppProject: React.FC = () => {
         </Modal> */}
         <Sidebar theme={themeColor} setThemeColor={setThemeColor} />
         <div className='w-100 p'>
-          <h1>Invoice App</h1>
           <DefaultButton
-            title='Open Modal'
+            title='test modal open'
             iconDisplay={false}
             handleOnClick={() => setVisible(true)}
           />
