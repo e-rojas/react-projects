@@ -8,7 +8,7 @@ import InvoiceForm from './components/InvoiceForm';
 import data from './data.json';
 import './styles.css';
 import NoInvoices from './components/NoInvoices';
-import { DefaultButton } from './components/Buttons';
+import { DefaultButton, GoBackButton } from './components/Buttons';
 const InvoiceAppProject: React.FC = () => {
   const [visible, setVisible] = React.useState(true);
   const invoiceData = data as Invoice[];
@@ -23,9 +23,9 @@ const InvoiceAppProject: React.FC = () => {
   return (
     <>
       <div className='invoice-application' data-invoice-color={themeColor}>
-        {/* <Modal visible={visible} setVisible={setVisible} title='New Invoice'>
-          <InvoiceForm visible={visible} setVisible={setVisible} />
-        </Modal> */}
+        <Modal visible={visible} setVisible={setVisible} title='New Invoice'>
+          {/* <InvoiceForm visible={visible} setVisible={setVisible} /> */}
+        </Modal>
         <Sidebar theme={themeColor} setThemeColor={setThemeColor} />
         <div className='w-100 p'>
           <DefaultButton

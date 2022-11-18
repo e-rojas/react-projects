@@ -310,6 +310,13 @@
   color: var(--invoice-status-draft-color);
 }
 
+.state-back {
+  background-color: transparent;
+  padding: 0;
+  width: 100px;
+  color: var(--invoice-primary-color);
+}
+
 .invoice-card-chevron {
   color: var(--invoice-purple-color);
   cursor: pointer;
@@ -321,7 +328,7 @@
   flex-direction: column;
   width: 100%;
   padding: 1rem;
-  height: 90vh;
+  max-height: 750px;
   overflow-y: scroll;
 }
 
@@ -351,7 +358,7 @@
 .invoice-sidebar__logo img {
   width: 26px;
   height: 26px;
-  z-index: 6;
+  z-index: 3;
   position: absolute;
 }
 
@@ -436,44 +443,48 @@
   position: absolute;
   top: 100;
   left: 100;
-  width: 1000px;
+  width: 100vw;
+  margin: 0 auto;
+  max-width: 1000px;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(24, 24, 24, 0.233);
 }
 
 .invoice-application-modal.active {
   opacity: 1;
   transition: all 0.3s ease-in-out;
-  z-index: 0;
+  z-index: 6;
 }
 
 .invoice-application-modal.inactive {
   opacity: 0;
   width: 0px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.8s ease-in-out;
 }
 
 .invoice-application-modal__container {
-  z-index: 2;
+  z-index: 0;
   position: absolute;
   top: 100;
-  left: 50px;
-  /* min-width: 50%; */
-  max-width: 50%;
-  height: 100%;
-  background-color: var(--invoice-modal-bg-color);
-  border-radius: 1rem;
-  padding: 3rem 0 0 4rem;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  /* background-color: var(--invoice-modal-bg-color); */
+  background-color: orange;
+
+  /* padding: 3rem 0 0 4rem; */
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   transform: translateX(-100%);
   opacity: 0;
+  transition: all 0.8s ease-in-out;
 }
 
 .invoice-application-modal.active .invoice-application-modal__container {
   transform: translateX(0);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.8s ease-in-out;
   opacity: 1;
 }
 
@@ -659,5 +670,9 @@ input[type='date' i]::-webkit-calendar-picker-indicator {
 
   .invoice-card-chevron {
     display: block;
+  }
+
+  .invoice-application-modal__container > button.invoice-btn.state-back {
+    display: none;
   }
 }
