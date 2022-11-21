@@ -9,11 +9,16 @@ import data from './data.json';
 import './styles.css';
 import NoInvoices from './components/NoInvoices';
 import { DefaultButton } from './components/Buttons';
+import { defaultNewInvoiceState } from './utils';
 const InvoiceAppProject: React.FC = () => {
   const [visible, setVisible] = React.useState(true);
   const invoiceData = data as Invoice[];
   const [themeColor, setThemeColor] = React.useState('');
-  const [invoices, setInvoices] = React.useState<Invoice[] | null>(null);
+  const [invoices, setInvoices] = React.useState<Invoice[]>([]);
+  /* New Invoice State */
+  const [newInvoice, setNewInvoice] = React.useState<Invoice>({
+    ...defaultNewInvoiceState,
+  });
 
   React.useEffect(() => {
     setThemeColor('invoice-light');
@@ -24,7 +29,14 @@ const InvoiceAppProject: React.FC = () => {
     <>
       <div className='invoice-application' data-invoice-color={themeColor}>
         <Modal visible={visible} setVisible={setVisible} title='New Invoice'>
-          <InvoiceForm visible={visible} setVisible={setVisible} />
+          <InvoiceForm
+            visible={visible}
+            setVisible={setVisible}
+            newInvoice={newInvoice}
+            setNewInvoice={setNewInvoice}
+            invoices={invoices}
+            setInvoices={setInvoices}
+          />
         </Modal>
         <Sidebar theme={themeColor} setThemeColor={setThemeColor} />
         <div className='w-100 p'>

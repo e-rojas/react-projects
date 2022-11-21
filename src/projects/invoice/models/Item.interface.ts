@@ -3,4 +3,5 @@ export default interface ItemType {
   name: string;
   quantity: number;
   price: number;
+  total: number;
 }

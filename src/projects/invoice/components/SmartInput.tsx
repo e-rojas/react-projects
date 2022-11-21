@@ -36,6 +36,9 @@ const SmartInput: React.FC<Props> = ({
           classNamePrefix='react-select'
           className='invoice-form__select'
           options={options}
+          onChange={(e) => {
+            onchange(e as unknown as React.ChangeEvent<HTMLInputElement>);
+          }}
         />
       </div>
     );
@@ -71,7 +74,7 @@ const SmartInput: React.FC<Props> = ({
       <input
         className='invoice-form__input'
         type={type}
-        name={name.toLocaleLowerCase()}
+        name={name}
         id={name.toLocaleLowerCase()}
         onChange={onchange}
         value={value}
