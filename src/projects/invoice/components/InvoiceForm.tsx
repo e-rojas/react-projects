@@ -3,7 +3,7 @@ import { DefaultButton } from './Buttons';
 import SmartInput from './SmartInput';
 import Item from './Item';
 import { Invoice } from '../models/Invoice.interface';
-import { defaultNewInvoiceState, ID } from '../utils';
+import { InvoiceState, ItemState } from '../utils';
 
 interface Props {
   visible: boolean;
@@ -14,41 +14,42 @@ interface Props {
   setInvoices: React.Dispatch<React.SetStateAction<Invoice[]>>;
 }
 const InvoiceForm: React.FC<Props> = ({
-  visible,
   setVisible,
   newInvoice,
   setNewInvoice,
   invoices,
   setInvoices,
 }) => {
+  React.useEffect(() => {
+    const calculateTotal = (items: Invoice['items']) => {
+      const total = items.reduce((acc, item) => {
+        return acc + item.total;
+      }, 0);
+      setNewInvoice((prev) => ({ ...prev, total: Number(total.toFixed(2)) }));
+    };
+    calculateTotal(newInvoice.items);
+  }, [newInvoice.items, setNewInvoice]);
+
   const removeItem = (id: string) => {
     const { items } = newInvoice;
     const newItems = items.filter((item) => item.id !== id);
     setNewInvoice({ ...newInvoice, items: newItems });
   };
 
-  const calculatePaymentDue = () => {
-    const { paymentTerms, createdAt } = newInvoice;
+  const calculatePaymentDue = (paymentTerms: number) => {
+    const { createdAt } = newInvoice;
     const date = new Date(createdAt);
     date.setDate(date.getDate() + paymentTerms);
-    return date.toDateString();
+    return date.toISOString().split('T')[0];
   };
 
   const discardChanges = () => {
-    setNewInvoice({ ...defaultNewInvoiceState });
+    setNewInvoice(new InvoiceState());
     setVisible(false);
   };
 
   const saveAsDraft = () => {
-    setNewInvoice({
-      ...newInvoice,
-      status: 'draft',
-      paymentDue: calculatePaymentDue(),
-      id: ID(),
-      total: newInvoice.items.reduce((acc, item) => acc + item.total, 0),
-    });
     setInvoices([...invoices, newInvoice]);
-    setVisible(false);
     discardChanges();
   };
 
@@ -86,6 +87,7 @@ const InvoiceForm: React.FC<Props> = ({
           setNewInvoice({
             ...newInvoice,
             paymentTerms: paymentTerms,
+            paymentDue: calculatePaymentDue(paymentTerms),
           });
         }
         break;
@@ -100,7 +102,7 @@ const InvoiceForm: React.FC<Props> = ({
                   [e.target.name]: e.target.value,
                   total:
                     e.target.name === 'price'
-                      ? item.quantity * +e.target.value
+                      ? +(item.quantity * +e.target.value).toFixed(2)
                       : 0,
                 };
               }
@@ -255,14 +257,10 @@ const InvoiceForm: React.FC<Props> = ({
         <SmartInput
           labelTitle='Project Description'
           type='text'
-          name='projectDescription'
+          name='description'
           value={newInvoice.description}
           onchange={(e) => {
-            if (e && e instanceof Event) {
-              onChangeSingleFieldInput(
-                e as React.ChangeEvent<HTMLInputElement>
-              );
-            }
+            onChangeSingleFieldInput(e);
           }}
           className='w-100'
         />
@@ -286,16 +284,7 @@ const InvoiceForm: React.FC<Props> = ({
               handleOnClick={() => {
                 setNewInvoice({
                   ...newInvoice,
-                  items: [
-                    ...newInvoice.items,
-                    {
-                      id: ID(),
-                      name: '',
-                      quantity: 0,
-                      price: 0,
-                      total: 0,
-                    },
-                  ],
+                  items: [...newInvoice.items, new ItemState()],
                 });
               }}
             />

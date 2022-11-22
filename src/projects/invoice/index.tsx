@@ -9,7 +9,7 @@ import data from './data.json';
 import './styles.css';
 import NoInvoices from './components/NoInvoices';
 import { DefaultButton } from './components/Buttons';
-import { defaultNewInvoiceState } from './utils';
+import { InvoiceState } from './utils';
 const InvoiceAppProject: React.FC = () => {
   const [visible, setVisible] = React.useState(true);
   const invoiceData = data as Invoice[];
@@ -17,13 +17,13 @@ const InvoiceAppProject: React.FC = () => {
   const [invoices, setInvoices] = React.useState<Invoice[]>([]);
   /* New Invoice State */
   const [newInvoice, setNewInvoice] = React.useState<Invoice>({
-    ...defaultNewInvoiceState,
+    ...new InvoiceState(),
   });
 
   React.useEffect(() => {
     setThemeColor('invoice-light');
     setInvoices(invoiceData);
-  }, [invoiceData]);
+  }, [invoiceData, setInvoices]);
 
   return (
     <>

@@ -4,7 +4,6 @@ import SmartInput from './SmartInput';
 import ItemType from '../models/Item.interface';
 interface Props {
   removeItem: (id: string) => void;
-
   item: ItemType;
   onChangeSingleFieldInput: (
     e: React.ChangeEvent<HTMLInputElement> | null,

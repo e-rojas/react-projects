@@ -14,27 +14,52 @@ export const ID = function () {
   return '' + Math.random().toString(36).substr(2, 7);
 };
 
-export const defaultNewInvoiceState: Invoice = {
-  id: '',
-  createdAt: '',
-  paymentDue: '',
-  description: '',
-  paymentTerms: 0,
-  clientName: '',
-  clientEmail: '',
-  status: 'pending',
-  senderAddress: {
-    street: '',
-    city: '',
-    postCode: '',
-    country: '',
-  },
-  clientAddress: {
-    street: '',
-    city: '',
-    postCode: '',
-    country: '',
-  },
-  items: [],
-  total: 0,
+export const calculateTotal = (items: Invoice['items']) => {
+  let total = 0;
+  items.forEach((item) => {
+    total += item.total;
+  });
+  return total;
 };
+
+export const invoiceID = () => {
+  const first = Math.floor(Math.random() * 26) + 65;
+  const second = Math.floor(Math.random() * 26) + 65;
+  const rest = Math.floor(Math.random() * 1000000000);
+  return String.fromCharCode(first, second) + String(rest).substring(0, 4);
+};
+
+// create a class for a new default invoice state
+export class InvoiceState implements Invoice {
+  id = invoiceID();
+  createdAt = '';
+  paymentDue = '';
+  description = '';
+  paymentTerms = 0;
+  clientName = '';
+  clientEmail = '';
+  status = 'draft';
+  senderAddress = {
+    street: '',
+    city: '',
+    postCode: '',
+    country: '',
+  };
+  clientAddress = {
+    street: '',
+    city: '',
+    postCode: '',
+    country: '',
+  };
+  items = [];
+  total = 0;
+}
+
+// create a class for a new default item state
+export class ItemState {
+  id = ID();
+  name = '';
+  quantity = 0;
+  price = 0;
+  total = 0;
+}
