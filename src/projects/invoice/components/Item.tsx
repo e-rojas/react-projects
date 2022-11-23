@@ -5,7 +5,7 @@ import ItemType from '../models/Item.interface';
 interface Props {
   removeItem: (id: string) => void;
   item: ItemType;
-  onChangeSingleFieldInput: (
+  handleInputOnChange: (
     e: React.ChangeEvent<HTMLInputElement> | null,
     key?: string,
     paymentTerms?: number,
@@ -15,7 +15,7 @@ interface Props {
 const Item: React.FC<Props> = ({
   item: { id, name, quantity, price, total },
   removeItem,
-  onChangeSingleFieldInput,
+  handleInputOnChange,
 }) => {
   return (
     <div className='invoice-form__input__wrapper'>
@@ -25,7 +25,7 @@ const Item: React.FC<Props> = ({
         name='name'
         value={name}
         onchange={(e) => {
-          onChangeSingleFieldInput(e, 'item', 0, id);
+          handleInputOnChange(e, 'item', 0, id);
         }}
         className='item-name-input'
       />
@@ -35,7 +35,7 @@ const Item: React.FC<Props> = ({
         name='quantity'
         value={String(quantity)}
         onchange={(e) => {
-          onChangeSingleFieldInput(e, 'item', 0, id);
+          handleInputOnChange(e, 'item', 0, id);
         }}
         className='item-quantity-input'
       />
@@ -45,7 +45,7 @@ const Item: React.FC<Props> = ({
         name='price'
         value={String(price)}
         onchange={(e) => {
-          onChangeSingleFieldInput(e, 'item', 0, id);
+          handleInputOnChange(e, 'item', 0, id);
         }}
         className='item-price-input'
       />
@@ -60,7 +60,13 @@ const Item: React.FC<Props> = ({
         className='item-total-input read-only'
       />
       <div className='remove-item-button center'>
-        <RemoveItemButton handleOnClick={() => removeItem(id)} title='' />
+        <RemoveItemButton
+          handleOnClick={() => {
+            removeItem(id);
+            // verifyInputsValidation && verifyInputsValidation();
+          }}
+          title=''
+        />
       </div>
     </div>
   );

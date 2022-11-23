@@ -63,3 +63,63 @@ export class ItemState {
   price = 0;
   total = 0;
 }
+
+export const checkInputsValidation = (newInvoice: Invoice) => {
+  // check that newInvoice  that they are not empty
+  // if (
+  //   newInvoice.createdAt === '' ||
+  //   newInvoice.paymentDue === '' ||
+  //   newInvoice.description === '' ||
+  //   newInvoice.paymentTerms === 0 ||
+  //   newInvoice.clientName === '' ||
+  //   newInvoice.clientEmail === '' ||
+  //   newInvoice.senderAddress.street === '' ||
+  //   newInvoice.senderAddress.city === '' ||
+  //   newInvoice.senderAddress.postCode === '' ||
+  //   newInvoice.senderAddress.country === '' ||
+  //   newInvoice.clientAddress.street === '' ||
+  //   newInvoice.clientAddress.city === '' ||
+  //   newInvoice.clientAddress.postCode === '' ||
+  //   newInvoice.clientAddress.country === '' ||
+  //   newInvoice.items.length !== 0
+  // ) {
+  //   return false;
+  // }
+  // return true;
+  // return (
+  //   newInvoice.createdAt !== '' &&
+  //   newInvoice.paymentDue !== '' &&
+  //   newInvoice.description !== '' &&
+  //   newInvoice.paymentTerms !== 0 &&
+  //   newInvoice.clientName !== '' &&
+  //   newInvoice.clientEmail !== '' &&
+  //   newInvoice.senderAddress.street !== '' &&
+  //   newInvoice.senderAddress.city !== '' &&
+  //   newInvoice.senderAddress.postCode !== '' &&
+  //   newInvoice.senderAddress.country !== '' &&
+  //   newInvoice.clientAddress.street !== '' &&
+  //   newInvoice.clientAddress.city !== '' &&
+  //   newInvoice.clientAddress.postCode !== '' &&
+  //   newInvoice.clientAddress.country !== '' &&
+  //   newInvoice.items.length !== 0
+  // );
+  const sendersInfoFilled =
+    newInvoice.senderAddress.street !== '' &&
+    newInvoice.senderAddress.city !== '' &&
+    newInvoice.senderAddress.postCode !== '' &&
+    newInvoice.senderAddress.country !== '';
+  const clientsInfoFilled =
+    newInvoice.clientAddress.street !== '' &&
+    newInvoice.clientAddress.city !== '' &&
+    newInvoice.clientAddress.postCode !== '' &&
+    newInvoice.clientAddress.country !== '';
+  const itemsFilled = newInvoice.items.length !== 0;
+  const invoiceFilled =
+    newInvoice.createdAt !== '' &&
+    newInvoice.paymentDue !== '' &&
+    newInvoice.description !== '' &&
+    newInvoice.paymentTerms !== 0 &&
+    newInvoice.clientName !== '' &&
+    newInvoice.clientEmail !== '';
+  return sendersInfoFilled && clientsInfoFilled && itemsFilled && invoiceFilled;
+};

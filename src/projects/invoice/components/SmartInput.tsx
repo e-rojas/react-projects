@@ -78,6 +78,7 @@ const SmartInput: React.FC<Props> = ({
         id={name.toLocaleLowerCase()}
         onChange={onchange}
         value={value}
+        autoComplete='off'
       />
     </div>
   );

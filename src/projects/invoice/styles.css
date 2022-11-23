@@ -190,6 +190,11 @@
   background-color: var(--invoice-light-blue-color);
 }
 
+.btn--disabled {
+  cursor: not-allowed !important;
+  pointer-events: none;
+}
+
 /* InvoiceCard component */
 .invoice-card__id,
 .invoice-card__date,

@@ -3,7 +3,7 @@ import { DefaultButton } from './Buttons';
 import SmartInput from './SmartInput';
 import Item from './Item';
 import { Invoice } from '../models/Invoice.interface';
-import { InvoiceState, ItemState } from '../utils';
+import { checkInputsValidation, InvoiceState, ItemState } from '../utils';
 
 interface Props {
   visible: boolean;
@@ -20,6 +20,8 @@ const InvoiceForm: React.FC<Props> = ({
   invoices,
   setInvoices,
 }) => {
+  const [allInputsValidated, setAllInputsValidated] =
+    React.useState<boolean>(false);
   React.useEffect(() => {
     const calculateTotal = (items: Invoice['items']) => {
       const total = items.reduce((acc, item) => {
@@ -28,7 +30,16 @@ const InvoiceForm: React.FC<Props> = ({
       setNewInvoice((prev) => ({ ...prev, total: Number(total.toFixed(2)) }));
     };
     calculateTotal(newInvoice.items);
-  }, [newInvoice.items, setNewInvoice]);
+    verifyInputsValidation();
+    // eslint-disable-next-line
+  }, [newInvoice.items]);
+
+  const addItem = () => {
+    setNewInvoice({
+      ...newInvoice,
+      items: [...newInvoice.items, new ItemState()],
+    });
+  };
 
   const removeItem = (id: string) => {
     const { items } = newInvoice;
@@ -43,17 +54,39 @@ const InvoiceForm: React.FC<Props> = ({
     return date.toISOString().split('T')[0];
   };
 
-  const discardChanges = () => {
+  const handleDiscardChanges = () => {
     setNewInvoice(new InvoiceState());
     setVisible(false);
   };
 
-  const saveAsDraft = () => {
-    setInvoices([...invoices, newInvoice]);
-    discardChanges();
+  const handleSaveDraft = () => {
+    const updatedInvoice = { ...newInvoice, status: 'draft' };
+    setInvoices([...invoices, updatedInvoice]);
+    handleDiscardChanges();
   };
 
-  const onChangeSingleFieldInput = (
+  const setInvoiceToPending = async () => {
+    const promise = new Promise((resolve, reject) => {
+      const updatedInvoice = { ...newInvoice, status: 'pending' };
+      setNewInvoice(updatedInvoice);
+      resolve(updatedInvoice);
+    });
+    promise.then((updatedInvoice) => {
+      setInvoices([...invoices, updatedInvoice as Invoice]);
+    });
+  };
+
+  const handleSaveAndSend = () => {
+    setInvoiceToPending();
+    handleDiscardChanges();
+  };
+
+  const verifyInputsValidation = React.useCallback(() => {
+    const validated = checkInputsValidation(newInvoice);
+    setAllInputsValidated(validated);
+  }, [newInvoice]);
+
+  const handleInputOnChange = (
     e: React.ChangeEvent<HTMLInputElement> | null,
     key?: string,
     paymentTerms?: number,
@@ -128,7 +161,7 @@ const InvoiceForm: React.FC<Props> = ({
           name='street'
           value={newInvoice.senderAddress.street}
           onchange={(e) => {
-            onChangeSingleFieldInput(e, 'senderAddress');
+            handleInputOnChange(e, 'senderAddress');
           }}
         />
         <div className=' invoice-form__input__wrapper'>
@@ -138,7 +171,7 @@ const InvoiceForm: React.FC<Props> = ({
             name='city'
             value={newInvoice.senderAddress.city}
             onchange={(e) => {
-              onChangeSingleFieldInput(e, 'senderAddress');
+              handleInputOnChange(e, 'senderAddress');
             }}
             className='city-input'
           />
@@ -148,7 +181,7 @@ const InvoiceForm: React.FC<Props> = ({
             name='postCode'
             value={newInvoice.senderAddress.postCode}
             onchange={(e) => {
-              onChangeSingleFieldInput(e, 'senderAddress');
+              handleInputOnChange(e, 'senderAddress');
             }}
             className='post-code-input'
           />
@@ -158,7 +191,7 @@ const InvoiceForm: React.FC<Props> = ({
             name='country'
             value={newInvoice.senderAddress.country}
             onchange={(e) => {
-              onChangeSingleFieldInput(e, 'senderAddress');
+              handleInputOnChange(e, 'senderAddress');
             }}
             className='country-input'
           />
@@ -170,7 +203,7 @@ const InvoiceForm: React.FC<Props> = ({
           name='clientName'
           value={newInvoice.clientName}
           onchange={(e) => {
-            onChangeSingleFieldInput(e);
+            handleInputOnChange(e);
           }}
           className='w-100'
         />
@@ -180,7 +213,7 @@ const InvoiceForm: React.FC<Props> = ({
           name='clientEmail'
           value={newInvoice.clientEmail}
           onchange={(e) => {
-            onChangeSingleFieldInput(e);
+            handleInputOnChange(e);
           }}
           className='w-100'
         />
@@ -190,7 +223,7 @@ const InvoiceForm: React.FC<Props> = ({
           name='street'
           value={newInvoice.clientAddress.street}
           onchange={(e) => {
-            onChangeSingleFieldInput(e, 'clientAddress');
+            handleInputOnChange(e, 'clientAddress');
           }}
           className='w-100'
         />
@@ -201,7 +234,7 @@ const InvoiceForm: React.FC<Props> = ({
             name='city'
             value={newInvoice.clientAddress.city}
             onchange={(e) => {
-              onChangeSingleFieldInput(e, 'clientAddress');
+              handleInputOnChange(e, 'clientAddress');
             }}
             className='city-input'
           />
@@ -211,7 +244,7 @@ const InvoiceForm: React.FC<Props> = ({
             name='postCode'
             value={newInvoice.clientAddress.postCode}
             onchange={(e) => {
-              onChangeSingleFieldInput(e, 'clientAddress');
+              handleInputOnChange(e, 'clientAddress');
             }}
             className='post-code-input'
           />
@@ -221,7 +254,7 @@ const InvoiceForm: React.FC<Props> = ({
             name='country'
             value={newInvoice.clientAddress.country}
             onchange={(e) => {
-              onChangeSingleFieldInput(e, 'clientAddress');
+              handleInputOnChange(e, 'clientAddress');
             }}
             className='country-input'
           />
@@ -234,7 +267,7 @@ const InvoiceForm: React.FC<Props> = ({
             name='createdAt'
             value={newInvoice.createdAt}
             onchange={(e) => {
-              onChangeSingleFieldInput(e);
+              handleInputOnChange(e);
             }}
             className='date-input'
           />
@@ -245,7 +278,7 @@ const InvoiceForm: React.FC<Props> = ({
             value={String(newInvoice.paymentTerms)}
             onchange={(e: any) => {
               const { value } = e;
-              onChangeSingleFieldInput(
+              handleInputOnChange(
                 e,
                 'paymentTerms',
                 value as unknown as number
@@ -260,7 +293,7 @@ const InvoiceForm: React.FC<Props> = ({
           name='description'
           value={newInvoice.description}
           onchange={(e) => {
-            onChangeSingleFieldInput(e);
+            handleInputOnChange(e);
           }}
           className='w-100'
         />
@@ -274,7 +307,7 @@ const InvoiceForm: React.FC<Props> = ({
                   item={item}
                   key={item.id}
                   removeItem={removeItem}
-                  onChangeSingleFieldInput={onChangeSingleFieldInput}
+                  handleInputOnChange={handleInputOnChange}
                 />
               ))}
             <DefaultButton
@@ -282,10 +315,7 @@ const InvoiceForm: React.FC<Props> = ({
               iconDisplay={false}
               className='btn__add-new-item w-100'
               handleOnClick={() => {
-                setNewInvoice({
-                  ...newInvoice,
-                  items: [...newInvoice.items, new ItemState()],
-                });
+                addItem();
               }}
             />
           </div>
@@ -298,19 +328,27 @@ const InvoiceForm: React.FC<Props> = ({
           iconDisplay={false}
           className='btn__edit'
           handleOnClick={() => {
-            discardChanges();
+            handleDiscardChanges();
+            setVisible(false);
           }}
         />
 
         <DefaultButton
           handleOnClick={() => {
-            saveAsDraft();
+            handleSaveDraft();
           }}
           title='Save as Draft'
           iconDisplay={false}
-          className='btn__draft'
+          className={`${allInputsValidated ? 'btn__draft' : 'btn--disabled'}`}
         />
-        <DefaultButton title='Save & Send' iconDisplay={false} />
+        <DefaultButton
+          className={`${allInputsValidated ? 'btn__primary' : 'btn--disabled'}`}
+          handleOnClick={() => {
+            handleSaveAndSend();
+          }}
+          title='Save & Send'
+          iconDisplay={false}
+        />
       </div>
     </div>
   );
