@@ -65,19 +65,9 @@ const InvoiceForm: React.FC<Props> = ({
     handleDiscardChanges();
   };
 
-  const setInvoiceToPending = async () => {
-    const promise = new Promise((resolve, reject) => {
-      const updatedInvoice = { ...newInvoice, status: 'pending' };
-      setNewInvoice(updatedInvoice);
-      resolve(updatedInvoice);
-    });
-    promise.then((updatedInvoice) => {
-      setInvoices([...invoices, updatedInvoice as Invoice]);
-    });
-  };
-
   const handleSaveAndSend = () => {
-    setInvoiceToPending();
+    const updatedInvoice = { ...newInvoice, status: 'pending' };
+    setInvoices([...invoices, updatedInvoice as Invoice]);
     handleDiscardChanges();
   };
 
