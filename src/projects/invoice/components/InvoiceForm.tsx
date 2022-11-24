@@ -319,7 +319,6 @@ const InvoiceForm: React.FC<Props> = ({
           className='btn__edit'
           handleOnClick={() => {
             handleDiscardChanges();
-            setVisible(false);
           }}
         />
 
