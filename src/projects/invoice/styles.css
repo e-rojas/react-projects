@@ -48,6 +48,8 @@
   /* form */
   --invoice-form-label-color: var(--invoice-blue-color);
   --invoice-form-input-border-color: var(--invoice-light-blue-color);
+  /* header drop down */
+  --invoice-header-dropdown-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 [data-invoice-color='invoice-dark'] {
@@ -75,6 +77,9 @@
   /* form */
   --invoice-form-label-color: var(--invoice-white-color);
   --invoice-form-input-border-color: #25453a;
+
+  /* header drop down */
+  --invoice-header-dropdown-shadow: 0px 8px 16px 0px rgba(130, 130, 130, 0.2);
 }
 
 /* main application wrapper */
@@ -713,6 +718,177 @@ h1.invoice-form__items__title {
   align-items: center;
   width: 100%;
   padding: 1rem 0;
+}
+
+/* invoices-header */
+
+.invoices-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.invoices-header__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.invoices-header__filter__wrapper {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 0 2rem 0 0;
+  background-color: transparent;
+  border: none;
+}
+
+.dropbtn {
+  background-color: transparent;
+  border: none;
+  color: var(--invoice-primary-color);
+}
+.dropbtn::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  border-top: 0.5rem solid;
+  border-right: 0.5rem solid transparent;
+  border-left: 0.5rem solid transparent;
+  border-top-color: var(--invoice-purple-color);
+}
+
+.dropdown:hover .dropbtn::after {
+  border-top-color: var(--invoice-purple-color) !important;
+  border-bottom: 0.5rem solid;
+  border-top: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--invoice-modal-bg-color);
+  min-width: 150px;
+  box-shadow: var(--invoice-header-dropdown-shadow);
+  z-index: 1;
+  border-radius: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  padding: 1rem;
+}
+
+.dropdown-content a {
+  color: var(--invoice-primary-color);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a {
+  color: var(--invoice-primary-color);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: var(--invoice-light-purple-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdown-content {
+  transition: all 2s ease-in-out;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.invoices-header__title h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--invoice-primary-color);
+  margin: 0;
+  width: 100%;
+}
+
+.invoices-header__total {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--invoice-card-client);
+  margin: 0;
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: var(--invoice-primary-color);
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: var(--invoice-gray-color);
+  border-radius: 0.2rem;
+}
+
+.checkbox-container:hover input ~ .checkbox-checkmark {
+  border: 1px solid var(--invoice-light-purple-color);
+}
+
+.checkbox-container input:checked ~ .checkbox-checkmark {
+  background-color: var(--invoice-light-purple-color);
+}
+
+.checkbox-checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkbox-checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkbox-checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--invoice-white-color);
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 /* query */

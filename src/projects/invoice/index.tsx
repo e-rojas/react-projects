@@ -8,7 +8,7 @@ import InvoiceForm from './components/InvoiceForm';
 import data from './data.json';
 import './styles.css';
 import NoInvoices from './components/NoInvoices';
-import { DefaultButton } from './components/Buttons';
+import InvoicesHeader from './components/InvoicesHeader';
 import { InvoiceState } from './utils';
 const InvoiceAppProject: React.FC = () => {
   const [visible, setVisible] = React.useState(true);
@@ -40,11 +40,7 @@ const InvoiceAppProject: React.FC = () => {
         </Modal>
         <Sidebar theme={themeColor} setThemeColor={setThemeColor} />
         <div className='w-100 p'>
-          <DefaultButton
-            title='test modal open'
-            iconDisplay={false}
-            handleOnClick={() => setVisible(true)}
-          />
+          <InvoicesHeader />
           <br />
           <div className='invoice-card__container'>
             {invoices && invoices.length > 0 ? (
