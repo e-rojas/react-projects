@@ -192,9 +192,7 @@ const InvoiceForm: React.FC<Props> = ({
           type='text'
           name='clientName'
           value={newInvoice.clientName}
-          onchange={(e) => {
-            handleInputOnChange(e);
-          }}
+          onchange={handleInputOnChange}
           className='w-100'
         />
         <SmartInput
@@ -202,9 +200,7 @@ const InvoiceForm: React.FC<Props> = ({
           type='email'
           name='clientEmail'
           value={newInvoice.clientEmail}
-          onchange={(e) => {
-            handleInputOnChange(e);
-          }}
+          onchange={handleInputOnChange}
           className='w-100'
         />
         <SmartInput
@@ -256,9 +252,7 @@ const InvoiceForm: React.FC<Props> = ({
             type='date'
             name='createdAt'
             value={newInvoice.createdAt}
-            onchange={(e) => {
-              handleInputOnChange(e);
-            }}
+            onchange={handleInputOnChange}
             className='date-input'
           />
           <SmartInput
@@ -282,9 +276,7 @@ const InvoiceForm: React.FC<Props> = ({
           type='text'
           name='description'
           value={newInvoice.description}
-          onchange={(e) => {
-            handleInputOnChange(e);
-          }}
+          onchange={handleInputOnChange}
           className='w-100'
         />
         <div className='invoice-form__items'>
@@ -304,9 +296,7 @@ const InvoiceForm: React.FC<Props> = ({
               title='Add New Item'
               iconDisplay={false}
               className='btn__add-new-item w-100'
-              handleOnClick={() => {
-                addItem();
-              }}
+              handleOnClick={addItem}
             />
           </div>
         </div>
@@ -317,24 +307,18 @@ const InvoiceForm: React.FC<Props> = ({
           title='Discard'
           iconDisplay={false}
           className='btn__edit'
-          handleOnClick={() => {
-            handleDiscardChanges();
-          }}
+          handleOnClick={handleDiscardChanges}
         />
 
         <DefaultButton
-          handleOnClick={() => {
-            handleSaveDraft();
-          }}
+          handleOnClick={handleSaveDraft}
           title='Save as Draft'
           iconDisplay={false}
           className={`${allInputsValidated ? 'btn__draft' : 'btn--disabled'}`}
         />
         <DefaultButton
           className={`${allInputsValidated ? 'btn__primary' : 'btn--disabled'}`}
-          handleOnClick={() => {
-            handleSaveAndSend();
-          }}
+          handleOnClick={handleSaveAndSend}
           title='Save & Send'
           iconDisplay={false}
         />
