@@ -9,17 +9,27 @@ interface Props {
 const InvoiceCard: React.FC<Props> = ({ invoice }) => {
   return (
     <div className='invoice-card'>
-      <span className='invoice-card__id'>{invoice.id} </span>
-      <span className='invoice-card__date'>
-        {formatDueDate(invoice.createdAt, 'Due')}
-      </span>
-      <span className='invoice-card__client'>{invoice.clientName}</span>
-      <span className='invoice-card__total'>{invoice.total}</span>
-      <div className='invoice-card__status__wrapper'>
-        <span className={`invoice-card__status state-${invoice.status}`}>
-          {invoice.status}
+      <div className='invoice-card__item-id'>
+        <span className='invoice-card__id'>{invoice.id} </span>
+      </div>
+      <div className='invoice-card__item-date'>
+        <span className='invoice-card__date'>
+          {formatDueDate(invoice.createdAt, 'Due')}
         </span>
-        <GoChevronRight className='invoice-card-chevron' />
+      </div>
+      <div className='invoice-card__item-client'>
+        <span className='invoice-card__client'>{invoice.clientName}</span>
+      </div>
+      <div className='invoice-card__item-total'>
+        <span className='invoice-card__total'>{invoice.total}</span>
+      </div>
+      <div className='invoice-card__item-status'>
+        <div className='invoice-card__status__wrapper'>
+          <span className={`invoice-card__status state-${invoice.status}`}>
+            {invoice.status}
+          </span>
+          <GoChevronRight className='invoice-card-chevron' />
+        </div>
       </div>
     </div>
   );
