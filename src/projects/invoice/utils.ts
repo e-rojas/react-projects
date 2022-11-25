@@ -107,3 +107,12 @@ export const filteredInvoices = (
   });
   return filteredInvoices;
 };
+
+export const middlewareFilteredInvoices = (
+  invoices: Invoice[],
+  filterByStatus: {
+    [key: string]: boolean;
+  }
+): Invoice[] => {
+  return filteredInvoices(invoices, filterByStatus);
+};

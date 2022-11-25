@@ -22,7 +22,7 @@ function AppRouter() {
           <Route path='/dev-jobs-dashboard/*' element={<DevJobsDashboard />} />
           <Route path='projects/pokemon' element={<PokemonClient />} />
           <Route path='projects/pomodoro' element={<PomodoroProject />} />
-          <Route path='projects/invoice' element={<InvoiceAppProject />} />
+          <Route path='projects/invoice/*' element={<InvoiceAppProject />} />
         </Route>
       </Routes>
     </BrowserRouter>
