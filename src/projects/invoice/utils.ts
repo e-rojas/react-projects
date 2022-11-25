@@ -65,44 +65,6 @@ export class ItemState {
 }
 
 export const checkInputsValidation = (newInvoice: Invoice) => {
-  // check that newInvoice  that they are not empty
-  // if (
-  //   newInvoice.createdAt === '' ||
-  //   newInvoice.paymentDue === '' ||
-  //   newInvoice.description === '' ||
-  //   newInvoice.paymentTerms === 0 ||
-  //   newInvoice.clientName === '' ||
-  //   newInvoice.clientEmail === '' ||
-  //   newInvoice.senderAddress.street === '' ||
-  //   newInvoice.senderAddress.city === '' ||
-  //   newInvoice.senderAddress.postCode === '' ||
-  //   newInvoice.senderAddress.country === '' ||
-  //   newInvoice.clientAddress.street === '' ||
-  //   newInvoice.clientAddress.city === '' ||
-  //   newInvoice.clientAddress.postCode === '' ||
-  //   newInvoice.clientAddress.country === '' ||
-  //   newInvoice.items.length !== 0
-  // ) {
-  //   return false;
-  // }
-  // return true;
-  // return (
-  //   newInvoice.createdAt !== '' &&
-  //   newInvoice.paymentDue !== '' &&
-  //   newInvoice.description !== '' &&
-  //   newInvoice.paymentTerms !== 0 &&
-  //   newInvoice.clientName !== '' &&
-  //   newInvoice.clientEmail !== '' &&
-  //   newInvoice.senderAddress.street !== '' &&
-  //   newInvoice.senderAddress.city !== '' &&
-  //   newInvoice.senderAddress.postCode !== '' &&
-  //   newInvoice.senderAddress.country !== '' &&
-  //   newInvoice.clientAddress.street !== '' &&
-  //   newInvoice.clientAddress.city !== '' &&
-  //   newInvoice.clientAddress.postCode !== '' &&
-  //   newInvoice.clientAddress.country !== '' &&
-  //   newInvoice.items.length !== 0
-  // );
   const sendersInfoFilled =
     newInvoice.senderAddress.street !== '' &&
     newInvoice.senderAddress.city !== '' &&
@@ -122,4 +84,26 @@ export const checkInputsValidation = (newInvoice: Invoice) => {
     newInvoice.clientName !== '' &&
     newInvoice.clientEmail !== '';
   return sendersInfoFilled && clientsInfoFilled && itemsFilled && invoiceFilled;
+};
+
+export const filteredInvoices = (
+  invoices: Invoice[],
+  filterByStatus: {
+    [key: string]: boolean;
+  }
+) => {
+  const { draft, pending, paid } = filterByStatus;
+  // eslint-disable-next-line
+  const filteredInvoices = invoices.filter((invoice) => {
+    if (paid && invoice.status === 'paid') {
+      return invoice;
+    } else if (pending && invoice.status === 'pending') {
+      return invoice;
+    } else if (draft && invoice.status === 'draft') {
+      return invoice;
+    } else if (!paid && !pending && !draft) {
+      return invoice;
+    }
+  });
+  return filteredInvoices;
 };

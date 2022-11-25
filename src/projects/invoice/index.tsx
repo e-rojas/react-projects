@@ -9,7 +9,7 @@ import data from './data.json';
 import './styles.css';
 import NoInvoices from './components/NoInvoices';
 import InvoicesHeader from './components/InvoicesHeader';
-import { InvoiceState } from './utils';
+import { InvoiceState, filteredInvoices } from './utils';
 const InvoiceAppProject: React.FC = () => {
   const [visible, setVisible] = React.useState(false);
   const invoiceData = data as Invoice[];
@@ -34,37 +34,13 @@ const InvoiceAppProject: React.FC = () => {
   }, [invoiceData, setInvoices]);
 
   React.useEffect(() => {
-    const { paid, pending, draft } = filterByStatus;
-    // eslint-disable-next-line
-    const invoicesFiltered = invoices.filter((invoice) => {
-      if (paid && invoice.status === 'paid') {
-        return invoice;
-      } else if (pending && invoice.status === 'pending') {
-        return invoice;
-      } else if (draft && invoice.status === 'draft') {
-        return invoice;
-      } else if (!paid && !pending && !draft) {
-        return invoice;
-      }
-    });
+    const invoicesFiltered = filteredInvoices(invoices, filterByStatus);
     setTotalInvoices(invoicesFiltered.length);
     // eslint-disable-next-line
   }, [filterByStatus]);
 
   const middlewareFilteredInvoices = (): Invoice[] => {
-    const { paid, pending, draft } = filterByStatus;
-    // eslint-disable-next-line
-    const filteredInvoices = invoices.filter((invoice) => {
-      if (paid && invoice.status === 'paid') {
-        return invoice;
-      } else if (pending && invoice.status === 'pending') {
-        return invoice;
-      } else if (draft && invoice.status === 'draft') {
-        return invoice;
-      }
-    });
-
-    return paid || pending || draft ? filteredInvoices : invoices;
+    return filteredInvoices(invoices, filterByStatus);
   };
 
   return (
