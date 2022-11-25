@@ -11,10 +11,18 @@ import NoInvoices from './components/NoInvoices';
 import InvoicesHeader from './components/InvoicesHeader';
 import { InvoiceState } from './utils';
 const InvoiceAppProject: React.FC = () => {
-  const [visible, setVisible] = React.useState(true);
+  const [visible, setVisible] = React.useState(false);
   const invoiceData = data as Invoice[];
   const [themeColor, setThemeColor] = React.useState('');
   const [invoices, setInvoices] = React.useState<Invoice[]>([]);
+  const [filterByStatus, setFilterByStatus] = React.useState<{
+    [key: string]: boolean;
+  }>({
+    paid: false,
+    pending: false,
+    draft: false,
+  });
+  const [totalInvoices, setTotalInvoices] = React.useState(0);
   /* New Invoice State */
   const [newInvoice, setNewInvoice] = React.useState<Invoice>({
     ...new InvoiceState(),
@@ -24,6 +32,40 @@ const InvoiceAppProject: React.FC = () => {
     setThemeColor('invoice-light');
     setInvoices(invoiceData);
   }, [invoiceData, setInvoices]);
+
+  React.useEffect(() => {
+    const { paid, pending, draft } = filterByStatus;
+    // eslint-disable-next-line
+    const invoicesFiltered = invoices.filter((invoice) => {
+      if (paid && invoice.status === 'paid') {
+        return invoice;
+      } else if (pending && invoice.status === 'pending') {
+        return invoice;
+      } else if (draft && invoice.status === 'draft') {
+        return invoice;
+      } else if (!paid && !pending && !draft) {
+        return invoice;
+      }
+    });
+    setTotalInvoices(invoicesFiltered.length);
+    // eslint-disable-next-line
+  }, [filterByStatus]);
+
+  const middlewareFilteredInvoices = (): Invoice[] => {
+    const { paid, pending, draft } = filterByStatus;
+    // eslint-disable-next-line
+    const filteredInvoices = invoices.filter((invoice) => {
+      if (paid && invoice.status === 'paid') {
+        return invoice;
+      } else if (pending && invoice.status === 'pending') {
+        return invoice;
+      } else if (draft && invoice.status === 'draft') {
+        return invoice;
+      }
+    });
+
+    return paid || pending || draft ? filteredInvoices : invoices;
+  };
 
   return (
     <>
@@ -40,13 +82,17 @@ const InvoiceAppProject: React.FC = () => {
         </Modal>
         <Sidebar theme={themeColor} setThemeColor={setThemeColor} />
         <div className='w-100 p'>
-          <InvoicesHeader />
+          <InvoicesHeader
+            setFilterByStatus={setFilterByStatus}
+            totalInvoices={totalInvoices}
+            setVisible={setVisible}
+          />
           <br />
           <div className='invoice-card__container'>
             {invoices && invoices.length > 0 ? (
-              invoices.map((invoice) => (
-                <InvoiceCard key={invoice.id} invoice={invoice} />
-              ))
+              middlewareFilteredInvoices().map((invoice) => {
+                return <InvoiceCard key={invoice.id} invoice={invoice} />;
+              })
             ) : (
               <NoInvoices />
             )}
