@@ -41,6 +41,72 @@ const InvoiceDetail: React.FC = () => {
           />
         </div>
       </div>
+      <div className=' invoice-card p-0'>
+        <div className='invoice-details__body'>
+          <div className='invoice-details__body-id'>
+            <span className='invoice-card__id'>{invoice.id} </span>
+
+            <span className='invoice-blue-color-pattern'>
+              {invoice.description}
+            </span>
+          </div>
+          <div className='invoice-details__body-sender-address invoice-blue-color-pattern'>
+            <span>{invoice.senderAddress.street} </span>
+            <span>{invoice.senderAddress.city} </span>
+            <span>{invoice.senderAddress.postCode} </span>
+            <span>{invoice.senderAddress.country} </span>
+          </div>
+          <div className='invoice-details__body-date'>
+            <div className='invoice-details__body-created w-100'>
+              <span className='invoice-details__body-created-title invoice-blue-color-pattern'>
+                Invoice Date
+              </span>
+              <span className='invoice-details__body-created-date'>
+                {new Date(invoice.createdAt).toLocaleDateString('en-UK', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
+                })}
+              </span>
+            </div>
+            <div className='invoice-details__body-due w-100'>
+              <span className='invoice-details__body-due-title invoice-blue-color-pattern'>
+                Payment Due
+              </span>
+              <span className='invoice-details__body-due-date'>
+                {new Date(invoice.paymentDue).toLocaleDateString('en-UK', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
+                })}
+              </span>
+            </div>
+          </div>
+          <div className='invoice-details__body-receiver'>
+            <span className='invoice-details__body-receiver-title invoice-blue-color-pattern'>
+              Bill To
+            </span>
+            <span className='invoice-details__body-receiver-name'>
+              {invoice.clientName}
+            </span>
+            <div className='invoice-details__body-receiver-address invoice-blue-color-pattern'>
+              <span> {invoice.clientAddress.street}</span>
+              <span> {invoice.clientAddress.city}</span>
+              <span> {invoice.clientAddress.postCode}</span>
+              <span> {invoice.clientAddress.country}</span>
+            </div>
+          </div>
+          <div className='invoice-details__body-receiverEmail'>
+            <span className='invoice-details__body-receiverEmail-title invoice-blue-color-pattern'>
+              Sent to
+            </span>
+            <span className='invoice-details__body-receiverEmail-address'>
+              {invoice.clientEmail}
+            </span>
+          </div>
+          <div className='invoice-details__body-items'></div>
+        </div>
+      </div>
     </div>
   );
 };
