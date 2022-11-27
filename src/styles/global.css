@@ -347,6 +347,14 @@ html {
   text-align: center;
 }
 
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
 .lower-case {
   text-transform: lowercase;
 }

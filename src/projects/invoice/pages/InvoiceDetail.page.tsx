@@ -104,7 +104,46 @@ const InvoiceDetail: React.FC = () => {
               {invoice.clientEmail}
             </span>
           </div>
-          <div className='invoice-details__body-items'></div>
+        </div>
+        <div className='invoice-details__body-items'>
+          <div>
+            <table className='w-100'>
+              <thead>
+                <tr>
+                  <th className='invoice-blue-color-pattern'>Item Name</th>
+                  <th className='invoice-blue-color-pattern'>QTY.</th>
+                  <th className='invoice-blue-color-pattern text-center'>
+                    Price
+                  </th>
+                  <th className='invoice-blue-color-pattern text-right'>
+                    Total
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {invoice.items.map((item) => (
+                  <tr key={item.id}>
+                    <td className='invoice-primary-color-pattern'>
+                      {item.name}
+                    </td>
+                    <td className='invoice-blue-color-pattern'>
+                      {item.quantity}
+                    </td>
+                    <td className='invoice-blue-color-pattern text-center'>
+                      {item.price}
+                    </td>
+                    <td className='invoice-primary-color-pattern text-right'>
+                      {`£${item.total}`}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className='invoice-details__body-total'>
+          <span>Amount Due</span>
+          <span>{`£${invoice.total}`}</span>
         </div>
       </div>
     </div>

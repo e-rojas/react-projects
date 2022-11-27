@@ -47,6 +47,12 @@
   --invoice-card-client: var(--invoice-blue-color);
   /* blue color pattern */
   --invoice-blue-color-patter: var(--invoice-blue-color);
+  /* gray color patter */
+  --invoice-gray-color-patter: #f9fefb;
+  /* invoide deep dark color pattern */
+  --invoice-deep-dark-color-patter: #373b53;
+  /* invoice primary color patter */
+  --invoice-primary-color-patter: var(--invoice-dark-color);
   /* modal */
   --invoice-modal-bg-color: var(--invoice-white-color);
   /* form */
@@ -78,6 +84,13 @@
   --invoice-card-client: var(--invoice-light-blue-color);
   /* blue color pattern */
   --invoice-blue-color-patter: var(--invoice-light-blue-color);
+  /* gray color patter */
+  --invoice-gray-color-patter: #252945;
+  /* invoice primary color patter */
+  --invoice-primary-color-patter: var(--invoice-white-color);
+  /* invoide deep dark color pattern */
+  --invoice-deep-dark-color-patter: #0c0e16;
+
   /* modal */
   --invoice-modal-bg-color: var(--invoice-dark-color);
   /* form */
@@ -91,6 +104,14 @@
 /* color pattern classes */
 .invoice-blue-color-pattern {
   color: var(--invoice-blue-color-patter);
+}
+
+.invoice-gray-color-pattern {
+  color: var(--invoice-gray-color-patter);
+}
+
+.invoice-primary-color-pattern {
+  color: var(--invoice-primary-color-patter);
 }
 
 /* main application wrapper */
@@ -995,9 +1016,28 @@ h1.invoice-form__items__title {
   margin: 0;
 }
 
-/* .invoice-details__body-description {
-  color: var(--invoice-blue-color-patter);
-} */
+.invoice-details__body-items {
+  background-color: var(--invoice-gray-color-patter);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.invoice-details__body-items > div {
+  padding: 1rem;
+}
+.invoice-details__body-total {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--invoice-deep-dark-color-patter);
+  color: var(--invoice-white-color);
+  padding: 1rem;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
 /* query */
 
 @media (min-width: 768px) {
@@ -1142,10 +1182,15 @@ h1.invoice-form__items__title {
     text-align: right;
   }
   .invoice-details__body-date,
-  .invoice-details__body-receiver {
-    width: 25%;
-  }
+  .invoice-details__body-receiver,
   .invoice-details__body-receiverEmail {
-    width: 50%;
+    width: 33%;
+  }
+
+  .invoice-details__body-items > div {
+    padding: 2rem;
+  }
+  .invoice-details__body-total {
+    padding: 2rem;
   }
 }
