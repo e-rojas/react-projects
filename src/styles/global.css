@@ -312,6 +312,10 @@ html {
   margin-left: 0.5rem;
 }
 
+.m-l-1 {
+  margin-left: 1rem;
+}
+
 .m-r {
   margin-right: 0.5rem;
 }
@@ -443,6 +447,10 @@ h3 {
 }
 
 /* links */
+
+.no-decoration-link {
+  text-decoration: none;
+}
 
 .no-decoration {
   text-decoration: none !important;

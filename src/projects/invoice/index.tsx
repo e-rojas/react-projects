@@ -9,7 +9,7 @@ import './styles.css';
 
 import { InvoiceState, filteredInvoices } from './utils';
 import InvoicePage from './pages/Invoice.page';
-import InvoiceDetail from './pages/InvoiceDetail';
+import InvoiceDetail from './pages/InvoiceDetail.page';
 import { Route, Routes } from 'react-router-dom';
 const InvoiceAppProject: React.FC = () => {
   const [visible, setVisible] = React.useState(false);
@@ -67,7 +67,7 @@ const InvoiceAppProject: React.FC = () => {
               />
             }
           />
-          <Route path='/:id' element={<InvoiceDetail />} />
+          <Route path=':id' element={<InvoiceDetail />} />
         </Routes>
       </div>
     </>

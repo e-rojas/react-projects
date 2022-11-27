@@ -891,6 +891,28 @@ h1.invoice-form__items__title {
   transform: rotate(45deg);
 }
 
+/* invoice-details__header */
+
+.invoice-details__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.invoice-details__header__status-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.invoice-details__header__buttons-wrapper {
+  display: none;
+}
 /* query */
 
 @media (min-width: 768px) {
@@ -1009,5 +1031,18 @@ h1.invoice-form__items__title {
   .invoice-form__input__wrapper .item-price-input,
   .invoice-form__input__wrapper .item-total-input {
     width: 17%;
+  }
+
+  /*  */
+  .invoice-details__header__status-wrapper {
+    width: auto;
+  }
+  .invoice-details__header__buttons-wrapper {
+    display: flex;
+    width: auto;
+  }
+  /* .invoice-details__header__buttons-wrapper all children add 20px margin left and right */
+  .invoice-details__header__buttons-wrapper button {
+    margin: 0 0.5rem;
   }
 }
