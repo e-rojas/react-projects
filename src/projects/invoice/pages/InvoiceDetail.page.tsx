@@ -121,22 +121,23 @@ const InvoiceDetail: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {invoice.items.map((item) => (
-                  <tr key={item.id}>
-                    <td className='invoice-primary-color-pattern'>
-                      {item.name}
-                    </td>
-                    <td className='invoice-blue-color-pattern'>
-                      {item.quantity}
-                    </td>
-                    <td className='invoice-blue-color-pattern text-center'>
-                      {item.price}
-                    </td>
-                    <td className='invoice-primary-color-pattern text-right'>
-                      {`£${item.total}`}
-                    </td>
-                  </tr>
-                ))}
+                {invoice.items &&
+                  invoice.items.map((item) => (
+                    <tr key={item.id}>
+                      <td className='invoice-primary-color-pattern'>
+                        {item.name}
+                      </td>
+                      <td className='invoice-blue-color-pattern'>
+                        {item.quantity}
+                      </td>
+                      <td className='invoice-blue-color-pattern text-center'>
+                        {item.price}
+                      </td>
+                      <td className='invoice-primary-color-pattern text-right'>
+                        {`£${item.total}`}
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>
