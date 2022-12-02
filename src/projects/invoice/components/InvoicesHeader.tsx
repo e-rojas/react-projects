@@ -1,9 +1,10 @@
 import React from 'react';
+import { Invoice } from '../models/Invoice.interface';
+import { InvoicesContext } from '../state';
 
 import { DefaultButton } from './Buttons';
 
 interface Props {
-  totalInvoices: number;
   setFilterByStatus: React.Dispatch<
     React.SetStateAction<{
       [key: string]: boolean;
@@ -11,18 +12,15 @@ interface Props {
   >;
   setVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
-const InvoicesHeader: React.FC<Props> = ({
-  setFilterByStatus,
-  totalInvoices,
-  setVisible,
-}) => {
-  const invoiceHeadertitle = (totalInvoices: number): string => {
-    if (totalInvoices === 0) {
+const InvoicesHeader: React.FC<Props> = ({ setFilterByStatus, setVisible }) => {
+  const { invoices } = React.useContext(InvoicesContext);
+  const invoiceHeadertitle = (invoices: Invoice[]): string => {
+    if (invoices.length === 0) {
       return 'No Invoices';
-    } else if (totalInvoices === 1) {
-      return `there is ${totalInvoices} total invoice`;
+    } else if (invoices.length === 1) {
+      return `there is ${invoices.length} total invoice`;
     } else {
-      return `ther are ${totalInvoices} total invoices`;
+      return `ther are ${invoices.length} total invoices`;
     }
   };
   return (
@@ -32,7 +30,7 @@ const InvoicesHeader: React.FC<Props> = ({
           <h1>Invoices</h1>
         </div>
         <div className='invoices-header__total'>
-          <span>{invoiceHeadertitle(totalInvoices)}</span>
+          <span>{invoiceHeadertitle(invoices)}</span>
         </div>
       </div>
       <div className='invoices-header__filter__wrapper'>

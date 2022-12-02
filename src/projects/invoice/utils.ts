@@ -112,10 +112,7 @@ export const middlewareFilteredInvoices = (
   invoices: Invoice[],
   filterByStatus: {
     [key: string]: boolean;
-  },
-  setTotalInvoices?: React.Dispatch<React.SetStateAction<number>>
+  }
 ): Invoice[] => {
-  setTotalInvoices &&
-    setTotalInvoices(filteredInvoices(invoices, filterByStatus).length);
   return filteredInvoices(invoices, filterByStatus);
 };

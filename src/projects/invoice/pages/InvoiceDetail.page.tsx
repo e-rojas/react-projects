@@ -32,6 +32,14 @@ const InvoiceDetail: React.FC = () => {
     });
     // updateInvoice(updatedInvoice);
   };
+
+  const handleDeleteInvoice = () => {
+    dispatch({
+      type: InvoiceActionTypes.DELETE_INVOICE,
+      payload: invoice.id,
+    });
+    handleReturnToInvoices();
+  };
   return (
     <>
       <div className='w-100 p invoice-details'>
@@ -51,7 +59,6 @@ const InvoiceDetail: React.FC = () => {
             </span>
           </div>
           <div className='invoice-details__header__buttons-wrapper'>
-            {/* edit, delete, mark as paid buttons */}
             <DefaultButton
               title='Edit'
               className='btn__primary btn__edit'
@@ -61,7 +68,9 @@ const InvoiceDetail: React.FC = () => {
               title='Delete'
               className=' btn__warning'
               iconDisplay={false}
+              handleOnClick={handleDeleteInvoice}
             />
+
             <DefaultButton
               title='Mark as Paid'
               className={`btn__primary ${invoice.status === 'paid' && 'hide'}`}

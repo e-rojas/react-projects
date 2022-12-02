@@ -4,19 +4,18 @@ import Sidebar from './components/Bar';
 import { Invoice } from './models/Invoice.interface';
 import Modal from './components/Modal';
 import InvoiceForm from './components/InvoiceForm';
-import data from './data.json';
+
 import './styles.css';
 
-import { InvoiceState, filteredInvoices } from './utils';
+import { InvoiceState } from './utils';
 import InvoicePage from './pages/Invoice.page';
 import InvoiceDetail from './pages/InvoiceDetail.page';
 import { Route, Routes } from 'react-router-dom';
-import { InvoicesProvider } from './state';
+import { InvoicesContext, InvoicesProvider } from './state';
 const InvoiceAppProject: React.FC = () => {
   const [visible, setVisible] = React.useState(false);
-  const invoiceData = data as Invoice[];
   const [themeColor, setThemeColor] = React.useState('');
-  const [invoices, setInvoices] = React.useState<Invoice[]>([]);
+
   const [filterByStatus, setFilterByStatus] = React.useState<{
     [key: string]: boolean;
   }>({
@@ -24,22 +23,16 @@ const InvoiceAppProject: React.FC = () => {
     pending: false,
     draft: false,
   });
-  const [totalInvoices, setTotalInvoices] = React.useState(0);
+
   /* New Invoice State */
   const [newInvoice, setNewInvoice] = React.useState<Invoice>({
     ...new InvoiceState(),
   });
+  const { invoices } = React.useContext(InvoicesContext);
 
   React.useEffect(() => {
     setThemeColor('invoice-light');
-    setInvoices(invoiceData);
-  }, [invoiceData, setInvoices]);
-
-  React.useEffect(() => {
-    const invoicesFiltered = filteredInvoices(invoices, filterByStatus);
-    setTotalInvoices(invoicesFiltered.length);
-    // eslint-disable-next-line
-  }, [filterByStatus, invoices]);
+  }, []);
 
   return (
     <>
@@ -52,7 +45,7 @@ const InvoiceAppProject: React.FC = () => {
               newInvoice={newInvoice}
               setNewInvoice={setNewInvoice}
               invoices={invoices}
-              setInvoices={setInvoices}
+              setInvoices={() => {}}
             />
           </Modal>
           <Sidebar theme={themeColor} setThemeColor={setThemeColor} />
@@ -62,10 +55,8 @@ const InvoiceAppProject: React.FC = () => {
               element={
                 <InvoicePage
                   setFilterByStatus={setFilterByStatus}
-                  totalInvoices={totalInvoices}
                   setVisible={setVisible}
                   filterByStatus={filterByStatus}
-                  setTotalInvoices={setTotalInvoices}
                 />
               }
             />
