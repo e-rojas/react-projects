@@ -179,6 +179,7 @@
 .btn__primary {
   background-color: var(--invoice-purple-color);
   color: #fff;
+  transition: all 0.5s ease;
 }
 
 .btn__primary:hover {

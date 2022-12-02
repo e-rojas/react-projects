@@ -456,6 +456,11 @@ h3 {
 
 /* links */
 
+.hide {
+  display: none !important;
+  transition: all 0.3s ease-in-out;
+}
+
 .no-decoration-link {
   text-decoration: none;
 }

@@ -11,6 +11,7 @@ import { InvoiceState, filteredInvoices } from './utils';
 import InvoicePage from './pages/Invoice.page';
 import InvoiceDetail from './pages/InvoiceDetail.page';
 import { Route, Routes } from 'react-router-dom';
+import { InvoicesProvider } from './state';
 const InvoiceAppProject: React.FC = () => {
   const [visible, setVisible] = React.useState(false);
   const invoiceData = data as Invoice[];
@@ -42,34 +43,36 @@ const InvoiceAppProject: React.FC = () => {
 
   return (
     <>
-      <div className='invoice-application' data-invoice-color={themeColor}>
-        <Modal visible={visible} setVisible={setVisible} title='New Invoice'>
-          <InvoiceForm
-            visible={visible}
-            setVisible={setVisible}
-            newInvoice={newInvoice}
-            setNewInvoice={setNewInvoice}
-            invoices={invoices}
-            setInvoices={setInvoices}
-          />
-        </Modal>
-        <Sidebar theme={themeColor} setThemeColor={setThemeColor} />
-        <Routes>
-          <Route
-            path='/'
-            element={
-              <InvoicePage
-                setFilterByStatus={setFilterByStatus}
-                totalInvoices={totalInvoices}
-                setVisible={setVisible}
-                invoices={invoices}
-                filterByStatus={filterByStatus}
-              />
-            }
-          />
-          <Route path=':id' element={<InvoiceDetail />} />
-        </Routes>
-      </div>
+      <InvoicesProvider>
+        <div className='invoice-application' data-invoice-color={themeColor}>
+          <Modal visible={visible} setVisible={setVisible} title='New Invoice'>
+            <InvoiceForm
+              visible={visible}
+              setVisible={setVisible}
+              newInvoice={newInvoice}
+              setNewInvoice={setNewInvoice}
+              invoices={invoices}
+              setInvoices={setInvoices}
+            />
+          </Modal>
+          <Sidebar theme={themeColor} setThemeColor={setThemeColor} />
+          <Routes>
+            <Route
+              path='/'
+              element={
+                <InvoicePage
+                  setFilterByStatus={setFilterByStatus}
+                  totalInvoices={totalInvoices}
+                  setVisible={setVisible}
+                  filterByStatus={filterByStatus}
+                  setTotalInvoices={setTotalInvoices}
+                />
+              }
+            />
+            <Route path=':id' element={<InvoiceDetail />} />
+          </Routes>
+        </div>
+      </InvoicesProvider>
     </>
   );
 };
