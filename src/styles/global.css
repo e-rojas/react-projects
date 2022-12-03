@@ -227,12 +227,24 @@ html {
   margin: 0 auto;
 }
 
+.w-45 {
+  width: 45%;
+}
+
 .w-33 {
   width: 33.3333333333%;
 }
 
 .w-30 {
   width: 30%;
+}
+
+.w-25 {
+  width: 25%;
+}
+
+.w-20 {
+  width: 20%;
 }
 
 /* padding, margin */
@@ -300,6 +312,10 @@ html {
   margin-left: 0.5rem;
 }
 
+.m-l-1 {
+  margin-left: 1rem;
+}
+
 .m-r {
   margin-right: 0.5rem;
 }
@@ -329,6 +345,18 @@ html {
 
 .text-center {
   text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.lower-case {
+  text-transform: lowercase;
 }
 
 /* centering */
@@ -427,6 +455,15 @@ h3 {
 }
 
 /* links */
+
+.hide {
+  display: none !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.no-decoration-link {
+  text-decoration: none;
+}
 
 .no-decoration {
   text-decoration: none !important;
