@@ -9,6 +9,7 @@ import DevJobsDashboard from '../projects/dev-jobs-dashboard';
 import PokemonClient from '../projects/pokemon-client';
 import PomodoroProject from '../projects/pomodoro';
 import InvoiceAppProject from '../projects/invoice';
+import MultiStepFormProject from '../projects/multi-step-form';
 function AppRouter() {
   return (
     <BrowserRouter>
@@ -23,6 +24,10 @@ function AppRouter() {
           <Route path='projects/pokemon' element={<PokemonClient />} />
           <Route path='projects/pomodoro' element={<PomodoroProject />} />
           <Route path='projects/invoice/*' element={<InvoiceAppProject />} />
+          <Route
+            path='projects/multi-step-form'
+            element={<MultiStepFormProject />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>
