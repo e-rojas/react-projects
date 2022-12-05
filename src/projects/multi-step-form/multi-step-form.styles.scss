@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+/* create variable for EFF5FF */
+:root {
+  --eff5ff: #eff5ff;
+  --white: #fff;
+}
+
+.multi-step-form-container {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: var(--eff5ff);
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+  }
+}
+
+.multi-step-form {
+  background-color: var(--white);
+}
+
+.multi-step-form__side-bar {
+  background: url(./images/bg-sidebar-mobile.svg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 172px;
+}
+
+@media (min-width: 768px) {
+  .multi-step-form__side-bar {
+    background: url(./images/bg-sidebar-desktop.svg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 568px;
+    width: 274px;
+
+
+  }
+}
