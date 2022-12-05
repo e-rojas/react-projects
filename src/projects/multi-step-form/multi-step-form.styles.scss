@@ -8,11 +8,16 @@
 :root {
   --eff5ff: #eff5ff;
   --white: #fff;
+  --blue: #BEE2FD;
+  --light-blue: #ABBCFF;
+  --black: #022959;
 }
 
 .multi-step-form-container {
   font-family: 'Ubuntu', sans-serif;
   background-color: var(--eff5ff);
+  display: flex;
+  justify-content: center;
 
   h1,
   h2,
@@ -25,6 +30,7 @@
 
 .multi-step-form {
   background-color: var(--white);
+  width: 100%;
 }
 
 .multi-step-form__side-bar {
@@ -34,6 +40,29 @@
   height: 172px;
 }
 
+.selected-item-number {
+  font-weight: bold;
+  border: 1.5px solid var(--white);
+  color: var(--white);
+
+  &.selected {
+    background-color: var(--blue);
+    border: none;
+    color: var(--black);
+  }
+
+}
+
+.selected-item-step {
+  color: var(--light-blue);
+}
+
+.selected-item-label {
+  color: var(--white);
+  text-transform: uppercase;
+
+}
+
 @media (min-width: 768px) {
   .multi-step-form__side-bar {
     background: url(./images/bg-sidebar-desktop.svg) no-repeat;
@@ -41,7 +70,9 @@
     background-position: center;
     height: 568px;
     width: 274px;
+  }
 
-
+  .multi-step-form-container {
+    padding: 40px 0;
   }
 }
