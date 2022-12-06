@@ -4,15 +4,14 @@ const MultiStepForm = () => {
   return (
     <div className='multi-step-form-container w-full '>
       <section className='multi-step-form sm:w-full md:w-9/12 sm:rounded-none md:rounded-md md:p-4'>
-        <aside className='multi-step-form__side-bar'>
-          <div className='selected-items-wrapper'>
+        <aside className='multi-step-form__side-bar '>
+          <div className='selected-items '>
             {['Your Info', 'Selected Item', 'Add Ons', 'Summary'].map(
               (item, index) => (
                 <SideBarSelectedItem
                   key={index}
                   itemLabel={item}
                   itemNumber={index + 1}
-                  selected={index === 3}
                 />
               )
             )}
@@ -31,7 +30,7 @@ export const SideBarSelectedItem: React.FC<{
   selected?: boolean;
 }> = ({ itemNumber, itemLabel, selected }) => {
   return (
-    <div className='sidebar-selection-item flex items-center space-x-4'>
+    <div className='sidebar-selection-item '>
       <span
         className={`selected-item-number rounded-full w-8 h-8  flex justify-center items-center ${
           selected ? 'selected' : ''
