@@ -29,7 +29,7 @@
 }
 
 .multi-step-form {
-  background-color: var(--white);
+  background-color: var(--eff5ff);
   width: 100%;
 }
 
@@ -86,7 +86,25 @@
   display: none;
 }
 
+.user-info-section {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 20px;
+  margin-top: -60px;
+  background-color: var(--white);
+
+}
+
 @media (min-width: 768px) {
+  .multi-step-form {
+    display: flex;
+    background-color: var(--white);
+  }
+
   .multi-step-form__side-bar {
     background: url(./images/bg-sidebar-desktop.svg) no-repeat;
     background-size: cover;
@@ -127,5 +145,12 @@
       // margin-right: 1rem;
       margin: 0 1rem 1rem 0;
     }
+  }
+
+  .user-info-section {
+
+    margin: 0;
+    border-radius: 0;
+    margin-top: 0;
   }
 }
