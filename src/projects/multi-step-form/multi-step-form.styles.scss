@@ -11,6 +11,48 @@
   --blue: #BEE2FD;
   --light-blue: #ABBCFF;
   --black: #022959;
+  --form-control-color: #483EFF;
+}
+
+/* Smart Radio Inputs for plan selection */
+.plan-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.plan-selection>* {
+  margin-top: 1rem;
+}
+
+.plan-selection input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.plan-selection label {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #9699AA;
+  cursor: pointer;
+  width: 100%;
+}
+
+.plan-selection input[type="radio"]:checked+label {
+  background-color: #F8F9FF;
+  color: #022959;
+  border: 1px solid #483EFF;
+}
+
+.plan-selection input[type="radio"]:focus+label {
+  border: 1px solid #483EFF;
+}
+
+.plan-selection label:hover {
+  background-color: #F8F9FF;
+
 }
 
 .multi-step-form-container {
@@ -86,7 +128,7 @@
   display: none;
 }
 
-.user-info-section {
+.info-section {
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -147,8 +189,8 @@
     }
   }
 
-  .user-info-section {
-
+  .info-section {
+    max-width: 60%;
     margin: 0;
     border-radius: 0;
     margin-top: 0;

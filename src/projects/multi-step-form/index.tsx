@@ -1,6 +1,10 @@
 import React from 'react';
 import './multi-step-form.styles.scss';
+import arcadeIcon from './images/icon-arcade.svg';
+import advancedIcon from './images/icon-advanced.svg';
+import proIcon from './images/icon-pro.svg';
 const MultiStepForm = () => {
+  // eslint-disable-next-line
   const [currentStep, setCurrentStep] = React.useState(1);
   return (
     <div className='multi-step-form-container w-full '>
@@ -13,6 +17,7 @@ const MultiStepForm = () => {
                   key={index}
                   itemLabel={item}
                   itemNumber={index + 1}
+                  selected={currentStep === index + 1}
                 />
               )
             )}
@@ -53,7 +58,7 @@ export const Form: React.FC<{ page: number }> = ({ page }) => {
     case 1:
       return <InfoSection />;
     case 2:
-      return <SelectedItemsSection />;
+      return <PlanSection />;
     case 3:
       return <AddOnsSection />;
     case 4:
@@ -65,7 +70,7 @@ export const Form: React.FC<{ page: number }> = ({ page }) => {
 
 export const InfoSection: React.FC = () => {
   return (
-    <section className='user-info-section'>
+    <section className='info-section'>
       <h1 className='text-4xl'>Personal Info</h1>
       <p className='text-slate-400 mb-4'>
         Please provide your name, email address, and phone number.
@@ -84,10 +89,28 @@ export const InfoSection: React.FC = () => {
   );
 };
 
-export const SelectedItemsSection: React.FC = () => {
+export const PlanSection: React.FC = () => {
   return (
-    <div>
-      <h1>Selected Items</h1>
+    <div className='info-section'>
+      <h1 className='text-4xl'>Select Your Plan</h1>
+      <p className='text-slate-400 mb-4'>
+        You have the option of monthly or yearly billing.
+      </p>
+      {/*  */}
+      <div className='plan-selection'>
+        {plansData.map((plan, index) => (
+          <SmartRadio
+            key={index}
+            label={plan.name}
+            name={plan.inputName}
+            value={plan.name}
+            price={plan.price}
+            selected={plan.selected}
+            onClick={(e) => console.log(e.currentTarget.value)}
+            icon={plan.icon}
+          />
+        ))}
+      </div>
     </div>
   );
 };
@@ -117,7 +140,7 @@ export const SmartInput: React.FC<{
   required?: boolean;
 }> = ({ label, type, placeholder, value, onChange, required }) => {
   return (
-    <div className='mb-4'>
+    <div className='mb-4 w-auto'>
       <label className='block text-gray-700 text-sm  mb-1' htmlFor='username'>
         {label}
       </label>
@@ -131,6 +154,38 @@ export const SmartInput: React.FC<{
         required={required}
       />
     </div>
+  );
+};
+
+export const SmartRadio: React.FC<{
+  label: string;
+  value: string;
+  name: string;
+  price: number;
+  icon?: string;
+  onClick: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
+  selected?: boolean;
+}> = ({ label, value, name, selected, onClick, icon, price }) => {
+  return (
+    <>
+      <input
+        defaultChecked={selected}
+        type='radio'
+        name={name}
+        id={`${name}_${value}`}
+        value={value}
+        onClick={onClick}
+      />
+      <label htmlFor={`${name}_${value}`}>
+        <div className='radio-input-wrapper flex flex-row'>
+          <img src={icon} alt='' width={35} height={35} />
+          <div className='radio-icon-wrapper flex flex-col ml-3'>
+            <span>{label}</span>
+            <span className='text-gray-400'>{`$${price}/mo`}</span>
+          </div>
+        </div>
+      </label>
+    </>
   );
 };
 
@@ -155,5 +210,35 @@ export const inputFieldsData = [
     name: 'phone',
     placeholder: 'e.g. 123-456-7890',
     required: true,
+  },
+];
+
+export const plansData = [
+  {
+    name: 'arcade',
+    price: 9.99,
+    billing: 'monthly',
+    icon: arcadeIcon,
+    value: 'arcade',
+    selected: true,
+    inputName: 'subscription-plan',
+  },
+  {
+    name: 'advanced',
+    price: 19.99,
+    billing: 'monthly',
+    icon: advancedIcon,
+    value: 'advanced',
+    selected: false,
+    inputName: 'subscription-plan',
+  },
+  {
+    name: 'pro',
+    price: 29.99,
+    billing: 'monthly',
+    icon: proIcon,
+    value: 'pro',
+    selected: false,
+    inputName: 'subscription-plan',
   },
 ];
