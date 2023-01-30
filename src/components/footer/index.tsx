@@ -2,7 +2,11 @@ import React from 'react';
 import { SiLinkedin, SiGithub } from 'react-icons/si';
 const Footer: React.FC = () => {
   return (
-    <footer className='layout-footer'>
+    <footer className='border-t-2 border-gray-200' style={{ borderWidth: 0 }}>
+      <h1>Footer</h1>
+    </footer>
+
+    /* {/* <footer className='layout-footer'>
       <div className='flex-spread  p-1'>
         <h1 className='brand'>Web Developer</h1>
         <div>
@@ -25,7 +29,7 @@ const Footer: React.FC = () => {
       <p className='text-center'>
         copyrigth &copy; {new Date().getFullYear()} Edgar Rojas
       </p>
-    </footer>
+    </footer> */
   );
 };
 

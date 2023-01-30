@@ -19,10 +19,17 @@ const DevJobsDashboard: React.FC = () => {
           <Link className='dev-job-link text-white' to='/dev-jobs-dashboard'>
             <h1 className='dev-dashboard__title'>devJobs</h1>
           </Link>
+          <Link
+            to='/dev-jobs-dashboard/login'
+            className='no-underline text-white'
+          >
+            <span className='text-2xl font-bold'>Login</span>
+          </Link>
           <ToggleSwitch theme={theme} toggleTheme={toggleTheme} />
         </header>
         <Routes>
           <Route path='/' element={<JobsMainSection />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/:id' element={<JobDetails />} />
           <Route path='/:id/:company' element={<JobApplicationSection />} />
         </Routes>
@@ -32,3 +39,11 @@ const DevJobsDashboard: React.FC = () => {
 };
 
 export default DevJobsDashboard;
+
+function Login() {
+  return (
+    <div className='h-5/6'>
+      <h1>Login</h1>
+    </div>
+  );
+}
