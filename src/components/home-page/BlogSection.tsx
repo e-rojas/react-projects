@@ -80,12 +80,12 @@ const BlogCard = ({ blog, index }: { blog: Blog; index: number }) => {
   return (
     <Link
       to={`/blog/${blog.sys.id}`}
-      className='no-underline  text-current bg-white rounded m-2 md:col-span-1'
+      className='no-underline  text-current bg-white rounded m-2 md:col-span-1 hover:shadow-xl transition duration-100 ease-in transform hover:-translate-y-1 hover:scale-103'
     >
       <article className=' p-2 grid grid-cols-3 gap-2'>
-        <h1 className='col-span-2 flex flex-row justify-start items-center text-gray-400 '>
-          {`${index + 1}`}
-        </h1>
+        <h3 className='col-span-2 text-xl md:text-base  flex flex-row justify-start items-center text-black '>
+          {blog.title}
+        </h3>
 
         <div className='col-span-1 py-2'>
           <img
@@ -94,7 +94,6 @@ const BlogCard = ({ blog, index }: { blog: Blog; index: number }) => {
             alt={blog.title}
           />
         </div>
-        <h3 className='text-black text-base col-span-3'>{blog.title}</h3>
         <p className='col-span-3 text-gray-400 text-lg'>{blog.summary}</p>
       </article>
     </Link>

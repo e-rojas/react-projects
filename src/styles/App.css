@@ -62,3 +62,45 @@ li > a.active::after {
   height: 400px;
   overflow-y: scroll;
 }
+
+/* divider */
+.divider {
+  background-image:linear-gradient(128.87deg, rgb(81, 43, 212) 14.05%, rgb(214, 0, 170) 89.3%);
+  border-radius: 32px;
+  height: 20px;
+  margin: 30px 5px 10px 5px;
+}
+
+/* Overlay */
+._overlay {
+  /* set position to relative */
+  position: relative;
+  /* set width to 100% */
+  width: 100%;
+  /* set height to 100% */
+  height: 100%;
+  /* set background-color to rgba(0, 0, 0, 0.5) */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* set display to flex */
+  display: flex;
+  /* set justify-content to center */
+  justify-content: center;
+  /* set align-items to center */
+  align-items: center;
+}
+._overlay {
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.71);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+._overlay:hover {
+  background-color: rgba(131, 6, 125, 0.898);
+}

@@ -28,20 +28,21 @@ const Header: React.FC = () => {
             amounts of data and provides high performance and scalability.
           </p>
           <p>
-            Welcome to my site/blog, where I share my thoughts and experiences
-            on building web applications with React, Typescript, and MongoDB. In
-            this blog, you'll find tutorials, tips, and best practices on how to
-            use these technologies effectively to build scalable, maintainable,
-            and high-performing web applications. Whether you're a beginner or
-            an experienced developer, I hope this blog will provide valuable
-            insights and help you improve your skills in building web
-            applications with React, Typescript, and MongoDB. So, let's dive in
-            and start exploring the world of web development together!
+            Thanks for visiting my site/blog, where I share my thoughts and
+            experiences on building web applications with React, Typescript, and
+            MongoDB. In this blog, you'll find tutorials, tips, and best
+            practices on how to use these technologies effectively to build
+            scalable, maintainable, and high-performing web applications.
+            Whether you're a beginner or an experienced developer, I hope this
+            blog will provide valuable insights and help you improve your skills
+            in building web applications with React, Typescript, and MongoDB.
+            So, let's dive in and start exploring the world of web development
+            together!
           </p>
           <div className='social-links flex justify-end'>
             <a
               href='https://www.linkedin.com/in/edgar-rojas-developer/'
-              className='flex relative flex-col flex-shrink-0 py-1 px-4 mx-2 bg-sky-500 text-white  rounded-full w-min'
+              className='flex relative flex-col flex-shrink-0 py-1 px-4 mx-2 bg-sky-500 text-white  rounded-full w-min hover:bg-black hover:text-white'
               target='_blank'
               rel='noopener noreferrer'
             >
@@ -49,7 +50,7 @@ const Header: React.FC = () => {
             </a>
             <a
               href='https://github.com/e-rojas'
-              className='flex relative flex-col flex-shrink-0 py-1 px-4 mx-2 bg-black text-white  rounded-full w-min'
+              className='flex relative flex-col flex-shrink-0 py-1 px-4 mx-2 bg-slate-700 text-white  rounded-full w-min hover:bg-black hover:text-white'
               target='_blank'
               rel='noopener noreferrer'
             >
