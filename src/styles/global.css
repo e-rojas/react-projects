@@ -6,8 +6,8 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
-:root {
-  --primary-color: #f00;
+/* :root { */
+ /*  --primary-color: #f00;
   --secondary-color: #0f0;
   --tertiary-color: #00f;
   --dark-color: #333;
@@ -35,14 +35,14 @@ html {
   --btn-bg-secondary-color: #eeeffc;
   --btn-secondary-color: #5964e0;
   --btn-bg-secondary-color-hover: #c5c9f4;
-  --dark-space-blue: #00001a;
-  --yellow: #e9a952;
+  --dark-space-blue: #00001a; */
+  /* --yellow: #e9a952; */
   /* pomodoro project */
-  --pomodoro-primary: #fff;
+  /* --pomodoro-primary: #fff;
   --pomodoro-secondary: #1e213f;
   --pomodoro-gray: #d7e0ff;
-  --pomodoro-muted: #979797;
-}
+  --pomodoro-muted: #979797; */
+/* } */
 
 /* theme color */
 [data-theme='system'] {

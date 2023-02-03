@@ -1,0 +1,11 @@
+{
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single",
+    "prettier.singleQuote": true,
+    "prettier.jsxSingleQuote": true,
+    "editor.formatOnSaveMode": "modifications",
+    "prettier.trailingComma": "all",
+    "prettier.tabWidth": 4,
+    "prettier.semi": true,
+    "prettier.arrowParens": "always"
+}
