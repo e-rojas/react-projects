@@ -1,33 +1,17 @@
-import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import Project from '../types/Project';
+import Loading from '../components/Loading';
+import {useProject} from '../graphql//hooks';
 const ProjectDetails: React.FC = () => {
     const { id } = useParams();
-    const query = `
-  {
-   project(id:"${id}") {
-     title
-     description
-     tags
-     inProgress
-     brief
-     link
-     image{
-       url
-     }
-   }
- }
- `;
+    const { data, loading, error } = useProject(id as string);
+  
 
-    const { data, loading, error } = useFetchGraphQLQuery<QueryProps>(query);
-    console.log(data);
-
-    if (loading || !data) return <div>Loading...</div>;
+    if (loading) return <Loading className='py-56' />;
     if (error) return <div>Error</div>;
     const {
         project: { title, image, description, inProgress, tags, brief, link },
-    } = data as QueryProps;
+    } = data ;
 
     return (
         <div className='bg-slate-200 p-3'>
@@ -76,38 +60,4 @@ const ProjectDetails: React.FC = () => {
     );
 };
 
-interface QueryProps {
-    project: Project;
-}
-
 export default ProjectDetails;
-
-const url = process.env.REACT_APP_GRAPHQL_ENDPOINT as string;
-function useFetchGraphQLQuery<T>(query: string) {
-    const [data, setData] = useState<T>();
-    const [loading, setLoading] = useState<Boolean>();
-    const [error, setError] = useState<Error>();
-
-    useEffect(() => {
-        setLoading(true);
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN}`,
-            },
-            body: JSON.stringify({ query }),
-        })
-            .then((res) => res.json())
-            .then((res) => {
-                setData(res.data);
-                setLoading(false);
-            })
-            .catch((err) => {
-                setError(err);
-                setLoading(false);
-            });
-    }, [query]);
-
-    return { data, loading, error };
-}
